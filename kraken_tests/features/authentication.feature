@@ -1,7 +1,7 @@
 Feature: Autenticacion
 
 @user1 @web
-Scenario: Login exitoso
+Scenario: ID 01 Login exitoso
   Given I navigate to page "http://localhost:2369/ghost"
   And I wait for 5 seconds
   When I enter email "m.alas@uniandes.edu.co"
@@ -11,7 +11,7 @@ Scenario: Login exitoso
   Then I should be on dashboard
 
 @user2 @web
-Scenario: Login con password y contrasena vacia
+Scenario: ID 02 Login con password y contrasena vacia
 Given I navigate to page "http://localhost:2369/ghost"
   And I wait for 5 seconds
   When I click login
@@ -19,7 +19,7 @@ Given I navigate to page "http://localhost:2369/ghost"
   Then I should get an error 'Please fill out the form to sign in.'
 
 @user3 @web
-Scenario: Login exitoso
+Scenario: ID 03 Login email no registrado
 Given I navigate to page "http://localhost:2369/ghost"
   And I wait for 5 seconds
   When I enter email "invalid_email@uniandes.edu.co"
