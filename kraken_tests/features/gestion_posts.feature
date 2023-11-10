@@ -2,10 +2,10 @@ Feature: Gestion_Posts
 
 @user1 @web
 Scenario: ID 05 Creacion de un post exitoso
-  Given I navigate to page "http://localhost:2369/ghost"
+  Given I navigate to page "http://44.200.235.109/ghost"
   And I wait for 5 seconds
-  When I enter email "m.alas@uniandes.edu.co"
-  When I enter password "uhg!izUq.6_k*CZ"
+  When I enter email "user@example.com"
+  When I enter password "dzLY3PdWLWj:"
   When I click login
   And I wait for 5 seconds
   Then I should be on dashboard
