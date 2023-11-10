@@ -55,3 +55,50 @@ Then('I should be in authentication page', async function () {
   const classAttributeValue = await bodyElement.getAttribute('class');
   expect(classAttributeValue).to.include('ember-application unauthenticated-route');
 });
+
+// New post workflow
+
+Then('I click in new post', async function () {
+  let element = await this.driver.$('.ember-view.gh-secondary-action.gh-nav-new-post');
+  return await element.click();
+});
+
+Then('I write the title {string} of the post', async function(title) {
+  let element = await this.driver.$('.gh-editor-title.ember-text-area.gh-input.ember-view');
+  return await element.setValue(title);
+});
+
+Then('I write the body {string} of the post', async function(body) {
+  let element = await this.driver.$('.kg-prose');
+  return await element.setValue(body);
+});
+
+Then('I click in publish my post', async function() {
+  let button = await this.driver.$('[data-test-button="publish-flow"]');
+  return await button.click();
+});
+
+Then('I click in Continue final review', async function() {
+  let button = await this.driver.$('[data-test-button="continue"]');
+  return await button.click();
+});
+
+When('I click in confirm publish', async function() {
+  let button = await this.driver.$('[data-test-button="confirm-publish"]');
+  return await button.click();
+});
+
+Then('I get the boom confirmation message', async function() {
+  let element = await this.driver.$('[data-test-publish-flow="complete"]').isExisting();
+  expect(element).to.equal(true);
+});
+
+Then('I click in back to editor', async function() {
+  let button = await this.driver.$('[data-test-button="back-to-editor"]');
+  return await button.click();
+});
+
+Then('I go back to posts', async function() {
+  let button = await this.driver.$('[data-test-link="posts"]');
+  return await button.click();
+});
