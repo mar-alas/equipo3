@@ -31,7 +31,47 @@ const crearPost = {
 	  cy.get('[data-test-nav="dashboard"]').click();
 	  
     },
+	
+	editarPost: (Titulo,Contenido) => {
+		
+		//Navegamos a posts
+		cy.get('[data-test-nav="posts"]').click();
+		
+  
+		// entramos al post que queremos editar
+		cy.get('[class="gh-content-entry-title"]').contains(Titulo).click();
 
+		//cambiamos el contenido del post al nuevo contenido
+		cy.get('p').clear().type(Contenido);
+
+		//damos click en actualizar data-test-button="publish-save"
+		cy.get('[data-test-button="publish-save"]').click();
+
+		//nos devolvemos a posts
+		cy.get('[data-test-link="posts"]').click();
+
+
+	  }
+	,
+	revisarContenidoPost: (Titulo,Contenido) => {
+		
+		//Navegamos a posts
+		cy.get('[data-test-nav="posts"]').click();
+		
+  
+		// entramos al post que queremos revisar
+		cy.get('[class="gh-content-entry-title"]').contains(Titulo).click();
+
+		//revisamos que el contenido en p sea igual a Contenido
+		cy.get('p').should('have.text', Contenido);
+		
+		//nos devolvemos a posts
+		cy.get('[data-test-link="posts"]').click();
+
+
+	  }  
+
+	,
 	
 	existePost: (Titulo) => {
 		
