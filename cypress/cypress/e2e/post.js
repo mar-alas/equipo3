@@ -44,6 +44,38 @@ const crearPost = {
 
 	  
     },
+	noExistePost: (Titulo) => {
+		
+		//there should not be any text in the html containing the string "Titulo 2"
+		//cy.contains('html', 'Titulo 2').should('not.exist');
+		cy.contains(Titulo).should('not.exist');
+  
+		// seleccionamos los elementos [class="gh-content-entry-title"] cuyo contenido sea igual Titulo
+		//cy.get('[class="gh-content-entry-title"]').contains(Titulo).invoke('text').should('be.empty');
+  
+		
+	  },
+
+	
+	eliminarPost: (Titulo) => {
+		
+      //Navegamos a posts
+	  cy.get('[data-test-nav="posts"]').click();
+	  
+
+	  // seleccionamos los elementos [class="gh-content-entry-title"] cuyo contenido sea igual Titulo y damos click
+	  cy.get('[class="gh-content-entry-title"]').contains(Titulo).click();
+
+	  //damos click en opciones del post
+	  cy.get('.settings-menu-toggle > span').click();
+	  
+	  // damos click en borrar
+	  cy.get('.settings-menu-delete-button > .gh-btn > span').click();	
+
+	  //confirmamos el borrado
+	  cy.get('[class="gh-btn gh-btn-red gh-btn-icon ember-view"]').click();
+    },
+	
   };
   
   export default crearPost;
