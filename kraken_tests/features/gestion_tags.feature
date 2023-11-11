@@ -20,7 +20,7 @@ Scenario: ID 05 Creacion de un tag exitoso
   And I wait for 9 seconds
 
 @user6 @web
-Scenario: ID 05 Creacion de un tag con metadata
+Scenario: ID 06 Creacion de un tag con metadata
   Given I navigate to page "http://44.200.235.109/ghost"
   And I wait for 5 seconds
   When I enter email "user@example.com"

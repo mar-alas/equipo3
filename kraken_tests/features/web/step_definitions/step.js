@@ -73,7 +73,7 @@ Then('I write the title {string} of the post', async function(title) {
 });
 
 Then('I write the body {string} of the post', async function(body) {
-  let element = await this.driver.$('.kg-prose');
+  let element = await this.driver.$(".koenig-editor__editor");
   return await element.setValue(body);
 });
 
