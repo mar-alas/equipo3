@@ -10,7 +10,7 @@ const crearPost = {
 
 	  
 	  //se inserta contenido del post
-	  cy.get('.koenig-editor__editor').type("Contenido 1");
+	  cy.get('p').type("Contenido 1");
 	  
 	  //se da publicar
 	  cy.get('[data-test-button="publish-flow"]').click();
@@ -55,6 +55,44 @@ const crearPost = {
   
 		
 	  },
+
+	  existenPostRepetidos: (Titulo,numero) => {
+      // Navegamos a posts
+      cy.get('[data-test-nav="posts"]').click();
+
+      cy.get('[class="gh-content-entry-title"]')
+        .contains(Titulo)
+        .invoke("text")
+        .should("not.be.empty");
+
+      var rep = 0;
+      cy.get('[class="gh-content-entry-title"]')
+        .each(($el, index, $list) => {
+          const text = $el.text();
+          if (text.includes(Titulo)) {
+            //cy.wrap($el).click()
+            cy.log(text);
+            rep = rep + 1;
+          }
+        })
+        .then(() => {
+          // assert that the number of elements found is greater than numero
+		  expect(rep).to.be.greaterThan(numero - 1);
+        });
+
+      // Seleccionamos los elementos [class="gh-content-entry-title"] cuyo contenido sea igual a Titulo
+      //cy.get('html').contains(Titulo).should(($elements) => {
+      //	// Use the callback function to access the matched elements
+      //	expect($elements).to.have.length.greaterThan(numero - 1);
+      //});
+
+      //verify how many of the class="gh-content-entry-title" have the text "Titulo Igual 1"
+      //cy.get('.gh-canvas').contains(Titulo).should(($elements) => {
+      // Use the callback function to access the matched elements
+      //	expect($elements).to.have.length.greaterThan(numero - 1);
+      //}
+      //);
+    },
 
 	
 	eliminarPost: (Titulo) => {
