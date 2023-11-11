@@ -1,9 +1,64 @@
-const { Given, When, Then } = require('@cucumber/cucumber');
+const { Given, When, Then} = require('@cucumber/cucumber');
 const expect = require('chai').expect;
 
-function getRandomBetween() {
-  return Math.random() * (11 - 99) + 11;
-}
+const email_const="da.gamez97@gmail.com"
+const password_const="pPb8c@Jw0c4RyK1i"
+const url_base="http://localhost:2368/ghost"
+
+When('I login to ghost', async function () {
+  
+  let element2 = await this.driver.$('#identification');
+  await element2.setValue(email_const);
+
+  let element3 = await this.driver.$('#password');
+  await element3.setValue("pPb8c@Jw0c4RyK1i");
+  
+  let element4 = await this.driver.$('#ember5');
+  return await element4.click();
+});
+
+//funcion que estando en el dashboard de ghost crea un nuevo post
+When('I create a random post from dashboard with Title {string}', async function (title) {
+  
+  //click en new post
+  let element1 = await this.driver.$('.ember-view.gh-secondary-action.gh-nav-new-post');
+  await element1.click();
+  
+  //dar titulo al post
+  let element2 = await this.driver.$('.gh-editor-title.ember-text-area.gh-input.ember-view');
+  await element2.setValue(title);
+  
+  //se escribe el titulo del post
+  let element3 = await this.driver.$('.kg-prose');
+  await element3.setValue("BODY 1");
+  
+  //da click en publicar post
+  let button4 = await this.driver.$('[data-test-button="publish-flow"]');
+  await button4.click();
+  
+  //da click en continuar en el final review 
+  let button5 = await this.driver.$('[data-test-button="continue"]');
+  await button5.click();
+  
+  //da click en confirmacion
+  let button6 = await this.driver.$('[data-test-button="confirm-publish"]');
+  await button6.click();
+  
+  //vuelve al editor
+  let button7 = await this.driver.$('[data-test-button="back-to-editor"]');
+  await button7.click();
+  
+  //vuelve a los posts
+  let link8 = await this.driver.$('[data-test-link="posts"]');
+  const link8_href=await link8.getAttribute('href');
+  await this.driver.url(url_base + "/" + link8_href); 
+  
+  //vuelve al dashboard
+  let link9 = await this.driver.$('[data-test-nav="dashboard"]');
+  const link9_href=await link9.getAttribute('href');
+  return await this.driver.url(url_base + "/" + link9_href); 
+  
+});
 
 When('I go to login', async function () {
   let element = await this.driver.$('a[data-tracking-id="sign-in-top-bar"]');
@@ -73,7 +128,7 @@ Then('I write the title {string} of the post', async function(title) {
 });
 
 Then('I write the body {string} of the post', async function(body) {
-  let element = await this.driver.$(".koenig-editor__editor");
+  let element = await this.driver.$('.kg-prose');
   return await element.setValue(body);
 });
 
@@ -107,46 +162,42 @@ Then('I go back to posts', async function() {
   return await button.click();
 });
 
-// New tag workflow
 
-Then("I click list tags", async function () {
-  let element = await this.driver.$("#ember29");
-  return await element.click();
+When('I go to posts', async function() {
+  let link = await this.driver.$('[data-test-nav="posts"]');
+  const link_href=await link.getAttribute('href');
+  return await this.driver.url(url_base + "/" + link_href); 
+  
 });
 
-Then("I click in new tag", async function () {
-  let element = await this.driver.$(".gh-btn-primary");
-  return await element.click();
-});
 
-Then('I write the title {string} of the tag', async function(title) {
-  let element = await this.driver.$("#tag-name");
-  return await element.setValue(title);
-});
+Then(
+  "I should have at least 1 post with title {string}",
+  async function (title) {
+    //navegamos a los posts
+    let link = await this.driver.$('[data-test-nav="posts"]');
+    const link_href=await link.getAttribute('href');
+    await this.driver.url(url_base + "/" + link_href); 
+    
+    
+    let titulos = await this.driver.$$('[class="gh-content-entry-title"]');
+    //let titulos = await this.driver.$$('h3');
 
-Then("I write the body {string} of the tag", async function (body) {
-  let element = await this.driver.$("#tag-description");
-  return await element.setValue(body);
-});
+    console.log("titulos lenght " + titulos.length);
 
-Then('I click in publish my tag', async function() {
-  let button = await this.driver.$("button.ember-view");
-  return await button.click();
-});
+    // Create an array to store matching elements
+    let matchingElements = [];
 
-// New tag with metadata
-
-Then("I click expand metadata", async function () {
-  let element = await this.driver.$("button.gh-btn-expand");
-  return await element.click();
-});
-
-Then("I write the metatitle {string} of the tag", async function (metatitle) {
-  let element = await this.driver.$("#meta-title");
-  return await element.setValue(metatitle);
-});
-
-Then("I write the metadrescription {string} of the tag", async function (metadescription) {
-  let element = await this.driver.$("#meta-description");
-  return await element.setValue(metadescription);
-});
+    // Iterate through the found h3 elements
+    for (const titulo of titulos) {
+      const text = await titulo.getText();
+      console.log("titulo post: " + text);
+      if (text === title) {
+        matchingElements.push(titulo);
+      }
+    }
+    // assert
+    expect(matchingElements.length).to.be.greaterThanOrEqual(1);
+  }
+  
+);
