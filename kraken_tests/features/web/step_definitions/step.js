@@ -102,3 +102,30 @@ Then('I go back to posts', async function() {
   let button = await this.driver.$('[data-test-link="posts"]');
   return await button.click();
 });
+
+// New tag workflow
+
+Then("I click list tags", async function () {
+  let element = await this.driver.$("#ember29");
+  return await element.click();
+});
+
+Then("I click in new tag", async function () {
+  let element = await this.driver.$(".gh-btn-primary");
+  return await element.click();
+});
+
+Then('I write the title {string} of the tag', async function(title) {
+  let element = await this.driver.$("#tag-name");
+  return await element.setValue(title);
+});
+
+Then("I write the body {string} of the tag", async function (body) {
+  let element = await this.driver.$("#tag-description");
+  return await element.setValue(body);
+});
+
+Then('I click in publish my tag', async function() {
+  let button = await this.driver.$("button.ember-view");
+  return await button.click();
+});
