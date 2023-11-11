@@ -15,15 +15,23 @@ describe('Funcionalidad de autenticacion', () => {
   });
 
   it('Login con exito', () => {
-    // Given my email and my password
+
+    // Given I log in in ghost
     loginPage.fillEmail("user@example.com");
     loginPage.fillPassword("dzLY3PdWLWj:");
-    
-    // When I click in login
     loginPage.submitLoginForm();
 	
-	//crearPost
-	crearPost.crearPost();
+	//Given I create 3 different posts
+	crearPost.crearPost("Titulo 1");
+	
+	crearPost.crearPost("Titulo 2");
+	
+	crearPost.crearPost("Titulo 3");
+	
+	//Then I should have the three post correcly
+  crearPost.existePost("Titulo 1");
+  crearPost.existePost("Titulo 2");
+  crearPost.existePost("Titulo 3");
 
     
   });

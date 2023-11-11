@@ -1,11 +1,13 @@
 const crearPost = {
-    crearPost: () => {
+
+    crearPost: (Titulo) => {
       
 	  //click en nuevo post
-	  cy.get('#ember20').click();
+	  cy.get('.ember-view.gh-secondary-action.gh-nav-new-post').click();
 	  
 	  //se inserta titulo del post
-	  cy.get('#ember51').type("Titulo1");
+	  cy.get('.gh-editor-title.ember-text-area.gh-input.ember-view').type(Titulo);
+
 	  
 	  //se inserta contenido del post
 	  cy.get('.koenig-editor__editor').type("Contenido 1");
@@ -27,6 +29,19 @@ const crearPost = {
 	  
 	  //vuelve al dashboard
 	  cy.get('[data-test-nav="dashboard"]').click();
+	  
+    },
+
+	
+	existePost: (Titulo) => {
+		
+      //Navegamos a posts
+	  cy.get('[data-test-nav="posts"]').click();
+	  
+
+	  // seleccionamos los elementos [class="gh-content-entry-title"] cuyo contenido sea igual Titulo
+	  cy.get('[class="gh-content-entry-title"]').contains(Titulo).invoke('text').should('not.be.empty');
+
 	  
     },
   };
