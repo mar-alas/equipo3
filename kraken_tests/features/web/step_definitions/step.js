@@ -1,6 +1,10 @@
 const { Given, When, Then } = require('@cucumber/cucumber');
 const expect = require('chai').expect;
 
+function getRandomBetween() {
+  return Math.random() * (11 - 99) + 11;
+}
+
 When('I go to login', async function () {
   let element = await this.driver.$('a[data-tracking-id="sign-in-top-bar"]');
   element.click();
@@ -128,4 +132,21 @@ Then("I write the body {string} of the tag", async function (body) {
 Then('I click in publish my tag', async function() {
   let button = await this.driver.$("button.ember-view");
   return await button.click();
+});
+
+// New tag with metadata
+
+Then("I click expand metadata", async function () {
+  let element = await this.driver.$("button.gh-btn-expand");
+  return await element.click();
+});
+
+Then("I write the metatitle {string} of the tag", async function (metatitle) {
+  let element = await this.driver.$("#meta-title");
+  return await element.setValue(metatitle);
+});
+
+Then("I write the metadrescription {string} of the tag", async function (metadescription) {
+  let element = await this.driver.$("#meta-description");
+  return await element.setValue(metadescription);
 });
