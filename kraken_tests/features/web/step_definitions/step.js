@@ -113,7 +113,7 @@ When('I delete post with Title {string}', async function (title) {
 });
 
 //When I edit post with Title "Titulo 700" with the content "ContenidoEditado"
-When('I edit post with Title {string} with the content {string}', async function (title, content) {
+When('I edit post with Title {string} with the new title {string}', async function (title, content) {
 
 //navegamos a posts
 let link = await this.driver.$('[data-test-nav="posts"]');
@@ -146,17 +146,12 @@ await this.driver.pause(2000);
 
 //editamos el contenido usamos identificador data-lexical-text="true"
 // Find a specific `p` element or any other parent element
-const parentElement = await this.driver.$('p');
+const element2 = await this.driver.$('[placeholder="Post title"]');
+element2.setValue(content);
 
-// Find a child element (e.g., a `span` or `div`) within the `p` element
-const childElement = await parentElement.$('span'); // Replace with the appropriate selector
+//wait for 3 seconds
+await this.driver.pause(3000);
 
-// Change the text content of the child element using `setValue`
-await childElement.setValue(content);
-
-const text = await childElement.getText();
-
-console.log("element22 text " + text);
 
 
 //damos click en actualizar data-test-button="publish-save"
