@@ -154,7 +154,49 @@ const crearPost = {
 	  cy.get('[class="gh-btn gh-btn-red gh-btn-icon ember-view"]').click();
     },
 	
+  
+	crearPostProgramado: (Titulo, fecha) => {
+		
+		//click en nuevo post
+		cy.get('.ember-view.gh-secondary-action.gh-nav-new-post').click();
+		
+		//se inserta titulo del post
+		cy.get('.gh-editor-title.ember-text-area.gh-input.ember-view').type(Titulo);
+
+		
+		//se inserta contenido del post
+		cy.get('p').type("Contenido post programado");
+		
+		//se da publicar
+		cy.get('[data-test-button="publish-flow"]').click();
+		
+		// Click en publish setting
+		cy.get('.gh-publish-setting.last').click();
+
+		// Click en schedule
+		cy.get('.gh-publish-schedule').should('exist').click();
+
+		// Agregar la fecha
+		cy.get('.gh-date-time-picker-date input').type(fecha);
+
+		//da click en continuar en el final review 
+		cy.get('[data-test-button="continue"]').click();
+		
+		//da click en confirmacion
+		cy.get('[data-test-button="confirm-publish"]').click();
+		
+		//cierra el publish flow
+		cy.get('[data-test-button="close-publish-flow"]').click();
+		
+		// vuelve al editar
+		cy.get('.ember-view.gh-btn-editor.gh-editor-back-button').click();
+
+		//vuelve al dashboard
+		cy.get('[data-test-nav="dashboard"]').click();
+	}
+	
   };
   
+
   export default crearPost;
   

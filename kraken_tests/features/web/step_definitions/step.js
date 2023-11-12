@@ -207,7 +207,7 @@ Then('I should get an error {string}', async function(message) {
 });
 
 When('I click signout', async function () {
-  let dropdown = await this.driver.$('#ember33');
+  let dropdown = await this.driver.$('.w3.mr1.fill-darkgrey');
   await dropdown.click();
   let signOutLink = await this.driver.$('.dropdown-item.user-menu-signout');
   await signOutLink.waitForClickable({

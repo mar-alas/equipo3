@@ -1,25 +1,29 @@
 import loginPage from './authentication';
-//import properties
 
-//const config= require('./config.json');
-//import loginPage from './config.json';
-
-//const EMAIL= "da.gamez97@gmail.com";
-//const PASSWORD= "pPb8c@Jw0c4RyK1i";
-
-describe('Funcionalidad de autenticacion', () => {
+describe('Escenario 2', () => {
   beforeEach(() => {
     loginPage.visit();
   });
 
-  it('Login con exito', () => {
-    // Given my email and my password
-    loginPage.fillEmail("user@example.com");
-    loginPage.fillPassword("dzLY3PdWLWj:");
-    
-    // When I click in login
+  it('Login sin datos, login con email no registrado, login con exito', () => {
+    // Given empty email and empty password
+    loginPage.submitLoginForm();
+    // Then I should get an error 'Please fill out the form to sign in.'
+    loginPage.error("Please fill out the form to sign in.")
+
+    // When I enter email "invalid_email@uniandes.edu.co" 
+    // & I enter password "invalid_pass"
+    loginPage.fillEmail("invalid_email@uniandes.edu.co");
+    loginPage.fillPassword("invalid_pass");
     loginPage.submitLoginForm();
 
+    // Then I should get an error 'There is no user with that email address.'
+    loginPage.error("There is no user with that email address.")
+
+    //When I enter correct credentials
+    loginPage.fillEmail("user@example.com");
+    loginPage.fillPassword("dzLY3PdWLWj:");
+    loginPage.submitLoginForm();
     // Then I should be on dashboard
     cy.url().should('include', '/dashboard');
 

@@ -1,12 +1,12 @@
 import loginPage from './authentication';
 import crearPost from './post';
 
-describe('Escenario 1', () => {
+describe('Escenario 5', () => {
   beforeEach(() => {
     loginPage.visit();
   });
 
-  it('Login con exito, creacion y validacion de un post, signout', () => {
+  it('Creacion post programado, validar creacion programada, signout', () => {
     // Given I log in in ghost
     loginPage.fillEmail("user@example.com");
     loginPage.fillPassword("dzLY3PdWLWj:");
@@ -14,10 +14,10 @@ describe('Escenario 1', () => {
     cy.url().should('include', '/dashboard');
 
     //When I create a new post called "hola" 
-	  crearPost.crearPost("hola");
+	  crearPost.crearPostProgramado("Post Programado", '2023-11-20');
 
     //Then I should have the three post correcly
-    crearPost.existePost("hola");
+    crearPost.existePost("Post Programado");
 
     // When I signout
     loginPage.signout();
