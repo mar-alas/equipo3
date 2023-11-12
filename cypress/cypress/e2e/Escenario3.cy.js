@@ -37,13 +37,13 @@ describe('Escenario 3', () => {
     loginPage.error("User not found.")
 
     //When I enter correct email
-    loginPage.fillEmail("user@example.com");
+    loginPage.fillEmail(Cypress.env("username"));
     //And I click in forgot
     loginPage.forgot()
     // Here there is an issue and the forgot doesnt work
 
     // Then I add the correct password
-    loginPage.fillPassword("dzLY3PdWLWj:");
+    loginPage.fillPassword(Cypress.env("password"));
     loginPage.submitLoginForm();
     // Then I should be on dashboard
     cy.url().should('include', '/dashboard');

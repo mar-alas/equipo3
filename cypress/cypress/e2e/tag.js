@@ -1,4 +1,4 @@
-const url_base = "http://localhost:2368/ghost"
+const url_base = Cypress.env("host");
 const crearTags = {
 
     crearTag: (Titulo, body) => {

@@ -7,8 +7,8 @@ describe("Crear Tag con xcard", () => {
   });
 
   it("Login, creación de tag con xcard", () => {
-    loginPage.fillEmail("ra.castro2@uniandes.edu.co"); 
-    loginPage.fillPassword("robert12345678");
+    loginPage.fillEmail(Cypress.env("username")); 
+    loginPage.fillPassword(Cypress.env("password"));
     loginPage.submitLoginForm();
     cy.url().should("include", "/dashboard");
 

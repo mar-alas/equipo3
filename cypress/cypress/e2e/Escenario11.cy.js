@@ -7,8 +7,8 @@ describe("Crear Tag Ghost", () => {
   });
 
   it("Login y creación de un tag", () => {
-    loginPage.fillEmail("ra.castro2@uniandes.edu.co"); 
-    loginPage.fillPassword("robert12345678");
+    loginPage.fillEmail(Cypress.env("username")); 
+    loginPage.fillPassword(Cypress.env("password"));
     loginPage.submitLoginForm();
     cy.url().should("include", "/dashboard");
 

@@ -18,8 +18,8 @@ describe('Funcionalidad de autenticacion', () => {
   it('Login con exito', () => {
 
     // Given I log in in ghost
-    loginPage.fillEmail("da.gamez97@gmail.com");
-    loginPage.fillPassword("pPb8c@Jw0c4RyK1i");
+    loginPage.fillEmail(Cypress.env("username"));
+    loginPage.fillPassword(Cypress.env("password"));
     loginPage.submitLoginForm();
 	
 	//Given I create post #1

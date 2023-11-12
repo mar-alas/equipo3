@@ -9,8 +9,8 @@ describe('Escenario 4', () => {
 
   it(' Hacer login , crear post, crear tag,  validar post, validar tag', () => {
     // Given I log in in ghost
-    loginPage.fillEmail("user@example.com");
-    loginPage.fillPassword("dzLY3PdWLWj:");
+    loginPage.fillEmail(Cypress.env("username"));
+    loginPage.fillPassword(Cypress.env("password"));
     loginPage.submitLoginForm();
     cy.url().should('include', '/dashboard');
 
