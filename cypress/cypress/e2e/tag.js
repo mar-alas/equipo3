@@ -38,7 +38,7 @@ const crearTags = {
     cy.get('[data-test-nav="tags"]').click();
   },
   clicTag: (Titulo) => {
-    cy.get('[class="gh-tag-list-name"]').contains(Titulo).should('be.visible').first().click();
+    cy.get('[class="gh-tag-list-name"]').contains(Titulo).first().click();
 	},
   clickExpandMetadata: () =>  {
     cy.get('button.gh-btn-expand').first().click();

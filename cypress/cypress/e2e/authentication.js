@@ -1,6 +1,6 @@
 const loginPage = {
     visit: () => {
-      cy.visit("http://localhost:2368/ghost");
+      cy.visit(Cypress.env("host"));
     },
     
     fillEmail: (email) => {

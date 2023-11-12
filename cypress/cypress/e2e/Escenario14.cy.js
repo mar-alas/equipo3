@@ -7,23 +7,26 @@ describe("Crear Tag con xcard", () => {
   });
 
   it("Login, creación de tag con xcard", () => {
-    loginPage.fillEmail("ra.castro2@uniandes.edu.co"); 
-    loginPage.fillPassword("robert12345678");
+    // Given I log in in ghost
+    loginPage.fillEmail(Cypress.env("username"));
+    loginPage.fillPassword(Cypress.env("password"));
     loginPage.submitLoginForm();
     cy.url().should("include", "/dashboard");
 
     crearTag.navegarATags();
+    //When I create 1 new tag
     crearTag.crearTag("X-NombreDelTag", "X-DescripcionTag");
     crearTag.navegarATags();
     cy.wait(10000);
-    crearTag.clicTag('X-NombreDelTag');
+    crearTag.clicTag("X-NombreDelTag");
     cy.wait(10000);
     crearTag.clickExpandXcard();
     cy.wait(5000);
-    crearTag.writeXcardTitleOfTag('Ejemplo Meta Título');
+    crearTag.writeXcardTitleOfTag("Ejemplo Meta Título");
     cy.wait(1000);
-    crearTag.writeXcardDescriptionOfTag('Ejemplo Meta Descripción');
+    crearTag.writeXcardDescriptionOfTag("Ejemplo Meta Descripción");
     cy.wait(1000);
+    // Then i it should save 1 tag with x-card data
     crearTag.saveTag();
   });
 });
