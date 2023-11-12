@@ -1,0 +1,18 @@
+Feature: Creación Tag
+
+@user5 @web
+Scenario: Num11 - Creacion de un tag exitoso
+  Given I navigate to page "http://44.200.235.109/ghost"
+  When I login to ghost
+  And I wait for 2 seconds
+  Then I click list tags
+  And I wait for 7 seconds
+  Then I click in new tag
+  Then I write the title 'sports' of the tag
+  Then I write the body 'Informacion del tag' of the tag
+  And I wait for 7 seconds
+  Then I click in publish my tag
+  And I wait for 9 seconds
+  When I click list tags
+  And I wait for 9 seconds
+  And I should have at least one tag with title 'sports'
