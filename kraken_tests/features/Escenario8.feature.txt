@@ -1,0 +1,14 @@
+Feature: PruebasE2EGhost
+
+@user8 @web
+Scenario: Escenario 8 - Crear post 1, crear post 2,eliminar post 2 y validar elminacion post 2
+  Given I navigate to page "http://localhost:2368/ghost"
+  
+  When I login to ghost
+  And I wait for 2 seconds
+  When I create a random post from dashboard with Title "Titulo 600"
+  When I create a random post from dashboard with Title "Titulo 700"
+  When I delete post with Title "Titulo 700"
+
+  Then I should not have post with title "Titulo 700"
+  Then I should have post with title "Titulo 600"

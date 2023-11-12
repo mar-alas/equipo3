@@ -2,7 +2,7 @@ Feature: Creación Tag
 
 @user5 @web
 Scenario: Num11 - Creacion de un tag exitoso
-  Given I navigate to page "http://44.200.235.109/ghost"
+  Given I navigate to page "http://localhost:2368/ghost"
   When I login to ghost
   And I wait for 2 seconds
   Then I click list tags
@@ -15,4 +15,4 @@ Scenario: Num11 - Creacion de un tag exitoso
   And I wait for 9 seconds
   When I click list tags
   And I wait for 9 seconds
-  And I should have at least one tag with title 'sports'
+  Then I should have at least 1 tag with title 'sports'
