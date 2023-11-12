@@ -1,0 +1,22 @@
+Feature: PruebasE2EGhost
+
+@user1 @web
+Scenario: Escenario 5 - Hacer login , crear post, crear tag,  validar post, validar tag
+  Given I navigate to page "http://localhost:2369/ghost"
+  When I login to ghost
+  And I wait for 2 seconds
+  When I create a new post called "Posts & Tags" with "Informacion de mi post" information
+  When I finish the publication of my post
+  When I go to posts 
+  Then I should have at least 1 post with title "Posts & Tags"
+  Then I click list tags
+  And I wait for 7 seconds
+  Then I click in new tag
+  Then I write the title 'posts&tags' of the tag
+  Then I write the body 'Informacion del tag' of the tag
+  And I wait for 7 seconds
+  Then I click in publish my tag
+  And I wait for 9 seconds
+  When I click list tags
+  And I wait for 9 seconds
+  Then I should have at least 1 tag with title 'posts&tags'

@@ -7,10 +7,6 @@ const email_const = credentials.USERNAME;
 const password_const = credentials.PASSWORD;
 const url_base = credentials.URLBASE;
 
-// const email_const="da.gamez97@gmail.com"
-// const password_const="pPb8c@Jw0c4RyK1i"
-// const url_base="http://localhost:2368/ghost"
-
 When('I login to ghost', async function () {
   
   let element2 = await this.driver.$('#identification');
@@ -210,7 +206,7 @@ Then('I should get an error {string}', async function(message) {
    expect(errorText.trim()).to.equal(message);
 });
 
-Then('I click signout', async function () {
+When('I click signout', async function () {
   let dropdown = await this.driver.$('#ember33');
   await dropdown.click();
   let signOutLink = await this.driver.$('.dropdown-item.user-menu-signout');
@@ -230,59 +226,87 @@ Then('I should be in authentication page', async function () {
 
 // New post workflow
 
-Then('I click in new post', async function () {
-  let element = await this.driver.$('.ember-view.gh-secondary-action.gh-nav-new-post');
-  return await element.click();
-});
+When('I create a new post called {string} with {string} information', async function(title, body) {
+  let element1 = await this.driver.$('.ember-view.gh-secondary-action.gh-nav-new-post');
+  await element1.click();
 
-Then('I write the title {string} of the post', async function(title) {
-  let element = await this.driver.$('.gh-editor-title.ember-text-area.gh-input.ember-view');
-  return await element.setValue(title);
-});
+  element2 = await this.driver.$('.gh-editor-title.ember-text-area.gh-input.ember-view');
+  await element2.setValue(title);
 
-Then('I write the body {string} of the post', async function(body) {
-  let element = await this.driver.$('.kg-prose');
-  return await element.setValue(body);
-});
+  element3 = await this.driver.$('.kg-prose');
+  await element3.setValue(body);
 
-Then('I click in publish my post', async function() {
   let button = await this.driver.$('[data-test-button="publish-flow"]');
   return await button.click();
 });
 
-Then('I click in Continue final review', async function() {
-  let button = await this.driver.$('[data-test-button="continue"]');
-  return await button.click();
+When('I schedule the post to {string}', async function(date) {
+  let element1 = await this.driver.$('.gh-publish-setting.last');
+  await element1.click();
+  
+  console.log("Click on the 'Schedule' button");
+  
+  let element5 = await this.driver.$('.gh-publish-schedule');
+  await element5.waitForExist();
+  await element5.click();
+  
+  let dateInput = await this.driver.$('.gh-date-time-picker-date input');
+  return await dateInput.setValue(date);
 });
 
-When('I click in confirm publish', async function() {
-  let button = await this.driver.$('[data-test-button="confirm-publish"]');
-  return await button.click();
+When('I finish the publication of my scheduled post', async function() {
+  let continue_review = await this.driver.$('[data-test-button="continue"]');
+  await continue_review.click();
+
+  let confirm_publish = await this.driver.$('[data-test-button="confirm-publish"]');
+  await confirm_publish.click();
+
+  let close_pubish_flow = await this.driver.$('[data-test-button="close-publish-flow"]');
+  await close_pubish_flow.click();
+
+  const postsLink = await this.driver.$('.ember-view.gh-btn-editor.gh-editor-back-button');
+  await postsLink.click();
+
+  //vuelve a los posts
+  let link8 = await this.driver.$('[data-test-link="posts"]');
+  const link8_href=await link8.getAttribute('href');
+  await this.driver.url(url_base + "/" + link8_href); 
+  //vuelve al dashboard
+  let link9 = await this.driver.$('[data-test-nav="dashboard"]');
+  const link9_href=await link9.getAttribute('href');
+  return await this.driver.url(url_base + "/" + link9_href); 
 });
 
-Then('I get the boom confirmation message', async function() {
-  let element = await this.driver.$('[data-test-publish-flow="complete"]').isExisting();
-  expect(element).to.equal(true);
-});
+When('I finish the publication of my post', async function() {
+  let continue_review = await this.driver.$('[data-test-button="continue"]');
+  await continue_review.click();
 
-Then('I click in back to editor', async function() {
-  let button = await this.driver.$('[data-test-button="back-to-editor"]');
-  return await button.click();
-});
+  let confirm_publish = await this.driver.$('[data-test-button="confirm-publish"]');
+  await confirm_publish.click();
 
-Then('I go back to posts', async function() {
-  let button = await this.driver.$('[data-test-link="posts"]');
-  return await button.click();
-});
+  await this.driver.pause(2000);
+  let boom_message = await this.driver.$('[data-test-publish-flow="complete"]').isExisting();
+  expect(boom_message).to.equal(true);
 
+  let back_to_editor = await this.driver.$('[data-test-button="back-to-editor"]');
+  await back_to_editor.click();
+  
+  //vuelve a los posts
+  let link8 = await this.driver.$('[data-test-link="posts"]');
+  const link8_href=await link8.getAttribute('href');
+  await this.driver.url(url_base + "/" + link8_href); 
+  
+  //vuelve al dashboard
+  let link9 = await this.driver.$('[data-test-nav="dashboard"]');
+  const link9_href=await link9.getAttribute('href');
+  return await this.driver.url(url_base + "/" + link9_href); 
+});
 
 When('I go to posts', async function() {
   let link = await this.driver.$('[data-test-nav="posts"]');
   const link_href=await link.getAttribute('href');
   return await this.driver.url(url_base + "/" + link_href); 
-  
 });
-
 
 Then(
   "I should have at least {int} post with title {string}",
@@ -316,7 +340,6 @@ Then(
 );
 
 // tags
-
 When("I click list tags", async function () {
   let link = await this.driver.$('[data-test-nav="tags"]');
   const link_href = await link.getAttribute("href");
