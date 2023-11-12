@@ -41,6 +41,8 @@ When('I create a random post from dashboard with Title {string}', async function
   //da click en publicar post
   let button4 = await this.driver.$('[data-test-button="publish-flow"]');
   await button4.click();
+
+  await this.driver.pause(2000);
   
   //da click en continuar en el final review 
   let button5 = await this.driver.$('[data-test-button="continue"]');
@@ -288,9 +290,10 @@ Then(
 
 // tags
 
-Then("I click list tags", async function () {
-  let element = await this.driver.$('[data-test-nav="tags"]');
-  return await element.click();
+When("I click list tags", async function () {
+  let link = await this.driver.$('[data-test-nav="tags"]');
+  const link_href = await link.getAttribute("href");
+  return await this.driver.url(url_base + "/" + link_href);
 });
 
 Then("I click in new tag", async function () {
@@ -313,7 +316,7 @@ Then('I click in publish my tag', async function() {
   return await button.click();
 });
 
-Then("I should have at least one tag with title {string}", async function (title) {
+Then("I should have at least 1 tag with title {string}", async function (title) {
 
   let link = await this.driver.$('[data-test-nav="tags"]');
   const link_href = await link.getAttribute("href");
@@ -331,3 +334,131 @@ Then("I should have at least one tag with title {string}", async function (title
 
   expect(matchingElements.length).to.be.greaterThanOrEqual(1);
 });
+
+When("I create a random tag from dashboard with Title {string}", async function (title) {
+  let link8 = await this.driver.$('[data-test-nav="tags"]');
+  const link8_href = await link8.getAttribute("href");
+  await this.driver.url(url_base + "/" + link8_href);
+
+  await this.driver.pause(2000);
+
+  let btnNewTag = await this.driver.$(".gh-btn-primary");
+  await btnNewTag.click();
+
+  let titleTag = await this.driver.$("#tag-name");
+  await titleTag.setValue(title);
+
+  let DescTag = await this.driver.$("#tag-description");
+  await DescTag.setValue("Info del tag");
+
+  let publicarTag = await this.driver.$("button.ember-view");
+  await publicarTag.click();
+
+  let link9 = await this.driver.$('[data-test-nav="dashboard"]');
+  const link9_href = await link9.getAttribute("href");
+  return await this.driver.url(url_base + "/" + link9_href);
+});
+
+// Tag metadata
+
+Then("I click expand metadata", async function () {
+  let element = await this.driver.$("button.gh-btn-expand");
+  return await element.click();
+});
+
+Then("I click expand xcard", async function () {
+  let elements = await this.driver.$$("button.gh-btn-expand");
+  let segundoBoton = elements[1];
+  return await segundoBoton.click();
+});
+
+Then("I click expand facebookcard", async function () {
+  let elements = await this.driver.$$("button.gh-btn-expand");
+  let segundoBoton = elements[2];
+  return await segundoBoton.click();
+});
+
+Then("I write the metatitle {string} of the tag", async function (metatitle) {
+  let element = await this.driver.$("#meta-title");
+  return await element.setValue(metatitle);
+});
+
+Then("I write the twitterTitle {string} of the tag", async function (twitterTitle) {
+  let element = await this.driver.$("#twitter-title");
+  return await element.setValue(twitterTitle);
+});
+
+Then("I write the og-title {string} of the tag", async function (ogtitle) {
+  let element = await this.driver.$("#og-title");
+  return await element.setValue(ogtitle);
+});
+
+Then("I write the metadrescription {string} of the tag", async function (metadescription) {
+  let element = await this.driver.$("#meta-description");
+  return await element.setValue(metadescription);
+});
+
+Then("I write the twitterDescription {string} of the tag", async function (twitterDescription) {
+  let element = await this.driver.$("#twitter-description");
+  return await element.setValue(twitterDescription);
+});
+
+Then("I write the og-description {string} of the tag", async function (ogdescription) {
+  let element = await this.driver.$("#og-description");
+  return await element.setValue(ogdescription);
+});
+
+//Busqueda de un tag por titulo"
+When('I edit tag with Title {string}', async function (title) {
+
+  let link = await this.driver.$('[data-test-nav="tags"]');
+  const link_href=await link.getAttribute('href');
+  await this.driver.url(url_base + "/" + link_href);
+
+  await this.driver.pause(2000);
+  const elements = await this.driver.$$(".gh-tag-list-name");
+  let firstMatchingElement;
+
+  for (const element of elements) {
+    elementText = await element.getText();
+
+    if (elementText === title) {
+      firstMatchingElement = element;
+      break; 
+    }
+  }
+
+  firstMatchingElement.click();
+  await this.driver.pause(3000);
+
+});
+
+When("I delete tag with Title {string}", async function (title) {
+  let link = await this.driver.$('[data-test-nav="tags"]');
+  const link_href = await link.getAttribute("href");
+  await this.driver.url(url_base + "/" + link_href);
+
+  await this.driver.pause(2000);
+
+  const elements = await this.driver.$$(".gh-tag-list-name");
+  let firstMatchingElement;
+
+  for (const element of elements) {
+    elementText = await element.getText();
+
+    if (elementText === title) {
+      firstMatchingElement = element;
+      break;
+    }
+  }
+
+  firstMatchingElement.click();
+  await this.driver.pause(3000);
+
+  let btnBorrar = await this.driver.$('[data-test-button="delete-tag"]');
+  await btnBorrar.click();
+  await this.driver.pause(3000);
+  let btnconfirmar = await this.driver.$('[data-test-button="confirm"]');
+  await btnconfirmar.click();
+});
+
