@@ -7,6 +7,10 @@ const email_const = credentials.USERNAME;
 const password_const = credentials.PASSWORD;
 const url_base = credentials.URLBASE;
 
+Given('I navigate to ghost', async function () {
+  return await this.driver.url(url_base);
+});
+
 When('I login to ghost', async function () {
   
   let element2 = await this.driver.$('#identification');
