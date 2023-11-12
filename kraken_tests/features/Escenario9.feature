@@ -7,6 +7,6 @@ Scenario: Escenario 9 - Crear post 1, crear post 2, editar post 2, validar edici
   When I login to ghost
   And I wait for 2 seconds
  
-  When I edit post with Title "Titulo 700" with the content "ContenidoEditado"
+  When I edit post with Title "Titulo 3" with the content "ContenidoEditado"
 
   
