@@ -1,7 +1,7 @@
 Feature: Creación Tag
 
-@user5 @web
-Scenario: Num14 - Creacion de tag y asignación de x-card
+@user14 @web
+Scenario: Escenario 14 - Creacion de tag y asignación de x-card
   Given I navigate to page "http://localhost:2368/ghost/"
   And I wait for 5 seconds
   When I login to ghost

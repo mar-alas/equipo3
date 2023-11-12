@@ -1,7 +1,7 @@
 Feature: PruebasE2EGhost
 
 @user6 @web
-Scenario: Num6 - Crear tres posts y validar su correcta creacion
+Scenario: Escenario 6 - Crear tres posts y validar su correcta creacion
   Given I navigate to page "http://localhost:2368/ghost"
   When I login to ghost
   And I wait for 2 seconds

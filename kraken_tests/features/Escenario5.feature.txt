@@ -1,6 +1,6 @@
 Feature: PruebasE2EGhost
 
-@user1 @web
+@user5 @web
 Scenario: Escenario 5 - Creacion post programado, validar creacion programada
   Given I navigate to page "http://localhost:2369/ghost"
   When I login to ghost

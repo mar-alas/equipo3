@@ -1,7 +1,7 @@
 Feature: Creación Tag
 
-@user5 @web
-Scenario: Num15 - Creacion de tag y asignación de facebook-card y eliminación
+@user15 @web
+Scenario: Escenario 15 - Creacion de tag y asignación de facebook-card y eliminación
   Given I navigate to page "http://localhost:2368/ghost/"
   And I wait for 5 seconds
   When I login to ghost

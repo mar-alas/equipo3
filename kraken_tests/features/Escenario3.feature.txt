@@ -1,6 +1,6 @@
 Feature: PruebasE2EGhost
 
-@user1 @web
+@user3 @web
 Scenario: Escenario 3 - Login 3 veces con contrasena y correo incorrecto, olvidar contrasena, login correcto
 Given I navigate to page "http://localhost:2369/ghost"
   When I enter email "invalid_email@uniandes.edu.co"
