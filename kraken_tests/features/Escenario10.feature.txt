@@ -1,0 +1,14 @@
+Feature: PruebasE2EGhost
+
+@user10 @web
+Scenario: Escenario 10 - Crear 5 posts repetidos  y validar creacion 5 posts repetidos
+  Given I navigate to page "http://localhost:2368/ghost"
+  When I login to ghost
+  And I wait for 2 seconds
+  When I create a random post from dashboard with Title "Titulo 1"
+  When I create a random post from dashboard with Title "Titulo 1"
+  When I create a random post from dashboard with Title "Titulo 1"
+  When I create a random post from dashboard with Title "Titulo 1"
+  When I create a random post from dashboard with Title "Titulo 1"
+  When I go to posts 
+  Then I should have at least 5 post with title "Titulo 1"
