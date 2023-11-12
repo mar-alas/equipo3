@@ -1,7 +1,7 @@
 import loginPage from "./authentication";
 import crearTag from "./tag"; 
 
-describe("Crear 3 Tags con metadatos", () => {
+describe("Crear Tag con metadatos", () => {
   beforeEach(() => {
     loginPage.visit(); 
   });

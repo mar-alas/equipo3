@@ -49,6 +49,7 @@ const crearTags = {
   writeMetaDescriptionOfTag: (metadescription) => {
     cy.get('#meta-description').type(metadescription);
   },
+  // X
   clickExpandXcard: () =>  {
     cy.get('button.gh-btn-expand').eq(1).click();
   },
@@ -58,8 +59,23 @@ const crearTags = {
   writeXcardDescriptionOfTag: (xdescription) => {
     cy.get('#twitter-description').type(xdescription);
   },
+  // Facebook
+  clickExpandFacCard: () =>  {
+    cy.get('button.gh-btn-expand').eq(2).click();
+  },
+  writeFacCardTitleOfTag: (xtitle) => {
+    cy.get('#og-title').type(xtitle);
+  },
+  writeFacCardDescriptionOfTag: (xdescription) => {
+    cy.get('#og-description').type(xdescription);
+  },
   saveTag: () => {
     cy.get("button.ember-view").click();
+  },
+  deleteTag:() => {
+    cy.get('[data-test-button="delete-tag"]').click();
+    cy.wait(3000); 
+    cy.get('[data-test-button="confirm"]').click();
   }
 
   
