@@ -1,6 +1,6 @@
 const loginPage = {
     visit: () => {
-      cy.visit('http://44.200.235.109/ghost');
+      cy.visit("http://localhost:2368/ghost");
     },
     
     fillEmail: (email) => {
