@@ -35,11 +35,26 @@ const crearTags = {
   },  
 
   navegarATags: () => {
-    cy.get('[data-test-nav="tags"]').then((link) => {
-      const link_href = link.attr("href");
-      cy.visit(url_base + "/" + link_href);
-    });
+    cy.get('[data-test-nav="tags"]').click();
   },
+  clicTag: (Titulo) => {
+    cy.get('[class="gh-tag-list-name"]').contains(Titulo).should('be.visible').first().click();
+	},
+  clickExpandMetadata: () =>  {
+    cy.get('button.gh-btn-expand').first().click();
+  },
+  writeMetaTitleOfTag: (metatitle) => {
+    cy.get('#meta-title').type(metatitle);
+  },
+  writeMetaDescriptionOfTag: (metadescription) => {
+    cy.get('#meta-description').type(metadescription);
+  },
+  saveTag: () => {
+    cy.get("button.ember-view").click();
+  }
+
+  
+  
 };
 
 export default crearTags;
