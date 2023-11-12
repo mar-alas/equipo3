@@ -1,4 +1,4 @@
-const url_base = "http://localhost:2369/ghost"
+const url_base = "http://localhost:2368/ghost"
 const crearTags = {
 
     crearTag: (Titulo, body) => {
@@ -32,7 +32,14 @@ const crearTags = {
 
       expect(total_match > 0)
     });
-  }  
+  },  
+
+  navegarATags: () => {
+    cy.get('[data-test-nav="tags"]').then((link) => {
+      const link_href = link.attr("href");
+      cy.visit(url_base + "/" + link_href);
+    });
+  },
 };
 
 export default crearTags;
