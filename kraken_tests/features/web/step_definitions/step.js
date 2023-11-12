@@ -571,3 +571,236 @@ When("I delete tag with Title {string}", async function (title) {
   await btnconfirmar.click();
 });
 
+
+// pages
+When("I create a random page from dashboard with Title {string}", async function (title) {
+  let link_pages1 = await this.driver.$('[data-test-nav="pages"]');
+  const linkpages1_href = await link_pages1.getAttribute("href");
+  await this.driver.url(url_base + "/" + linkpages1_href);
+
+  await this.driver.pause(2000);
+
+  let btnNewPage = await this.driver.$(".ember-view.gh-btn.gh-btn-primary.view-actions-top-row");
+  await btnNewPage.click();
+
+  let titlePage = await this.driver.$(".gh-editor-title.ember-text-area.gh-input.ember-view");
+  await titlePage.setValue(title);
+
+  //se escribe el body del page
+  let element3 = await this.driver.$('.kg-prose');
+  await element3.setValue("Contenido");
+  
+  //da click en publicar page
+  let button4 = await this.driver.$('[data-test-button="publish-flow"]');
+  await button4.click();
+
+  await this.driver.pause(2000);
+  
+  //da click en continuar en el final review 
+  let button5 = await this.driver.$('[data-test-button="continue"]');
+  await button5.click();
+  
+  //da click en confirmacion
+  let button6 = await this.driver.$('[data-test-button="confirm-publish"]');
+  await button6.click();
+  
+  //vuelve al editor
+  let button7 = await this.driver.$('[data-test-button="back-to-editor"]');
+  await button7.click();
+  
+    //vuelve a los pages
+  let link8 = await this.driver.$('[data-test-link="pages"]');
+  const link8_href=await link8.getAttribute('href');
+  await this.driver.url(url_base + "/" + link8_href); 
+  
+    //vuelve al dashboard
+  let link9 = await this.driver.$('[data-test-nav="dashboard"]');
+  const link9_href=await link9.getAttribute('href');
+  return await this.driver.url(url_base + "/" + link9_href); 
+
+});
+
+
+
+When('I edit page with Title {string} with the new title {string}', async function (title, content) {
+
+  //navegamos a pages
+  let link = await this.driver.$('[data-test-nav="pages"]');
+  const link_href=await link.getAttribute('href');
+  await this.driver.url(url_base + "/" + link_href);
+  
+  //wait for 2 seconds
+  await this.driver.pause(2000);
+  
+  //seleccionamos los elementos [class="gh-content-entry-title"] cuyo contenido sea igual Titulo y damos click al pirmero
+  const elements = await this.driver.$$('[class="gh-content-entry-title"]');
+  
+  let firstMatchingElement;
+  
+  for (const element of elements) {
+    elementText = await element.getText();
+  
+    if (elementText === title) {
+      //print to console elementText
+      console.log("elementText " + elementText);
+  
+      firstMatchingElement = element;
+      break; 
+    }
+  }
+  
+  firstMatchingElement.click();
+  //wait for 2 seconds
+  await this.driver.pause(2000);
+  
+  //editamos el contenido usamos identificador data-lexical-text="true"
+  // Find a specific `p` element or any other parent element
+  const element2 = await this.driver.$('[placeholder="Page title"]');
+  element2.setValue(content);
+  
+  //wait for 3 seconds
+  await this.driver.pause(3000);
+  
+  let continue_review = await this.driver.$('[data-test-button="continue"]');
+  await continue_review.click();
+
+  let confirm_publish = await this.driver.$('[data-test-button="confirm-publish"]');
+  await confirm_publish.click();
+
+  let close_pubish_flow = await this.driver.$('[data-test-button="close-publish-flow"]');
+  await close_pubish_flow.click();
+
+  const pagesLink = await this.driver.$('.ember-view.gh-btn-editor.gh-editor-back-button');
+  await pagesLink.click();
+
+  //vuelve a los posts
+  let link8 = await this.driver.$('[data-test-link="pages"]');
+  const link8_href=await link8.getAttribute('href');
+  await this.driver.url(url_base + "/" + link8_href); 
+
+  //vuelve al dashboard
+  let link9 = await this.driver.$('[data-test-nav="dashboard"]');
+  const link9_href=await link9.getAttribute('href');
+  return await this.driver.url(url_base + "/" + link9_href); 
+  
+  });  
+  
+  
+  When('I delete page with Title {string}', async function (title) {
+    //navegamos a posts
+    let link = await this.driver.$('[data-test-nav="pages"]');
+    const link_href=await link.getAttribute('href');
+    await this.driver.url(url_base + "/" + link_href);
+  
+    //wait for 2 seconds
+    await this.driver.pause(2000);
+    
+    //seleccionamos los elementos [class="gh-content-entry-title"] cuyo contenido sea igual Titulo y damos click al pirmero
+    const elements = await this.driver.$$('[class="gh-content-entry-title"]');
+  
+    let firstMatchingElement;
+  
+    for (const element of elements) {
+      elementText = await element.getText();
+  
+      if (elementText === title) {
+        firstMatchingElement = element;
+        break; 
+      }
+    }
+  
+    firstMatchingElement.click();
+    //wait for 5 seconds
+    await this.driver.pause(5000);
+  
+  
+    //damos click en opciones del post .settings-menu-toggle > span'
+    let element2 = await this.driver.$('[class="settings-menu-toggle gh-btn gh-btn-editor gh-btn-icon icon-only gh-btn-action-icon"]');
+    element2.click();
+  
+    //damos click en borrar .settings-menu-delete-button > .gh-btn > span
+    let element3 = await this.driver.$('[class="gh-btn gh-btn-outline gh-btn-icon gh-btn-fullwidth"]');
+    await element3.click();
+  
+    //confirmamos el borrado [class="gh-btn gh-btn-red gh-btn-icon ember-view"]
+    let element4 = await this.driver.$('[class="gh-btn gh-btn-red gh-btn-icon ember-view"]');
+    await element4.click();
+  
+  });
+  
+  //When I edit post with Title "Titulo 700" with the content "ContenidoEditado"
+When('I edit page with Title {string} with the new title {string}', async function (title, content) {
+  
+  //navegamos a posts
+  let link = await this.driver.$('[data-test-nav="pages"]');
+  const link_href=await link.getAttribute('href');
+  await this.driver.url(url_base + "/" + link_href);
+  
+  //wait for 2 seconds
+  await this.driver.pause(2000);
+  
+  //seleccionamos los elementos [class="gh-content-entry-title"] cuyo contenido sea igual Titulo y damos click al pirmero
+  const elements = await this.driver.$$('[class="gh-content-entry-title"]');
+  
+  let firstMatchingElement;
+  
+  for (const element of elements) {
+    elementText = await element.getText();
+  
+    if (elementText === title) {
+      firstMatchingElement = element;
+      break; 
+    }
+  }
+  
+  firstMatchingElement.click();
+  //wait for 2 seconds
+  await this.driver.pause(2000);
+  
+  //editamos el contenido usamos identificador data-lexical-text="true"
+  // Find a specific `p` element or any other parent element
+  const element2 = await this.driver.$('[placeholder="Page title"]');
+  element2.setValue(content);
+  
+  //wait for 3 seconds
+  await this.driver.pause(3000);
+  
+  //damos click en actualizar data-test-button="publish-save"
+  let element3 = await this.driver.$('[data-test-button="publish-save"]');
+  await element3.click();
+  
+  //nos devolemos a posts
+  let link4 = await this.driver.$('[data-test-link="pages"]');
+  const link4_href=await link4.getAttribute('href');
+  await this.driver.url(url_base + "/" + link4_href);
+
+  
+  });  
+  
+
+  Then(
+    "I should have at least {int} pages with title {string}",
+    async function (number,title) {
+      //navegamos a los posts
+      let link = await this.driver.$('[data-test-nav="pages"]');
+      const link_href=await link.getAttribute('href');
+      await this.driver.url(url_base + "/" + link_href); 
+      
+      let titulos = await this.driver.$$('[class="gh-content-entry-title"]');
+      //let titulos = await this.driver.$$('h3');
+  
+      // Create an array to store matching elements
+      let matchingElements = [];
+  
+      // Iterate through the found h3 elements
+      for (const titulo of titulos) {
+        const text = await titulo.getText();
+        if (text === title) {
+          matchingElements.push(titulo);
+        }
+      }
+      // assert
+      expect(matchingElements.length).to.be.greaterThanOrEqual(number);
+    }
+    
+  );
