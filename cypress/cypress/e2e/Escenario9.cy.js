@@ -1,5 +1,6 @@
 import loginPage from './authentication';
 import crearPost from './post';
+import randomText from './suppFunctions';
 
 //import properties
 
@@ -22,19 +23,21 @@ describe('Funcionalidad de autenticacion', () => {
     loginPage.submitLoginForm();
 	
 	//Given I create post #1
-	crearPost.crearPost("PostPruebaEsc8_11");
+  const post1 = randomText(10,12);
+	crearPost.crearPost(post1);
 	
 	//Given I create post #2
-	crearPost.crearPost("PostPruebaEsc8_22");
+  const post2 = randomText(10,12);
+	crearPost.crearPost(post2);
 
   //Given I edit post #2
-	crearPost.editarPost("PostPruebaEsc8_22","ContenidoEditado");
+	crearPost.editarPost(post2,"ContenidoEditado");
 
 	//Then the post #1 and #2 should exist and post#2 should have the new content
   cy.wait(2000); 
-  crearPost.existePost("PostPruebaEsc8_11");
-  crearPost.existePost("PostPruebaEsc8_22");
-  crearPost.revisarContenidoPost("PostPruebaEsc8_22","ContenidoEditado")  
+  crearPost.existePost(post1);
+  crearPost.existePost(post2);
+  crearPost.revisarContenidoPost(post2,"ContenidoEditado")  
 
     
   });

@@ -1,5 +1,7 @@
 import loginPage from './authentication';
 import crearPost from './post';
+import randomText from './suppFunctions';
+
 
 //import properties
 
@@ -17,19 +19,20 @@ describe('Funcionalidad de autenticacion', () => {
   it('Login con exito', () => {
 
     // Given I log in in ghost
-    loginPage.fillEmail("user@example.com");
-    loginPage.fillPassword("dzLY3PdWLWj:");
+    loginPage.fillEmail("da.gamez97@gmail.com");
+    loginPage.fillPassword("pPb8c@Jw0c4RyK1i");
     loginPage.submitLoginForm();
 	
 	//Given I create 1 post
-	crearPost.crearPost("Post Prueba Eliminacion");
+  const post1 = randomText(10,12);
+	crearPost.crearPost(post1);
 	
 	//Given I delete the post
-	crearPost.eliminarPost("Post Prueba Eliminacion");
+	crearPost.eliminarPost(post1);
 
 	//Then the post should not exist
   cy.wait(2000); 
-	crearPost.noExistePost("Post Prueba Eliminacion");
+	crearPost.noExistePost(post1);
 	  
 
     

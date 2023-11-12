@@ -1,5 +1,6 @@
 import loginPage from './authentication';
 import crearPost from './post';
+import randomText from './suppFunctions';
 
 //import properties
 
@@ -22,20 +23,21 @@ describe('Funcionalidad de autenticacion', () => {
     loginPage.submitLoginForm();
 	
 	//Given I create 5 equal posts
-	crearPost.crearPost("Titulo Igual 4");
+  const post1 = randomText(10,12);
+	crearPost.crearPost(post1);
   cy.wait(1000);
-	crearPost.crearPost("Titulo Igual 4");
+	crearPost.crearPost(post1);
   cy.wait(1000);
-  crearPost.crearPost("Titulo Igual 4");
+  crearPost.crearPost(post1);
   cy.wait(1000);
-  crearPost.crearPost("Titulo Igual 4");
+  crearPost.crearPost(post1);
   cy.wait(1000);
-  crearPost.crearPost("Titulo Igual 4");
+  crearPost.crearPost(post1);
 	
 	
 	//Then I should have at least 5 posts of same title
   cy.wait(1000);
-  crearPost.existenPostRepetidos("Titulo Igual 4",5);
+  crearPost.existenPostRepetidos(post1,5);
  
 
     

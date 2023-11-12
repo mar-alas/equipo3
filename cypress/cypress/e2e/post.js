@@ -1,3 +1,5 @@
+import randomText from "./suppFunctions.js";
+
 const crearPost = {
 
     crearPost: (Titulo) => {
@@ -10,7 +12,8 @@ const crearPost = {
 
 	  
 	  //se inserta contenido del post
-	  cy.get('p').type("Contenido 1");
+	  const contenidoAleatorio=randomText(50,100);
+	  cy.get('p').type(contenidoAleatorio);
 	  
 	  //se da publicar
 	  cy.get('[data-test-button="publish-flow"]').click();

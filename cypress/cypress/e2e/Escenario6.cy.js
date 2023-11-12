@@ -1,5 +1,6 @@
 import loginPage from './authentication';
 import crearPost from './post';
+import randomText from './suppFunctions';
 
 //import properties
 
@@ -17,21 +18,24 @@ describe('Funcionalidad de autenticacion', () => {
   it('Login con exito', () => {
 
     // Given I log in in ghost
-    loginPage.fillEmail("user@example.com");
-    loginPage.fillPassword("dzLY3PdWLWj:");
+    loginPage.fillEmail("da.gamez97@gmail.com");
+    loginPage.fillPassword("pPb8c@Jw0c4RyK1i");
     loginPage.submitLoginForm();
 	
 	//Given I create 3 different posts
-	crearPost.crearPost("Titulo 1");
+  const post1 = randomText(10,12);
+	crearPost.crearPost(post1);
 	
-	crearPost.crearPost("Titulo 2");
+  const post2 = randomText(10,12);
+	crearPost.crearPost(post2);
 	
-	crearPost.crearPost("Titulo 3");
+  const post3 = randomText(10,12);
+	crearPost.crearPost(post3);
 	
 	//Then I should have the three post correcly
-  crearPost.existePost("Titulo 1");
-  crearPost.existePost("Titulo 2");
-  crearPost.existePost("Titulo 3");
+  crearPost.existePost(post1);
+  crearPost.existePost(post2);
+  crearPost.existePost(post3);
 
     
   });
