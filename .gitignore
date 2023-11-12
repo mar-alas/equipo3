@@ -2,3 +2,4 @@
 **/.kraken/
 **/reports/
 **/properties.json
+**/cypress.env.json
