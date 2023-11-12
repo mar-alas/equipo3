@@ -172,8 +172,8 @@ When('I go to posts', async function() {
 
 
 Then(
-  "I should have at least 1 post with title {string}",
-  async function (title) {
+  "I should have at least {int} post with title {string}",
+  async function (number,title) {
     //navegamos a los posts
     let link = await this.driver.$('[data-test-nav="posts"]');
     const link_href=await link.getAttribute('href');
@@ -197,7 +197,7 @@ Then(
       }
     }
     // assert
-    expect(matchingElements.length).to.be.greaterThanOrEqual(1);
+    expect(matchingElements.length).to.be.greaterThanOrEqual(number);
   }
   
 );
