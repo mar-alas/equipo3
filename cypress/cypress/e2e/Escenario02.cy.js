@@ -21,8 +21,8 @@ describe('Escenario 2', () => {
     loginPage.error("There is no user with that email address.")
 
     //When I enter correct credentials
-    loginPage.fillEmail("user@example.com");
-    loginPage.fillPassword("dzLY3PdWLWj:");
+    loginPage.fillEmail(Cypress.env("username"));
+    loginPage.fillPassword(Cypress.env("password"));
     loginPage.submitLoginForm();
     // Then I should be on dashboard
     cy.url().should('include', '/dashboard');

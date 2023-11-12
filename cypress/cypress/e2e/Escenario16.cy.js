@@ -8,8 +8,8 @@ describe("Crear pagina Ghost", () => {
   });
 
   it("Login y creación de un page", () => {
-    loginPage.fillEmail("j.puentesn@uniandes.edu.co"); 
-    loginPage.fillPassword("gcEFAQ9!5e-fR=a");
+    loginPage.fillEmail(Cypress.env("username")); 
+    loginPage.fillPassword(Cypress.env("password"));
     loginPage.submitLoginForm();
     cy.url().should("include", "/dashboard");
 
