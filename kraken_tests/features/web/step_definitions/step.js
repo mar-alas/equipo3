@@ -1,9 +1,15 @@
 const { Given, When, Then} = require('@cucumber/cucumber');
 const expect = require('chai').expect;
+const fs = require("fs");
 
-const email_const="da.gamez97@gmail.com"
-const password_const="pPb8c@Jw0c4RyK1i"
-const url_base="http://localhost:2368/ghost"
+let credentials = JSON.parse(fs.readFileSync("./properties.json", "utf8"));
+const email_const = credentials.USERNAME;
+const password_const = credentials.PASSWORD;
+const url_base = credentials.URLBASE;
+
+// const email_const="da.gamez97@gmail.com"
+// const password_const="pPb8c@Jw0c4RyK1i"
+// const url_base="http://localhost:2368/ghost"
 
 When('I login to ghost', async function () {
   
@@ -11,7 +17,7 @@ When('I login to ghost', async function () {
   await element2.setValue(email_const);
 
   let element3 = await this.driver.$('#password');
-  await element3.setValue("pPb8c@Jw0c4RyK1i");
+  await element3.setValue(password_const);
   
   let element4 = await this.driver.$('#ember5');
   return await element4.click();
@@ -201,3 +207,49 @@ Then(
   }
   
 );
+
+// New tag
+
+Then("I click list tags", async function () {
+  let element = await this.driver.$('[data-test-nav="tags"]');
+  return await element.click();
+});
+
+Then("I click in new tag", async function () {
+  let element = await this.driver.$(".gh-btn-primary");
+  return await element.click();
+});
+
+Then('I write the title {string} of the tag', async function(title) {
+  let element = await this.driver.$("#tag-name");
+  return await element.setValue(title);
+});
+
+Then("I write the body {string} of the tag", async function (body) {
+  let element = await this.driver.$("#tag-description");
+  return await element.setValue(body);
+});
+
+Then('I click in publish my tag', async function() {
+  let button = await this.driver.$("button.ember-view");
+  return await button.click();
+});
+
+Then("I should have at least one tag with title {string}", async function (title) {
+
+  let link = await this.driver.$('[data-test-nav="tags"]');
+  const link_href = await link.getAttribute("href");
+  await this.driver.url(url_base + "/" + link_href);
+
+  let titulos = await this.driver.$$(".gh-tag-list-name");
+  let matchingElements = [];
+
+  for (const titulo of titulos) {
+    const text = await titulo.getText();
+    if (text === title) {
+      matchingElements.push(titulo);
+    }
+  }
+
+  expect(matchingElements.length).to.be.greaterThanOrEqual(1);
+});
