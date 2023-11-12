@@ -49,6 +49,15 @@ const crearTags = {
   writeMetaDescriptionOfTag: (metadescription) => {
     cy.get('#meta-description').type(metadescription);
   },
+  clickExpandXcard: () =>  {
+    cy.get('button.gh-btn-expand').eq(1).click();
+  },
+  writeXcardTitleOfTag: (xtitle) => {
+    cy.get('#twitter-title').type(xtitle);
+  },
+  writeXcardDescriptionOfTag: (xdescription) => {
+    cy.get('#twitter-description').type(xdescription);
+  },
   saveTag: () => {
     cy.get("button.ember-view").click();
   }
