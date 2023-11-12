@@ -41,7 +41,7 @@ When('I create a random post from dashboard with Title {string}', async function
   //da click en publicar post
   let button4 = await this.driver.$('[data-test-button="publish-flow"]');
   await button4.click();
-  
+    
   //da click en continuar en el final review 
   let button5 = await this.driver.$('[data-test-button="continue"]');
   await button5.click();
@@ -54,12 +54,12 @@ When('I create a random post from dashboard with Title {string}', async function
   let button7 = await this.driver.$('[data-test-button="back-to-editor"]');
   await button7.click();
   
-  //vuelve a los posts
+    //vuelve a los posts
   let link8 = await this.driver.$('[data-test-link="posts"]');
   const link8_href=await link8.getAttribute('href');
   await this.driver.url(url_base + "/" + link8_href); 
   
-  //vuelve al dashboard
+    //vuelve al dashboard
   let link9 = await this.driver.$('[data-test-nav="dashboard"]');
   const link9_href=await link9.getAttribute('href');
   return await this.driver.url(url_base + "/" + link9_href); 
@@ -142,6 +142,33 @@ Then('I should not have post with title {string}', async function (title) {
 
 });
 
+//function Then I should  have post with title "Titulo 2"
+Then('I should have post with title {string}', async function (title) {
+  //navegamos a los posts
+  let link = await this.driver.$('[data-test-nav="posts"]');
+  const link_href=await link.getAttribute('href');
+  await this.driver.url(url_base + "/" + link_href);
+
+  //wait for 2 seconds
+  await this.driver.pause(2000);
+
+  //seleccionamos los elementos [class="gh-content-entry-title"] cuyo contenido sea igual Titulo y damos click al pirmero
+  const elements = await this.driver.$$('[class="gh-content-entry-title"]');
+
+  let conteoElementos=0;
+
+  for (const element of elements) {
+    elementText = await element.getText();
+
+    if (elementText === title) {
+      //print to console elementText
+      conteoElementos++;
+    
+    }
+  }
+  //expect to be greater than 0
+  expect(conteoElementos).to.be.greaterThan(0);
+});
 
 
 When('I go to login', async function () {
