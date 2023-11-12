@@ -25,14 +25,14 @@ describe('Funcionalidad de autenticacion', () => {
 	crearPost.crearPost("PostPruebaEsc8_1");
 	
 	//Given I create post #2
-	crearPost.crearPost("PostPruebaEsc8_2");
+	crearPost.crearPost("PostPruebaEsc8_223112331412534");
 
   //Given I delete post #2
-	crearPost.eliminarPost("PostPruebaEsc8_2");
+	crearPost.eliminarPost("PostPruebaEsc8_223112331412534");
 
 	//Then the post #2 should not exist and post#1 should exist
   cy.wait(2000); 
-	crearPost.noExistePost("PostPruebaEsc8_2");
+  crearPost.noExistePost("PostPruebaEsc8_223112331412534");
   crearPost.existePost("PostPruebaEsc8_1");
 	  
 
