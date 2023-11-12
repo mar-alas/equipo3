@@ -30,7 +30,7 @@ When('I create a random post from dashboard with Title {string}', async function
   let element2 = await this.driver.$('.gh-editor-title.ember-text-area.gh-input.ember-view');
   await element2.setValue(title);
   
-  //se escribe el titulo del post
+  //se escribe el body del post
   let element3 = await this.driver.$('.kg-prose');
   await element3.setValue("BODY 1");
   
@@ -109,6 +109,61 @@ When('I delete post with Title {string}', async function (title) {
   await element4.click();
 
 });
+
+//When I edit post with Title "Titulo 700" with the content "ContenidoEditado"
+When('I edit post with Title {string} with the new title {string}', async function (title, content) {
+
+//navegamos a posts
+let link = await this.driver.$('[data-test-nav="posts"]');
+const link_href=await link.getAttribute('href');
+await this.driver.url(url_base + "/" + link_href);
+
+//wait for 2 seconds
+await this.driver.pause(2000);
+
+//seleccionamos los elementos [class="gh-content-entry-title"] cuyo contenido sea igual Titulo y damos click al pirmero
+const elements = await this.driver.$$('[class="gh-content-entry-title"]');
+
+let firstMatchingElement;
+
+for (const element of elements) {
+  elementText = await element.getText();
+
+  if (elementText === title) {
+    //print to console elementText
+    console.log("elementText " + elementText);
+
+    firstMatchingElement = element;
+    break; 
+  }
+}
+
+firstMatchingElement.click();
+//wait for 2 seconds
+await this.driver.pause(2000);
+
+//editamos el contenido usamos identificador data-lexical-text="true"
+// Find a specific `p` element or any other parent element
+const element2 = await this.driver.$('[placeholder="Post title"]');
+element2.setValue(content);
+
+//wait for 3 seconds
+await this.driver.pause(3000);
+
+
+
+//damos click en actualizar data-test-button="publish-save"
+let element3 = await this.driver.$('[data-test-button="publish-save"]');
+await element3.click();
+
+//nos devolemos a posts
+let link4 = await this.driver.$('[data-test-link="posts"]');
+const link4_href=await link4.getAttribute('href');
+await this.driver.url(url_base + "/" + link4_href);
+
+
+
+});  
 
 
 //function Then I should not have post with title "Titulo 2"
