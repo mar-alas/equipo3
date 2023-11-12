@@ -60,6 +60,84 @@ When('I create a random post from dashboard with Title {string}', async function
   
 });
 
+//When I delete post with Title "Titulo 2"
+When('I delete post with Title {string}', async function (title) {
+  //navegamos a posts
+  let link = await this.driver.$('[data-test-nav="posts"]');
+  const link_href=await link.getAttribute('href');
+  await this.driver.url(url_base + "/" + link_href);
+
+  //wait for 2 seconds
+  await this.driver.pause(2000);
+  
+  //seleccionamos los elementos [class="gh-content-entry-title"] cuyo contenido sea igual Titulo y damos click al pirmero
+  const elements = await this.driver.$$('[class="gh-content-entry-title"]');
+
+  let firstMatchingElement;
+
+  for (const element of elements) {
+    elementText = await element.getText();
+
+    if (elementText === title) {
+      //print to console elementText
+      console.log("elementText " + elementText);
+
+      firstMatchingElement = element;
+      break; 
+    }
+  }
+
+  firstMatchingElement.click();
+  //wait for 5 seconds
+  await this.driver.pause(5000);
+
+
+  //damos click en opciones del post .settings-menu-toggle > span'
+  let element2 = await this.driver.$('[class="settings-menu-toggle gh-btn gh-btn-editor gh-btn-icon icon-only gh-btn-action-icon"]');
+  element2.click();
+
+  //damos click en borrar .settings-menu-delete-button > .gh-btn > span
+  let element3 = await this.driver.$('[class="gh-btn gh-btn-outline gh-btn-icon gh-btn-fullwidth"]');
+  await element3.click();
+
+  //confirmamos el borrado [class="gh-btn gh-btn-red gh-btn-icon ember-view"]
+  let element4 = await this.driver.$('[class="gh-btn gh-btn-red gh-btn-icon ember-view"]');
+  await element4.click();
+
+});
+
+
+//function Then I should not have post with title "Titulo 2"
+Then('I should not have post with title {string}', async function (title) {
+  //navegamos a los posts
+  let link = await this.driver.$('[data-test-nav="posts"]');
+  const link_href=await link.getAttribute('href');
+  await this.driver.url(url_base + "/" + link_href);
+
+  //wait for 2 seconds
+  await this.driver.pause(2000);
+
+  //seleccionamos los elementos [class="gh-content-entry-title"] cuyo contenido sea igual Titulo y damos click al pirmero
+  const elements = await this.driver.$$('[class="gh-content-entry-title"]');
+
+  let conteoElementos=0;
+
+  for (const element of elements) {
+    elementText = await element.getText();
+
+    if (elementText === title) {
+      //print to console elementText
+      conteoElementos++;
+    
+    }
+  }
+
+  expect(conteoElementos).to.equal(0);
+
+});
+
+
+
 When('I go to login', async function () {
   let element = await this.driver.$('a[data-tracking-id="sign-in-top-bar"]');
   element.click();
