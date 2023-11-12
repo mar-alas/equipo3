@@ -208,7 +208,7 @@ Then(
   
 );
 
-// New tag
+// tags
 
 Then("I click list tags", async function () {
   let element = await this.driver.$('[data-test-nav="tags"]');
