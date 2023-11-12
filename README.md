@@ -7,8 +7,8 @@ Pruebas E2E - Semana 5 - Equipo 3
 
 ## Instrucciones para ejecución de escenarios de pruebas con Cypress:
 1. Descargue el repositorio en su equipo local utilizando el comando git clone. Esta carpeta local puede ser compartida entre Cypress y Kraken.
-2. Instale globalmente en su computador cypress version 13.4.0 de acuerdo con el tutorial del curso.
-3. Ingrese sus credenciales de administrador de ghost y la url de ghost en el archivo XXXXXXXXXXXXXXXXXXXXX. Una url tipica puede ser http://localhost:2368/ghost.
+2. Instale globalmente en su computador cypress version 13.4.0 de acuerdo con el tutorial del curso. La instancia de ghost debera estar sin contenido existente.
+3. En el folder llamado cypress, cree un archivo llamado 'cypress.env.json', tome como ejemplo el archivo 'cypress.env.example.json', en el cual tiene el formato esperado. Debe ingresar sus credenciales de administrador de ghost y la url de ghost, una url tipica puede ser http://localhost:2368/ghost.
 4. Para correr las pruebas vaya a la carpeta cypress del repositorio en el cmd y ejecute las pruebas con cypress run. Este comando le deberia correr las 20 pruebas y mostrar al final el reporte resumen de la corrida.
 5. Alternativamente puede usar el comando cypress open para correr las pruebas manualmente y ver su ejecución en vivo y en directo en la herramienta de cypress.
 
