@@ -15,11 +15,11 @@ describe('Funcionalidad de autenticacion', () => {
     loginPage.visit();
   });
 
-  it('Escenario 9 con exito', () => {
+  it('Login con exito', () => {
 
     // Given I log in in ghost
-    loginPage.fillEmail("da.gamez97@gmail.com");
-    loginPage.fillPassword("pPb8c@Jw0c4RyK1i");
+    loginPage.fillEmail(Cypress.env("username"));
+    loginPage.fillPassword(Cypress.env("password"));
     loginPage.submitLoginForm();
 	
 	//Given I create post #1
@@ -30,14 +30,14 @@ describe('Funcionalidad de autenticacion', () => {
   const post2 = randomText(10,12);
 	crearPost.crearPost(post2);
 
-  //Given I edit post #2
-	crearPost.editarPost(post2,"ContenidoEditado");
+  //Given I delete post #2
+	crearPost.eliminarPost(post2);
 
-	//Then the post #1 and #2 should exist and post#2 should have the new content
+	//Then the post #2 should not exist and post#1 should exist
   cy.wait(2000); 
+  crearPost.noExistePost(post2);
   crearPost.existePost(post1);
-  crearPost.existePost(post2);
-  crearPost.revisarContenidoPost(post2,"ContenidoEditado")  
+	  
 
     
   });

@@ -7,13 +7,16 @@ describe("Crear Tag Ghost", () => {
   });
 
   it("Login y creación de un tag", () => {
-    loginPage.fillEmail("ra.castro2@uniandes.edu.co"); 
-    loginPage.fillPassword("robert12345678");
+    // Given I log in in ghost
+    loginPage.fillEmail(Cypress.env("username"));
+    loginPage.fillPassword(Cypress.env("password"));
     loginPage.submitLoginForm();
     cy.url().should("include", "/dashboard");
 
+    //When I create a new tag
     crearTag.navegarATags();
     crearTag.crearTag("NombreDelTag", "DescripcionTag");
+    // Then I should have at least 1 tag of same title
     crearTag.validarTag("NombreDelTag");
   });
 });
