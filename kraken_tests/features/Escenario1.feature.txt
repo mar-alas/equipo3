@@ -2,7 +2,7 @@ Feature: PruebasE2EGhost
 
 @user1 @web
 Scenario: Escenario 1 - Creacion y validacion de un post 
-  Given I navigate to page "http://localhost:2369/ghost"
+  Given I navigate to ghost
   When I login to ghost
   And I wait for 2 seconds
   When I create a new post called "hola" with "Informacion de mi post hola" information

@@ -2,7 +2,7 @@ Feature: PruebasE2EGhost
 
 @user3 @web
 Scenario: Escenario 3 - Login 3 veces con contrasena y correo incorrecto, olvidar contrasena, login correcto
-Given I navigate to page "http://localhost:2369/ghost"
+Given I navigate to ghost
   When I enter email "invalid_email@uniandes.edu.co"
   When I enter password "invalid_pass"
   When I click login
@@ -17,10 +17,10 @@ Given I navigate to page "http://localhost:2369/ghost"
   Then I should get an error 'There is no user with that email address.'
   When I click forget
   Then I should get an error 'User not found.'
-  When I enter email "m.alas@uniandes.edu.co"
+  When I enter registered email
   When I click forget
   And I wait for 10 seconds
-  When I enter password "uhg!izUq.6_k*CZ"
+  When I enter registered password
   When I click login
   Then I should be on dashboard
   Then I click signout
