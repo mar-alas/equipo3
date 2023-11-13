@@ -293,9 +293,19 @@ When('I enter email {string}', async function (email) {
   return await element.setValue(email);
 });
 
+When('I enter registered email', async function () {
+  let element = await this.driver.$('#identification');
+  return await element.setValue(email_const);
+});
+
 When('I enter password {string}', async function (password) {
   let element = await this.driver.$('#password');
   return await element.setValue(password);
+});
+
+When('I enter registered password', async function () {
+  let element = await this.driver.$('#password');
+  return await element.setValue(password_const);
 });
 
 When('I click login', async function () {
@@ -309,8 +319,13 @@ When('I click forget', async function () {
 });
 
 Then('I should be on dashboard', async function () {
-  let element = await this.driver.$('.gh-canvas-title').isExisting();
-  expect(element).to.equal(true);
+  // let element = await this.driver.$('.gh-canvas-title').isExisting();
+  // expect(element).to.equal(true);
+  const assert = require('assert');
+  // Get the current URL
+  const currentUrl = await this.driver.getUrl();
+  // Expect the word 'dashboard' in the URL
+  expect(currentUrl).to.include('dashboard');
 });
 
 Then('I should get an error {string}', async function(message) {

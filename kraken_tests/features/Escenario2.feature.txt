@@ -10,6 +10,7 @@ Given I navigate to ghost
     When I click login
     Then I should get an error 'There is no user with that email address.'
     When I login to ghost
+    And I wait for 3 seconds
     Then I should be on dashboard
     When I click signout
     Then I should be in authentication page

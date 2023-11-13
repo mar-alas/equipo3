@@ -22,6 +22,7 @@ Given I navigate to ghost
   And I wait for 10 seconds
   When I enter registered password
   When I click login
+  And I wait for 3 seconds
   Then I should be on dashboard
   Then I click signout
   Then I should be in authentication page
