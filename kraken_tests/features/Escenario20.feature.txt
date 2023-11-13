@@ -1,13 +1,13 @@
 Feature: creacion page
 
-@user19 @web
-Scenario: Escenario 19 - Crear page distintas
-  Given I navigate to page "http://localhost:2368/ghost"
+@user20 @web
+Scenario: Escenario 20 - Crear page distintas
+  Given I navigate to ghost
   When I login to ghost
   And I wait for 2 seconds
-  When I create a page from dashboard with Title "Titulo 20-1"
-  When I create a page from dashboard with Title "Titulo 20-2"
-  When I create a page from dashboard with Title "Titulo 20-3"
+  When I create a random page from dashboard with Title "Titulo 20-1"
+  When I create a random page from dashboard with Title "Titulo 20-2"
+  When I create a random page from dashboard with Title "Titulo 20-3"
   
   Then I should have at least 1 pages with title "Titulo 20-1"
   Then I should have at least 1 pages with title "Titulo 20-2"

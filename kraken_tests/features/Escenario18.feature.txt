@@ -2,11 +2,11 @@ Feature: Crear pagina y eliminarla
 
 @user18 @web
 Scenario: Escenario 18 - Crear pagina , eliminarla y validar eliminacion
-  Given I navigate to page "http://localhost:2368/ghost"
+  Given I navigate to ghost
   When I login to ghost
   And I wait for 2 seconds
-  When I create a random page from dashboard with Title "Titulo 500"
+  When I create a random page from dashboard with Title "Titulo 500 asdasd"
 
-  When I delete page with Title "Titulo 500"
+  When I delete page with Title "Titulo 500 asdasd"
   
-  Then I should not have page with title "Titulo 500"
+  Then I should not have page with title "Titulo 500 asdasd"
