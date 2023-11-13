@@ -2,21 +2,12 @@ import loginPage from './authentication';
 import crearPost from './post';
 import randomText from './suppFunctions';
 
-
-//import properties
-
-//const config= require('./config.json');
-//import loginPage from './config.json';
-
-//const EMAIL= "da.gamez97@gmail.com";
-//const PASSWORD= "pPb8c@Jw0c4RyK1i";
-
-describe('Funcionalidad de autenticacion', () => {
+describe('Escenario 7', () => {
   beforeEach(() => {
     loginPage.visit();
   });
 
-  it('Login con exito', () => {
+  it('Crear post , eliminarlo y validar eliminacion', () => {
 
     // Given I log in in ghost
     loginPage.fillEmail(Cypress.env("username"));

@@ -3,12 +3,12 @@ import crearPost from './post';
 import randomText from './suppFunctions';
 
 
-describe('Funcionalidad de autenticacion', () => {
+describe('Escenario 6', () => {
   beforeEach(() => {
     loginPage.visit();
   });
 
-  it('Login con exito', () => {
+  it('Crear tres posts y validar su correcta creacion', () => {
 
     // Given I log in in ghost
     loginPage.fillEmail(Cypress.env("username"));

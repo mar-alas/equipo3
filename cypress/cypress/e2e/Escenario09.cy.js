@@ -10,12 +10,12 @@ import randomText from './suppFunctions';
 //const EMAIL= "da.gamez97@gmail.com";
 //const PASSWORD= "pPb8c@Jw0c4RyK1i";
 
-describe('Funcionalidad de autenticacion', () => {
+describe('Escenario 9', () => {
   beforeEach(() => {
     loginPage.visit();
   });
 
-  it('Escenario 9 con exito', () => {
+  it('Crear post 1, crear post 2, editar post 2, validar edicion ', () => {
 
     // Given I log in in ghost
     loginPage.fillEmail(Cypress.env("username"));
