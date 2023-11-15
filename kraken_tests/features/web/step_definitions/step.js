@@ -10,13 +10,14 @@ let credentials = JSON.parse(fs.readFileSync("./properties.json", "utf8"));
 const email_const = credentials.USERNAME;
 const password_const = credentials.PASSWORD;
 const url_base = credentials.URLBASE;
+numero_paso = 1
 
-// Function to take a screenshot with a custom filename
+// Funcion para tomar el screenshot
 async function takeScreenshot(driver) {
   const screenshot = await driver.takeScreenshot();
-  const currentDate = Date.now();
   const escenario = process.env.ESCENARIO || 'escenario';
-  const filename = 'screenshots/' + escenario + '/' + currentDate + '.png';
+  const filename = 'screenshots/' + escenario + '/paso' + numero_paso + '.png';
+  numero_paso = numero_paso + 1
   const directory = path.dirname(filename);
   if (!fs.existsSync(directory)) {
     fs.mkdirSync(directory, { recursive: true });
