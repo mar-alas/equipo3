@@ -32,13 +32,13 @@ Given('I navigate to ghost', async function () {
 
 When('I login to ghost', async function () {
   
-  let element2 = await this.driver.$('#identification');
+  let element2 = await this.driver.$('[name="identification"]');
   await element2.setValue(email_const);
 
-  let element3 = await this.driver.$('#password');
+  let element3 = await this.driver.$('[name="password"]');
   await element3.setValue(password_const);
   
-  let element4 = await this.driver.$('#ember5');
+  let element4 = await this.driver.$('[class="login gh-btn gh-btn-login gh-btn-block gh-btn-icon js-login-button ember-view"]');
   await takeScreenshot(this.driver, 'escribir credenciales');
   return await element4.click();
 
@@ -56,42 +56,46 @@ When('I create a random post from dashboard with Title {string}', async function
   await element2.setValue(title);
   
   //se escribe el body del post
-  let element3 = await this.driver.$('.kg-prose');
+  let element3 = await this.driver.$('[class="koenig-editor__editor __mobiledoc-editor __has-no-content"]');
+  await this.driver.pause(1000);
   await element3.setValue("BODY 1");
-
+  await this.driver.pause(1000);
   await takeScreenshot(this.driver, 'escribir titulo y body de post');
   
   //da click en publicar post
-  let button4 = await this.driver.$('[data-test-button="publish-flow"]');
+  let button4 = await this.driver.$('[class="gh-publishmenu ember-view"]');
   await button4.click();
+
 
   await this.driver.pause(2000);
   await takeScreenshot(this.driver, 'publicar el post');
+
+  
   
   //da click en continuar en el final review 
-  let button5 = await this.driver.$('[data-test-button="continue"]');
+  let button5 = await this.driver.$('[class="gh-btn gh-btn-black gh-publishmenu-button gh-btn-icon ember-view"]');
   await button5.click();
   await takeScreenshot(this.driver, 'continuar al final del review');
   
   //da click en confirmacion
-  let button6 = await this.driver.$('[data-test-button="confirm-publish"]');
+  let button6 = await this.driver.$('[class="gh-btn gh-btn-black gh-btn-icon ember-view"]');
   await button6.click();
   await takeScreenshot(this.driver, 'click en confirmacion');
   
   //vuelve al editor
-  let button7 = await this.driver.$('[data-test-button="back-to-editor"]');
-  await button7.waitForDisplayed();
-  await button7.click();
+  //let button7 = await this.driver.$('[data-test-button="back-to-editor"]');
+  //await button7.waitForDisplayed();
+  //await button7.click();
   await takeScreenshot(this.driver, 'volver al editor');
   
     //vuelve a los posts
-  let link8 = await this.driver.$('[data-test-link="posts"]');
+  let link8 = await this.driver.$('[class="ember-view gh-editor-back-button"]');
   const link8_href=await link8.getAttribute('href');
   await this.driver.url(url_base + "/" + link8_href); 
   await takeScreenshot(this.driver, 'volver a los posts');
   
     //vuelve al dashboard
-  let link9 = await this.driver.$('[data-test-nav="dashboard"]');
+  let link9 = await this.driver.$('[title="Dashboard"]');
   const link9_href=await link9.getAttribute('href');
   await this.driver.url(url_base + "/" + link9_href); 
   return await takeScreenshot(this.driver, 'volver al dashboard');
@@ -100,8 +104,8 @@ When('I create a random post from dashboard with Title {string}', async function
 
 //When I delete post with Title "Titulo 2"
 When('I delete post with Title {string}', async function (title) {
-  //navegamos a posts
-  let link = await this.driver.$('[data-test-nav="posts"]');
+  //navegamos a posts dando click al boton de la izquierda que dice posts
+  let link = await this.driver.$('[href="#/posts/"]');
   const link_href=await link.getAttribute('href');
   await this.driver.url(url_base + "/" + link_href);
 
@@ -138,7 +142,7 @@ When('I delete post with Title {string}', async function (title) {
   await takeScreenshot(this.driver, 'click en opciones del post');
 
   //damos click en borrar .settings-menu-delete-button > .gh-btn > span
-  let element3 = await this.driver.$('[class="gh-btn gh-btn-outline gh-btn-icon gh-btn-fullwidth"]');
+  let element3 = await this.driver.$('[class="gh-btn gh-btn-hover-red gh-btn-icon settings-menu-delete-button"]');
   await element3.click();
   await takeScreenshot(this.driver, 'click en borrar post');
 
@@ -210,7 +214,7 @@ await takeScreenshot(this.driver, 'volver a posts');
 //function Then I should not have post with title "Titulo 2"
 Then('I should not have post with title {string}', async function (title) {
   //navegamos a los posts
-  let link = await this.driver.$('[data-test-nav="posts"]');
+  let link = await this.driver.$('[href="#/posts/"]');
   const link_href=await link.getAttribute('href');
   await this.driver.url(url_base + "/" + link_href);
 
@@ -416,13 +420,27 @@ When('I create a new post called {string} with {string} information', async func
   element2 = await this.driver.$('.gh-editor-title.ember-text-area.gh-input.ember-view');
   await element2.setValue(title);
 
-  element3 = await this.driver.$('.kg-prose');
+  element3 = await this.driver.$('[data-kg="editor"]');
   await element3.setValue(body);
   await takeScreenshot(this.driver, 'agregar titulo y body');
 
-  let button = await this.driver.$('[data-test-button="publish-flow"]');
+  let button = await this.driver.$('[class="gh-publishmenu ember-view"]');
   await button.click();
   await takeScreenshot(this.driver, 'click en publicar');
+
+  //esperar 1 segundo
+  await this.driver.pause(1000);
+  
+  let button2 = await this.driver.$('[class="gh-btn gh-btn-black gh-publishmenu-button gh-btn-icon ember-view"]');
+  await button2.click();
+
+  //esperar 1 segundo
+  await this.driver.pause(1000);
+
+  let button3 = await this.driver.$('[class="gh-btn gh-btn-black gh-btn-icon ember-view"]');
+  await button3.click();
+
+
 });
 
 When('I schedule the post to {string}', async function(date) {
@@ -504,7 +522,8 @@ When('I finish the publication of my post', async function() {
 });
 
 When('I go to posts', async function() {
-  let link = await this.driver.$('[data-test-nav="posts"]');
+  //se da click en el boton de posts del menu de la izquierda
+  let link = await this.driver.$('[href="#/posts/"]');
   const link_href=await link.getAttribute('href');
   await this.driver.url(url_base + "/" + link_href);
   await takeScreenshot(this.driver, 'ir a los posts');
@@ -520,12 +539,13 @@ When('I go to pages', async function() {
 Then(
   "I should have at least {int} post with title {string}",
   async function (number,title) {
-    //navegamos a los posts
-    let link = await this.driver.$('[data-test-nav="posts"]');
+    //navegamos a los posts dando click en post en el menu de la izquierda
+    let link = await this.driver.$('[href="#/posts/"]');
     const link_href=await link.getAttribute('href');
     await this.driver.url(url_base + "/" + link_href); 
     await takeScreenshot(this.driver, 'ver los posts');    
     
+    // recorremos los h3 que contienen los titulos
     let titulos = await this.driver.$$('[class="gh-content-entry-title"]');
     //let titulos = await this.driver.$$('h3');
 
