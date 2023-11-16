@@ -1,0 +1,23 @@
+Feature: Creación Tag
+
+@user13 @web
+Scenario: Escenario 13 - Creacion de tag y asignación de metadatos
+  Given I navigate to ghost
+  And I wait for 5 seconds
+  When I login to ghost
+  And I wait for 2 seconds
+  When I create a random tag from dashboard with Title "Tag 1"
+  And I wait for 7 seconds
+  Then I click list tags
+  And I wait for 7 seconds
+  Then I edit tag with Title "Tag 1"
+  Then I click expand metadata
+  And I wait for 7 seconds
+  Then I write the metatitle 'Informacion del tag' of the tag
+  Then I write the metadrescription 'Informacion del tag' of the tag
+  And I wait for 3 seconds
+  Then I click in publish my tag
+  And I wait for 3 seconds
+  And I wait for 9 seconds
+
+

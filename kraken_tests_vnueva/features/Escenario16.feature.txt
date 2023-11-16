@@ -1,0 +1,11 @@
+Feature: creacion page
+
+@user16 @web
+Scenario: Escenario 16 - Crear page
+  Given I navigate to ghost
+  When I login to ghost
+  And I wait for 2 seconds
+  
+  When I create a random page from dashboard with Title "Titulo 16"
+  
+  Then I should have at least 1 pages with title "Titulo 16"
