@@ -1004,3 +1004,48 @@ When('I edit page with Title {string} with the new title {string}', async functi
     }
     
   );
+
+  //when i delete content
+  Given('I delete all content from ghost', async function () {
+    
+    //hacemos login
+    await this.driver.$('[name="identification"]').setValue(email_const);
+    await this.driver.$('[name="password"]').setValue(password_const);
+    await this.driver.$('[class="login gh-btn gh-btn-login gh-btn-block gh-btn-icon js-login-button ember-view"]').click();
+    
+    //navegamos al dashboard
+    let link = await this.driver.$('[href="#/dashboard/"]');
+    const link_href=await link.getAttribute('href');
+    await this.driver.url(url_base + "/" + link_href); 
+
+    //vamos a settings
+    await this.driver.$('[href="#/settings/"]').click();
+    await this.driver.pause(1000);
+
+    //vamos a labs
+    await this.driver.$('[href="#/settings/labs/"]').click();
+    await this.driver.pause(1000);
+
+    //damos click en borrar
+    await this.driver.$('[class="gh-btn gh-btn-red js-delete"]').click();
+    await this.driver.pause(1000);
+
+     //damos click en borrar en la ventana emergente
+     await this.driver.$('[class="gh-btn gh-btn-red gh-btn-icon ember-view"]').click();
+     await this.driver.pause(1000);
+
+    //navegamos al dashboard
+    await this.driver.url(url_base + "/" + link_href); 
+
+    //hacemos logout
+    let dropdown = await this.driver.$(".w3.mr1.fill-darkgrey");
+    await dropdown.click();
+    let signOutLink = await this.driver.$(".dropdown-item.user-menu-signout");
+    await signOutLink.waitForClickable({
+      timeout: 10000,
+      timeoutMsg: "Sign out link is not clickable after waiting.",
+    });
+
+    await signOutLink.click();
+
+  });
