@@ -243,7 +243,7 @@ Then('I should not have post with title {string}', async function (title) {
 
 Then('I should not have page with title {string}', async function (title) {
   //navegamos a los posts
-  let link = await this.driver.$('[data-test-nav="pages"]');
+  let link = await this.driver.$('[href="#/pages/"]');
   const link_href=await link.getAttribute('href');
   await this.driver.url(url_base + "/" + link_href);
 
@@ -273,7 +273,7 @@ Then('I should not have page with title {string}', async function (title) {
 //function Then I should  have post with title "Titulo 2"
 Then('I should have post with title {string}', async function (title) {
   //navegamos a los posts
-  let link = await this.driver.$('[data-test-nav="posts"]');
+  let link = await this.driver.$('[href="#/posts/"]');
   const link_href=await link.getAttribute('href');
   await this.driver.url(url_base + "/" + link_href);
 
@@ -300,8 +300,8 @@ Then('I should have post with title {string}', async function (title) {
 });
 
 Then('I should have page with title {string}', async function (title) {
-  //navegamos a los posts
-  let link = await this.driver.$('[data-test-nav="pages"]');
+  //navegamos a las pages
+  let link = await this.driver.$('[href="#/pages/"]');
   const link_href=await link.getAttribute('href');
   await this.driver.url(url_base + "/" + link_href);
 
@@ -772,57 +772,60 @@ When("I delete tag with Title {string}", async function (title) {
 
 // pages
 When("I create a random page from dashboard with Title {string}", async function (title) {
-  let link_pages1 = await this.driver.$('[data-test-nav="pages"]');
+  //ir a las paginas haciendo click en el boton de la izquierda
+  let link_pages1 = await this.driver.$('[href="#/pages/"]');
   const linkpages1_href = await link_pages1.getAttribute("href");
   await this.driver.url(url_base + "/" + linkpages1_href);
 
   await this.driver.pause(2000);
   await takeScreenshot(this.driver, 'ir a las paginas');
 
+  //dar click en new page en la pagina de arriba
   let btnNewPage = await this.driver.$(".ember-view.gh-btn.gh-btn-primary.view-actions-top-row");
   await btnNewPage.click();
   await takeScreenshot(this.driver, 'crear una nueva pagina');
 
+  //poner el titulo de la pagina
   let titlePage = await this.driver.$(".gh-editor-title.ember-text-area.gh-input.ember-view");
   await titlePage.setValue(title);
 
   //se escribe el body del page
-  let element3 = await this.driver.$('.kg-prose');
+  let element3 = await this.driver.$('[data-kg="editor"]');
   await element3.setValue("Contenido");
   await takeScreenshot(this.driver, 'agregarle titulo y body');
   
   //da click en publicar page
-  let button4 = await this.driver.$('[data-test-button="publish-flow"]');
+  let button4 = await this.driver.$('[class="gh-publishmenu ember-view"]');
   await button4.click();
 
   await this.driver.pause(2000);
   await takeScreenshot(this.driver, 'click en publicar la pagina');
   
   //da click en continuar en el final review 
-  let button5 = await this.driver.$('[data-test-button="continue"]');
+  let button5 = await this.driver.$('[class="gh-btn gh-btn-black gh-publishmenu-button gh-btn-icon ember-view"]');
   await button5.click();
   await takeScreenshot(this.driver, 'continuar al review');
   
   //da click en confirmacion
-  let button6 = await this.driver.$('[data-test-button="confirm-publish"]');
-  await button6.click();
+  //let button6 = await this.driver.$('[data-test-button="confirm-publish"]');
+  //await button6.click();
   await takeScreenshot(this.driver, 'confirmar la publicacion');
   
   await this.driver.pause(2000);
   //vuelve al editor
-  let button7 = await this.driver.$('[data-test-button="back-to-editor"]');
-  await button7.waitForDisplayed();
-  await button7.click();
+  //let button7 = await this.driver.$('[data-test-button="back-to-editor"]');
+  //await button7.waitForDisplayed();
+  //await button7.click();
   await takeScreenshot(this.driver, 'volver al editor');
   
     //vuelve a los pages
-  let link8 = await this.driver.$('[data-test-link="pages"]');
+  let link8 = await this.driver.$('[href="#/pages/"]');
   const link8_href=await link8.getAttribute('href');
   await this.driver.url(url_base + "/" + link8_href);
   await takeScreenshot(this.driver, 'ir a las paginas');
   
     //vuelve al dashboard
-  let link9 = await this.driver.$('[data-test-nav="dashboard"]');
+  let link9 = await this.driver.$('[href="#/dashboard/"]');
   const link9_href=await link9.getAttribute('href');
   await this.driver.url(url_base + "/" + link9_href);
   await takeScreenshot(this.driver, 'ir al dashboard');
@@ -833,7 +836,7 @@ When("I create a random page from dashboard with Title {string}", async function
 When('I edit page with Title {string} with the new title {string}', async function (title, content) {
 
   //navegamos a pages
-  let link = await this.driver.$('[data-test-nav="pages"]');
+  let link = await this.driver.$('[href="#/pages/"]');
   const link_href=await link.getAttribute('href');
   await this.driver.url(url_base + "/" + link_href);
   
@@ -872,18 +875,26 @@ When('I edit page with Title {string} with the new title {string}', async functi
   await this.driver.pause(3000);
   await takeScreenshot(this.driver, 'editar el contenido de la pagina');
   
-  let element3 = await this.driver.$('[data-test-button="publish-save"]');
+  let element3 = await this.driver.$('[class="gh-publishmenu ember-view"]');
   await element3.click();
   await takeScreenshot(this.driver, 'publicar la pagina');
 
-  //vuelve a los posts
-  let link8 = await this.driver.$('[data-test-link="pages"]');
+  //termina de dar click en publicar
+  let element4 = await this.driver.$('[class="gh-btn gh-btn-black gh-publishmenu-button gh-btn-icon ember-view"]');
+  await element4.click();
+  
+
+  
+
+
+  //vuelve a las paginas
+  let link8 = await this.driver.$('[href="#/pages/"]');
   const link8_href=await link8.getAttribute('href');
   await this.driver.url(url_base + "/" + link8_href);
   await takeScreenshot(this.driver, 'ir a los posts');
 
   //vuelve al dashboard
-  let link9 = await this.driver.$('[data-test-nav="dashboard"]');
+  let link9 = await this.driver.$('[href="#/dashboard/"]');
   const link9_href=await link9.getAttribute('href');
   await this.driver.url(url_base + "/" + link9_href);
   await takeScreenshot(this.driver, 'ir al dashboard');
@@ -893,7 +904,7 @@ When('I edit page with Title {string} with the new title {string}', async functi
   
   When('I delete page with Title {string}', async function (title) {
     //navegamos a posts
-    let link = await this.driver.$('[data-test-nav="pages"]');
+    let link = await this.driver.$('[href="#/pages/"]');
     const link_href=await link.getAttribute('href');
     await this.driver.url(url_base + "/" + link_href);
   
@@ -926,7 +937,7 @@ When('I edit page with Title {string} with the new title {string}', async functi
     await takeScreenshot(this.driver, 'click en opciones del post');
   
     //damos click en borrar .settings-menu-delete-button > .gh-btn > span
-    let element3 = await this.driver.$('[class="gh-btn gh-btn-outline gh-btn-icon gh-btn-fullwidth"]');
+    let element3 = await this.driver.$('[class="gh-btn gh-btn-hover-red gh-btn-icon settings-menu-delete-button"]');
     await element3.click();
     await takeScreenshot(this.driver, 'click en borrar');
   
@@ -942,7 +953,7 @@ When('I edit page with Title {string} with the new title {string}', async functi
     "I should have at least {int} pages with title {string}",
     async function (number,title) {
       //navegamos a los pages
-      let link = await this.driver.$('[data-test-nav="pages"]');
+      let link = await this.driver.$('[href="#/pages/"]');
       const link_href=await link.getAttribute('href');
       await this.driver.url(url_base + "/" + link_href); 
       

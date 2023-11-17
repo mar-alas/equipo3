@@ -5,32 +5,30 @@
 :: Define the function
 :process_files
 setlocal EnableDelayedExpansion
-set index=7
-set end=8
+
+:: en la siguiente lista se ponen los escenarios que se desean correr
+set indices=16 17 18
 
 :: Change directory to features
 cd features
 
-:loop
-if %index% lss %end% (
+
+for %%i in (%indices%) do (
+    set index=%%i
     echo ------------------------------------ESCENARIO!index!------------------------------------
     set file=Escenario!index!.feature.txt
-	echo file: !file!
+    echo file: !file!
     REM Remove the last 4 characters
-	set filename=!file:~0,-4!
-	echo filename: !filename!
-	
-	ren  "!file!" "!filename!"
-	
+    set filename=!file:~0,-4!
+    echo filename: !filename!
+
+    ren "!file!" "!filename!"
+
     set ESCENARIO=escenario!index!
     cd ..
     call npx kraken-node run
     cd features
-    ren  "!filename!" "!file!"
-
-    :: Increment index
-    set /a index+=1
-    goto :loop
+    ren "!filename!" "!file!"
 )
 endlocal
 exit /b
