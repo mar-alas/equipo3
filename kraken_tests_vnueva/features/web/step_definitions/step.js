@@ -72,9 +72,9 @@ When('I create a random post from dashboard with Title {string}', async function
   
   //se escribe el body del post
   let element3 = await this.driver.$('[class="koenig-editor__editor __mobiledoc-editor __has-no-content"]');
-  await this.driver.pause(1000);
+  await this.driver.pause(2000);
   await element3.setValue("BODY 1");
-  await this.driver.pause(1000);
+  await this.driver.pause(2000);
   await takeScreenshot(this.driver, 'escribir titulo y body de post');
   
   //da click en publicar post
