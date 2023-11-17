@@ -7,7 +7,7 @@
 setlocal EnableDelayedExpansion
 
 :: en la siguiente lista se ponen los escenarios que se desean correr
-set indices=16 17 18
+set indices= 2 6 7 8 9 10 12 16 17 18
 
 :: Change directory to features
 cd features

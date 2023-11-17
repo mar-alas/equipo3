@@ -44,6 +44,21 @@ When('I login to ghost', async function () {
 
 });
 
+When('I login to ghost after error', async function () {
+  
+  let element2 = await this.driver.$('[name="identification"]');
+  await element2.setValue(email_const);
+
+  let element3 = await this.driver.$('[name="password"]');
+  await element3.setValue(password_const);
+  
+  let element4 = await this.driver.$('[class="login gh-btn gh-btn-login gh-btn-block gh-btn-icon js-login-button gh-btn-red ember-view"]');
+  await takeScreenshot(this.driver, 'escribir credenciales');
+  return await element4.click();
+
+});
+
+
 //funcion que estando en el dashboard de ghost crea un nuevo post
 When('I create a random post from dashboard with Title {string}', async function (title) {
   
@@ -157,7 +172,7 @@ When('I delete post with Title {string}', async function (title) {
 When('I edit post with Title {string} with the new title {string}', async function (title, content) {
 
 //navegamos a posts
-let link = await this.driver.$('[data-test-nav="posts"]');
+let link = await this.driver.$('[href="#/posts/"]');
 const link_href=await link.getAttribute('href');
 await this.driver.url(url_base + "/" + link_href);
 
@@ -198,12 +213,18 @@ await takeScreenshot(this.driver, 'editar el elemento');
 
 
 //damos click en actualizar data-test-button="publish-save"
-let element3 = await this.driver.$('[data-test-button="publish-save"]');
+let element3 = await this.driver.$('[class="gh-publishmenu ember-view"]');
 await element3.click();
 await takeScreenshot(this.driver, 'click en actualizar elemento');
 
+await this.driver.pause(2000);
+
+let element4 = await this.driver.$('[class="gh-btn gh-btn-black gh-publishmenu-button gh-btn-icon ember-view"]');
+await element4.click();
+
+
 //nos devolemos a posts
-let link4 = await this.driver.$('[data-test-link="posts"]');
+let link4 = await this.driver.$('[href="#/posts/"]');
 const link4_href=await link4.getAttribute('href');
 await this.driver.url(url_base + "/" + link4_href);
 await takeScreenshot(this.driver, 'volver a posts');
@@ -335,25 +356,25 @@ When('I go to login', async function () {
 });
 
 When('I enter email {string}', async function (email) {
-  let element = await this.driver.$('#identification');
+  let element = await this.driver.$('[name="identification"]');
   await element.setValue(email);
   await takeScreenshot(this.driver, 'agregar usuario');
 });
 
 When('I enter registered email', async function () {
-  let element = await this.driver.$('#identification');
+  let element = await this.driver.$('[name="identification"]');
   await element.setValue(email_const);
   await takeScreenshot(this.driver, 'agregar usuario registrado');
 });
 
 When('I enter password {string}', async function (password) {
-  let element = await this.driver.$('#password');
+  let element = await this.driver.$('[name="password"]');
   await element.setValue(password);
   await takeScreenshot(this.driver, 'agregar contraseña');
 });
 
 When('I enter registered password', async function () {
-  let element = await this.driver.$('#password');
+  let element = await this.driver.$('[name="password"]');
   await element.setValue(password_const);
   await takeScreenshot(this.driver, 'agregar contrasena registrada');
 });
@@ -602,7 +623,7 @@ Then('I click in publish my tag', async function() {
 
 Then("I should have at least 1 tag with title {string}", async function (title) {
 
-  let link = await this.driver.$('[data-test-nav="tags"]');
+  let link = await this.driver.$('[href="#/tags/"]');
   const link_href = await link.getAttribute("href");
   this.driver.url(url_base + "/" + link_href);
   await takeScreenshot(this.driver, 'ver tags');
@@ -621,13 +642,14 @@ Then("I should have at least 1 tag with title {string}", async function (title) 
 });
 
 When("I create a random tag from dashboard with Title {string}", async function (title) {
-  let link8 = await this.driver.$('[data-test-nav="tags"]');
+  let link8 = await this.driver.$('[href="#/tags/"]');
   const link8_href = await link8.getAttribute("href");
   await this.driver.url(url_base + "/" + link8_href);
 
   await this.driver.pause(2000);
   await takeScreenshot(this.driver, 'ir a tags');
 
+  //nuevo tag
   let btnNewTag = await this.driver.$(".gh-btn-primary");
   await btnNewTag.click();
   await takeScreenshot(this.driver, 'crear un tag');
@@ -643,7 +665,7 @@ When("I create a random tag from dashboard with Title {string}", async function 
   await publicarTag.click();
   await takeScreenshot(this.driver, 'publicar tag');
 
-  let link9 = await this.driver.$('[data-test-nav="dashboard"]');
+  let link9 = await this.driver.$('[href="#/dashboard/"]');
   const link9_href = await link9.getAttribute("href");
   await this.driver.url(url_base + "/" + link9_href);
   await takeScreenshot(this.driver, 'ir al dashboard');
