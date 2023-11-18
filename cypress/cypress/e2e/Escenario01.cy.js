@@ -3,7 +3,7 @@ import crearPost from './post';
 
 const NOMBRE_ESCENARIO = 'Escenario 1 -- Paso ';
 
-describe(NOMBRE_ESCENARIO, () => {
+describe('Escenario 1', () => {
   beforeEach(() => {
     loginPage.visit();
   });
