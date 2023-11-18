@@ -5,6 +5,7 @@ const NOMBRE_ESCENARIO = 'Escenario 2 -- Paso ';
 describe('Escenario 2', () => {
   beforeEach(() => {
     loginPage.visit();
+    cy.screenshot(NOMBRE_ESCENARIO + '0_visit');
   });
 
   it('Login sin datos, login con email no registrado, login con exito', () => {
