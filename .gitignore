@@ -1,5 +1,7 @@
 **/node_modules/
 **/.kraken/
-**/reports/
+**/reports/*
 **/properties.json
 **/cypress.env.json
+
+!**/resemblejs/reports/report.html
