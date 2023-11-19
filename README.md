@@ -1,9 +1,10 @@
 # equipo3
 Pruebas E2E - Semana 5 - Equipo 3
 
-* En este repositorio va a encontrar dos carpetas. La carpeta "cypress" para ejecutar los escenarios de pruebas en cypress y la carpeta kraken-tests para los escenarios de prueba en kraken. 
+* En este repositorio va a encontrar tres carpetas para la ejecución de pruebas. La carpeta "cypress" para ejecutar los escenarios de pruebas en cypress con ghost 5.73.2, la carpeta "kraken_tests_ghost_vanterior_5_73_2" para los escenarios de prueba en kraken para ghost version 5.73.2 y la carpeta "kraken_tests_ghost_vnueva_4_72_2" con 10 escenarios ajustados para correr con ghost versión 4.72.2.  
 * Los escenerios de prueba se describen en la wiki.
-* Las pruebas se realizaron con Ghost version 5.72.2 en el equipo local por lo que esta es la versión que se debe utilizar. Para correr las pruebas debe tener ghost corriendo y funcionando en su equipo local con el comando ghost start tal y como enseñaron en el tutorial del curso. Además se deben ejecutar en Windows 11.
+* Las pruebas se realizaron con Ghost version 5.72.2 t ghost 4.72.2 en el equipo local segun la carpeta como se explicó anteriormente. Para correr las pruebas debe tener ghost corriendo y funcionando en su equipo local con el comando ghost start tal y como enseñaron en el tutorial del curso. Además se recomienda ejecutar en Windows 11 que es donde fueron principalmente ejecutadas las herramientas.
+* Adicionalmente hay dos carpetas para correr pruebas de regresion visual (VRT). Estas son las carpetas "backstopjs" y la carpeta "resemblejs". Estas carpetas corren un reprote de pruebas comparando los 10 escenarios que se corren en la carpeta "kraken_tests_ghost_vnueva_4_72_2" versus los mismos 10 escenarios encontrados en la carpeta "kraken_tests_ghost_vanterior_5_73_2"
 
 ## Instrucciones para ejecución de escenarios de pruebas con Cypress:
 1. Descargue el repositorio en su equipo local utilizando el comando git clone. Esta carpeta local puede ser compartida entre Cypress y Kraken.
