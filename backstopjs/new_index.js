@@ -1,10 +1,13 @@
 const fileSystem = require('fs');
 const { exec } = require("child_process");
 const browserOpen = require('open');
+const path = require('path');
 const currentDateTime = new Date().toISOString().replace(/:/g,".");
 
-const pathToOriginal = './ghost_4_72_2';
-const pathToReference = './ghost_5_73_2';
+const pathToOriginal = path.join(__dirname, '..', 'kraken_tests_ghost_vnueva_4_72_2', 'screenshots');
+const pathToReference = path.join(__dirname, '..', 'kraken_tests_ghost_vanterior_5_73_2', 'screenshots');
+
+console.log('pathToOriginalXX', pathToOriginal);
 
 function readAndProcessConfig() {
     fileSystem.readFile('backstop-config.json', 'utf8', (error, data) => {
@@ -15,7 +18,7 @@ function readAndProcessConfig() {
         if (pathToOriginal && pathToReference) {
             generateTestConfigurations(JSON.parse(data));
         } else {
-            console.error('xError');
+            console.error('Error');
         }
     });
 }
@@ -23,12 +26,12 @@ function readAndProcessConfig() {
 setTimeout(readAndProcessConfig, 1000);
 
 function generateTestConfigurations(baseConfig) {
-    const originalScenarios = fileSystem.readdirSync(`./${pathToOriginal}`);
+    const originalScenarios = fileSystem.readdirSync(`${pathToOriginal}`);
     const referenceConfig = baseConfig;
     const testConfig = JSON.parse(JSON.stringify(baseConfig));
   
     originalScenarios.forEach(scenario => {
-      const steps = fileSystem.readdirSync(`./${pathToReference}/${scenario}`);
+      const steps = fileSystem.readdirSync(`${pathToReference}/${scenario}`);
       steps.forEach(step => {
         appendScenarioToConfig(referenceConfig, scenario, step, pathToOriginal);
         appendScenarioToConfig(testConfig, scenario, step, pathToReference);
