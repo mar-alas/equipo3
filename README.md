@@ -37,13 +37,13 @@ Pruebas E2E - Semana 5 - Equipo 3
 
 
 ## Instrucciones para ejecutar reportes con resemblejs:
-1. Ingrese a la carpeta de resemblejs y ejecute el siguiente comando <npm install>
-2. En la carpeta de resemblejs ejecute el siguiente comando <node index.js>
+1. Ingrese a la carpeta de resemblejs y ejecute el siguiente comando: npm install
+2. En la carpeta de resemblejs ejecute el siguiente comando: node index.js
 3. Ingrese a la carpeta de repots y abra el archivo report.html con algun browser. (ruta seria equipo03/resemblejs/reports/report.html)
 
 ## Instrucciones para ejecutar los escenarios con backstopjs:
-1. Instalar backstopjs con el siguiente comando <npm install -g backstopjs>
-2. Ingrese a la carpeta backstopjs y ejecute el siguiente comando <npm install>
+1. Instalar backstopjs con el siguiente comando: npm install -g backstopjs
+2. Ingrese a la carpeta backstopjs y ejecute el siguiente comando: npm install
 3. Se abrira un browser con el reporte
 
 ## Integrantes del equipo:
