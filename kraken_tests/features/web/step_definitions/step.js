@@ -948,6 +948,53 @@ When('I edit page with Title {string} with the new title {string}', async functi
       }
       // assert
       expect(matchingElements.length).to.be.greaterThanOrEqual(number);
-    }
+    });
+
+      //when i delete content
+  Given('I delete all content from ghost', async function () {
     
-  );
+    //hacemos login
+    let element2 = await this.driver.$('#identification');
+    await element2.setValue(email_const);
+  
+    let element3 = await this.driver.$('#password');
+    await element3.setValue(password_const);
+    
+    let element4 = await this.driver.$('#ember5');
+    await element4.click();
+   
+    //navegamos al dashboard
+    let link = await this.driver.$('[href="#/dashboard/"]');
+    const link_href=await link.getAttribute('href');
+    await this.driver.url(url_base + "/" + link_href); 
+
+    //vamos a settings
+    await this.driver.$('[href="#/settings/"]').click();
+    await this.driver.pause(1000);
+
+    //vamos a labs
+    await this.driver.$('button=Open').click();
+    await this.driver.pause(1000);
+
+    //damos click en borrar
+    await this.driver.$('button=Delete').click();
+    await this.driver.pause(1000);
+
+     //damos click en borrar en la ventana emergente
+     await this.driver.$('button=Delete').click();
+     await this.driver.pause(1000);
+
+    //navegamos al dashboard
+    await this.driver.url(url_base + "/" + link_href); 
+
+    //hacemos logout
+    let dropdown = await this.driver.$('.w3.mr1.fill-darkgrey');
+    await dropdown.click();
+    let signOutLink = await this.driver.$('.dropdown-item.user-menu-signout');
+    await signOutLink.waitForClickable({
+      timeout: 10000,
+      timeoutMsg: 'Sign out link is not clickable after waiting.',
+    });
+  
+    await signOutLink.click();
+  });

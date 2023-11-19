@@ -3,6 +3,7 @@ Feature: Creación Tag
 @user15 @web
 Scenario: Escenario 15 - Creacion de tag y asignación de facebook-card y eliminación
   Given I navigate to ghost
+  Given I delete all content from ghost
   And I wait for 5 seconds
   When I login to ghost
   And I wait for 2 seconds

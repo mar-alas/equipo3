@@ -3,6 +3,7 @@ Feature: PruebasE2EGhost
 @user5 @web
 Scenario: Escenario 5 - Creacion post programado, validar creacion programada
   Given I navigate to ghost
+  Given I delete all content from ghost
   When I login to ghost
   And I wait for 2 seconds
   When I create a new post called "Post Programado" with "Informacion de mi post programado" information

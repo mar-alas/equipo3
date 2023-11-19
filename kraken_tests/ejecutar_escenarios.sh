@@ -22,9 +22,6 @@ process_files() {
     cd features/
     mv "$filename" "$filename.txt"
 
-    # idealmente encontrar una forma decente de limpiar la instancia, esto es lo q hay por ahora
-    # curl 'http://localhost:2368/ghost/api/admin/db/' -X DELETE -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/119.0' -H 'Accept: */*' -H 'Accept-Language: en-US,en;q=0.5' -H 'Accept-Encoding: gzip, deflate, br' -H 'Referer: http://localhost:2368/ghost/' -H 'app-pragma: no-cache' -H 'x-ghost-version: 5.73' -H 'Origin: http://localhost:2368' -H 'Connection: keep-alive' -H 'Cookie: ghost-admin-api-session=s%3AKhPr4ry7-wRI3wNsvidsz1Y-5tmFtAOe.QtdB2ZEh9RHQFPeyyfBl2h7OMmfRTsXONaj1QguivKY' -H 'Sec-Fetch-Dest: empty' -H 'Sec-Fetch-Mode: cors' -H 'Sec-Fetch-Site: same-origin'
-    
     ((index++))
     done
 }

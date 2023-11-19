@@ -3,6 +3,7 @@ Feature: Creación Tag
 @user11 @web
 Scenario: Escenario 11 - Creacion de un tag exitoso
   Given I navigate to ghost
+  Given I delete all content from ghost
   When I login to ghost
   And I wait for 2 seconds
   Then I click list tags

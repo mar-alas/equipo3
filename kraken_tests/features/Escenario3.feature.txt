@@ -2,7 +2,8 @@ Feature: PruebasE2EGhost
 
 @user3 @web
 Scenario: Escenario 3 - Login 3 veces con contrasena y correo incorrecto, olvidar contrasena, login correcto
-Given I navigate to ghost
+  Given I navigate to ghost
+  Given I delete all content from ghost
   When I enter email "invalid_email@uniandes.edu.co"
   When I enter password "invalid_pass"
   When I click login

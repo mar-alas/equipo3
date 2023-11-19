@@ -3,6 +3,7 @@ Feature: PruebasE2EGhost
 @user4 @web
 Scenario: Escenario 4 - Hacer login , crear post, crear tag,  validar post, validar tag
   Given I navigate to ghost
+  Given I delete all content from ghost
   When I login to ghost
   And I wait for 2 seconds
   When I create a new post called "Posts & Tags" with "Informacion de mi post" information
