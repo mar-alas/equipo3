@@ -19,6 +19,10 @@ Pruebas E2E - Semana 5 - Equipo 3
 4. Se debe modificar un archivo llamado properties.json que se encuentra en la carpeta kraken_tests el cual debe especificar las credenciales de administrador de Ghost y la URL en la que Ghost esta corriendo.
 5. Sobre la carpeta de kraken-tests corra el comando "npx kraken-node run" para correr el archivo .feature habilitado con todas las pruebas. Alternativamente va a encontrar un archivo Escenario{n}.feature.txt en la carpeta features por cada escenario. Si desea correr un escenario individual puede remover el .txt del archivo del escenario deseado cerciorandose que este archivo sea el unico .features en la carpeta features y finalmente corriendo el comando "npx kraken-node run" sobre la carpeta "kraken-tests".
 
+## Instrucciones para ejecutar reportes con resemble:
+COMO CORRER 
+## Instrucciones para ejecutar los escenarios con backstop:
+COMO CORRER 
 
 ## Integrantes del equipo:
 - Maria Alas - m.alas@uniandes.edu.co
