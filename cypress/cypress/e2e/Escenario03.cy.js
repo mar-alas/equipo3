@@ -1,6 +1,7 @@
 import loginPage from './authentication';
 
 const NOMBRE_ESCENARIO = 'Escenario 3 -- Paso ';
+const TWO_SECONDS = 2000;
 
 describe('Escenario 3', () => {
   beforeEach(() => {
@@ -17,6 +18,7 @@ describe('Escenario 3', () => {
     cy.screenshot(NOMBRE_ESCENARIO + '2_fillPassword');
 
     loginPage.submitLoginForm();
+    cy.wait(TWO_SECONDS);
     cy.screenshot(NOMBRE_ESCENARIO + '3_submitLoginForm');
 
     // Then I should get an error 'There is no user with that email address.'
@@ -31,6 +33,7 @@ describe('Escenario 3', () => {
     cy.screenshot(NOMBRE_ESCENARIO + '6_fillPassword');
 
     loginPage.submitLoginForm();
+    cy.wait(TWO_SECONDS);
     cy.screenshot(NOMBRE_ESCENARIO + '7_submitLoginForm');
 
     // Then I should get an error 'There is no user with that email address.'
@@ -45,14 +48,16 @@ describe('Escenario 3', () => {
     cy.screenshot(NOMBRE_ESCENARIO + '10_fillPassword');
 
     loginPage.submitLoginForm();
+    cy.wait(TWO_SECONDS);
     cy.screenshot(NOMBRE_ESCENARIO + '11_submitLoginForm');
 
     // Then I should get an error 'There is no user with that email address.'
     loginPage.error("There is no user with that email address.")
     cy.screenshot(NOMBRE_ESCENARIO + '12_error');
 
-    //When I click in fotgot
+    //When I click in forgot
     loginPage.forgot()
+    cy.wait(TWO_SECONDS);
     cy.screenshot(NOMBRE_ESCENARIO + '13_forgot');
 
     //Then I get an error 
@@ -65,6 +70,7 @@ describe('Escenario 3', () => {
 
     //And I click in forgot
     loginPage.forgot()
+    cy.wait(TWO_SECONDS);
     cy.screenshot(NOMBRE_ESCENARIO + '16_forgot');
 
     // Here there is an issue and the forgot doesnt work
@@ -74,6 +80,7 @@ describe('Escenario 3', () => {
     cy.screenshot(NOMBRE_ESCENARIO + '17_fillPassword');
 
     loginPage.submitLoginForm();
+    cy.wait(TWO_SECONDS);
     cy.screenshot(NOMBRE_ESCENARIO + '18_submitLoginForm');
 
     // Then I should be on dashboard
@@ -82,6 +89,7 @@ describe('Escenario 3', () => {
 
     // And I logout
     loginPage.signout();
+    cy.wait(TWO_SECONDS);
     cy.screenshot(NOMBRE_ESCENARIO + '20_visitSignout');
 
     // Then I should be on the signin page

@@ -2,6 +2,7 @@ import loginPage from './authentication';
 import crearPost from './post';
 
 const NOMBRE_ESCENARIO = 'Escenario 1 -- Paso ';
+const TWO_SECONDS = 2000;
 
 describe('Escenario 1', () => {
   beforeEach(() => {
@@ -18,6 +19,7 @@ describe('Escenario 1', () => {
     cy.screenshot(NOMBRE_ESCENARIO + '2_fillPassword');
 
     loginPage.submitLoginForm();
+    cy.wait(TWO_SECONDS);
     cy.screenshot(NOMBRE_ESCENARIO + '3_submitLoginForm');
 
     cy.url().should('include', '/dashboard');
@@ -25,14 +27,17 @@ describe('Escenario 1', () => {
 
     //When I create a new post called "hola" 
 	  crearPost.crearPost("hola");
+    cy.wait(TWO_SECONDS);
     cy.screenshot(NOMBRE_ESCENARIO + '5_crearPost');
 
     //Then I should have the three post correcly
     crearPost.existePost("hola");
+    cy.wait(TWO_SECONDS);
     cy.screenshot(NOMBRE_ESCENARIO + '6_existePost');
 
     // When I signout
     loginPage.signout();
+    cy.wait(TWO_SECONDS);
     cy.screenshot(NOMBRE_ESCENARIO + '7_signout');
     
     // Then I should be on the signin page
