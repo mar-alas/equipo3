@@ -15,4 +15,5 @@ Scenario: Escenario 2 - Login sin datos, login con email no registrado, login co
     And I wait for 3 seconds
     Then I should be on dashboard
     When I click signout
+    And I wait for 3 seconds
     Then I should be in authentication page
