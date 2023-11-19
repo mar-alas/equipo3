@@ -1,9 +1,13 @@
 const fileSystem = require('fs');
 const { exec } = require("child_process");
 const browserOpen = require('open');
+const path = require('path');
 const currentDateTime = new Date().toISOString().replace(/:/g,".");
 
-const [,, pathToOriginal, pathToReference] = process.argv;
+const pathToOriginal = path.join(__dirname, '..', 'kraken_tests_ghost_vnueva_4_72_2', 'screenshots');
+const pathToReference = path.join(__dirname, '..', 'kraken_tests_ghost_vanterior_5_73_2', 'screenshots');
+
+console.log('pathToOriginalXX', pathToOriginal);
 
 function readAndProcessConfig() {
     fileSystem.readFile('backstop-config.json', 'utf8', (error, data) => {
