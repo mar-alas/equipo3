@@ -3,24 +3,24 @@ const fs = require('fs');
 const path = require('path');
 
 const options = {
-  "output": {
-      "errorColor": {
-          "red": 255,
-          "green": 0,
-          "blue": 255
-      },
-      "errorType": "movement",
-      "transparency": 0.3,
-      "largeImageThreshold": 1200,
-      "useCrossOrigin": false,
-      "outputDiff": true
+  output: {
+    errorColor: {
+      red: 255,
+      green: 0,
+      blue: 255,
+    },
+    errorType: 'movement',
+    transparency: 0.3,
+    largeImageThreshold: 1200,
+    useCrossOrigin: false,
+    outputDiff: true,
   },
-  "scaleToSameSize": true,
-  "ignore": "antialiasing"
+  scaleToSameSize: true,
+  ignore: 'antialiasing',
 };
 resemble.outputSettings(options.output);
 
-const threshold = 0; // Umbral de porcentaje
+const threshold = 0; // Umbral de porcentaje de desajuste
 
 // Función para obtener directorios
 const getDirectories = (source) =>
@@ -33,13 +33,14 @@ const getImages = (source) =>
   fs.readdirSync(source)
     .filter(file => file.endsWith('.png'))
     .sort((a, b) => {
-      // Extrae los números de los nombres de los archivos para el ordenamiento
-      const numA = parseInt(a.match(/paso(\d+)/i)[1], 10);
-      const numB = parseInt(b.match(/paso(\d+)/i)[1], 10);
+      const matchA = a.match(/paso(\d+)/i);
+      const matchB = b.match(/paso(\d+)/i);
+      const numA = matchA ? parseInt(matchA[1], 10) : 0;
+      const numB = matchB ? parseInt(matchB[1], 10) : 0;
       return numA - numB;
     });
 
-// Función de comparación de imágenes que devuelve una promesa
+// Función de comparación de imágenes
 const compareImages = (image1, image2, diffImageName) => {
   return new Promise((resolve, reject) => {
     resemble(image1)
@@ -48,7 +49,7 @@ const compareImages = (image1, image2, diffImageName) => {
       .scaleToSameSize()
       .onComplete((data) => {
         if (parseFloat(data.misMatchPercentage) >= threshold) {
-          const diffImagePath = path.join('./reports', diffImageName);
+          const diffImagePath = path.join('reports', diffImageName);
           fs.writeFileSync(diffImagePath, data.getBuffer());
           resolve({ data, diffImagePath });
         } else {
@@ -58,72 +59,82 @@ const compareImages = (image1, image2, diffImageName) => {
   });
 };
 
+// Se comprueba si existe la carpeta de reportes, si no existe se crea
+if (!fs.existsSync('reports')) {
+  fs.mkdirSync('reports', { recursive: true });
+}
+
 // Función principal para procesar versiones y escenarios
 const processVersionsAndScenarios = async () => {
   let reportHtml = `
   <!DOCTYPE html>
   <html lang="en">
   <head>
-  <meta charset="UTF-8">
-  <title>Image Comparison Report Grupo 3</title>
-  <style>
-    body { margin: 0; padding: 40px; }
-    table { margin-bottom: 40px; }
-  </style>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Image Comparison Report Grupo 3</title>
+    <style>
+      body { margin: 0; padding: 40px; }
+      table { margin-bottom: 40px; }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   </head>
   <body>
-  <h1>Image Comparison Report</h1>
-  <p> <strong>Porcentaje de desajuste:</strong> >= ${threshold}</p>`;
+    <h1>Image Comparison Report</h1>
+    <p><strong>Threshold of mismatch:</strong> >= ${threshold}%</p>
+  `;
 
-  const versions = getDirectories('.');
+  const baseDir = path.join(__dirname, '..'); // Ruta base relativa a las carpetas de versiones
+  const versions = getDirectories(baseDir).filter(name => name.startsWith('kraken_tests_ghost_'));
 
   for (let i = 0; i < versions.length - 1; i++) {
     const version1 = versions[i];
     const version2 = versions[i + 1];
-    const scenarios = getDirectories(version1);
+    const scenariosV1 = getDirectories(path.join(baseDir, version1, 'screenshots'));
+    const scenariosV2 = getDirectories(path.join(baseDir, version2, 'screenshots'));
 
-    for (const scenario of scenarios) {
-      if (!fs.existsSync(path.join(version2, scenario))) {
-        continue; // Si el escenario no existe en ambas versiones, lo omite
-      }
+    for (const scenario of scenariosV1) {
+      if (!scenariosV2.includes(scenario)) continue;
 
-      const imagesVersion1 = getImages(path.join(version1, scenario));
-      const imagesVersion2 = getImages(path.join(version2, scenario));
+      const imagesVersion1 = getImages(path.join(baseDir, version1, 'screenshots', scenario));
+      const imagesVersion2 = getImages(path.join(baseDir, version2, 'screenshots', scenario));
 
       if (imagesVersion1.length > 0 && imagesVersion2.length > 0) {
         reportHtml += `<h2 class="scenario-header">Scenario: ${scenario}</h2>`;
       }
 
-
       for (let j = 0; j < imagesVersion1.length; j++) {
-        const image1Path = path.join(version1, scenario, imagesVersion1[j]);
-        const image2Path = path.join(version2, scenario, imagesVersion2[j]);
-        const diffImageName = `${scenario}_${imagesVersion1[j].replace('.png', '')}_diff.png`;
+        const image1 = imagesVersion1[j];
+        const image2 = imagesVersion2[j] || image1;
 
-        const result = await compareImages(image1Path, image2Path, diffImageName);
+        const image1Path = path.join(version1, 'screenshots', scenario, image1);
+        const image2Path = path.join(version2, 'screenshots', scenario, image2);
+        const diffImageName = `${scenario}_${image1.replace('.png', '')}_diff.png`;
+
+        const result = await compareImages(path.join(baseDir, image1Path), path.join(baseDir, image2Path), diffImageName);
         if (result) {
-          const firstImageName = imagesVersion1[j].split('.')[0];
-          reportHtml += `<h3 class="step-header">Step: ${firstImageName}</h3>`;
+          const stepName = image1.replace('.png', '').replace(/_/g, ' ');
+          reportHtml += `<h3 class="step-header">${stepName}</h3>`;
           reportHtml += `
-          <table class="table table-bordered">
-            <thead class="table-dark">
-              <tr>
-                <th scope="col">${version1} Image</th>
-                <th scope="col">${version2} Image</th>
-                <th scope="col">Diff Image</th>
-                <th scope="col">Diff %</th>
-              </tr>
-            <thead>
-            <tbody>
-              <tr>
-                <td class="image-container"><img src="../${image1Path}" alt="${version1} Image" class="img-fluid"/></td>
-                <td class="image-container"><img src="../${image2Path}" alt="${version2} Image" class="img-fluid"/></td>
-                <td class="image-container"><img src="../${result.diffImagePath}" alt="Diff Image" class="img-fluid"/></td>
-                <td>${result.data.misMatchPercentage}</td>
-              </tr>
-            </tbody>
-          </table>
+            <div>
+              <table class="table table-bordered">
+                <thead class="table-dark">
+                  <tr>
+                    <th scope="col">${version1} Image</th>
+                    <th scope="col">${version2} Image</th>
+                    <th scope="col">Diff Image</th>
+                    <th scope="col">Diff %</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><img src="../${path.join('..', image1Path)}" alt="${version1} Image" class="img-fluid"/></td>
+                    <td><img src="../${path.join('..', image2Path)}" alt="${version2} Image" class="img-fluid"/></td>
+                    <td><img src="${path.join('..', 'reports', diffImageName)}" alt="Diff Image" class="img-fluid"/></td>
+                    <td>${result.data.misMatchPercentage}%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           `;
         }
       }
@@ -135,7 +146,7 @@ const processVersionsAndScenarios = async () => {
   </html>
   `;
 
-  fs.writeFileSync('./reports/report.html', reportHtml);
+  fs.writeFileSync(path.join(__dirname, 'reports', 'report.html'), reportHtml);
 };
 
 processVersionsAndScenarios();
