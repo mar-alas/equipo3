@@ -1,6 +1,7 @@
 import loginPage from './authentication';
 
 const NOMBRE_ESCENARIO = 'Escenario 2 -- Paso ';
+const TWO_SECONDS = 2000;
 
 describe('Escenario 2', () => {
   beforeEach(() => {
@@ -11,6 +12,7 @@ describe('Escenario 2', () => {
   it('Login sin datos, login con email no registrado, login con exito', () => {
     // Given empty email and empty password
     loginPage.submitLoginForm();
+    cy.wait(TWO_SECONDS);
     cy.screenshot(NOMBRE_ESCENARIO + '1_submitLoginForm');
 
     // Then I should get an error 'Please fill out the form to sign in.'
@@ -26,6 +28,7 @@ describe('Escenario 2', () => {
     cy.screenshot(NOMBRE_ESCENARIO + '4_fillPassword');
 
     loginPage.submitLoginForm();
+    cy.wait(TWO_SECONDS);
     cy.screenshot(NOMBRE_ESCENARIO + '5_submitLoginForm');
 
     // Then I should get an error 'There is no user with that email address.'
@@ -40,13 +43,16 @@ describe('Escenario 2', () => {
     cy.screenshot(NOMBRE_ESCENARIO + '8_fillPassword');
 
     loginPage.submitLoginForm();
+    cy.wait(TWO_SECONDS);
     cy.screenshot(NOMBRE_ESCENARIO + '9_submitLoginForm');
+
     // Then I should be on dashboard
     cy.url().should('include', '/dashboard');
     cy.screenshot(NOMBRE_ESCENARIO + '10_shouldIncludeDashboard');
 
     // And I logout
     loginPage.signout();
+    cy.wait(TWO_SECONDS);
     cy.screenshot(NOMBRE_ESCENARIO + '11_signout');
 
     // Then I should be on the signin page
