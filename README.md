@@ -2,13 +2,14 @@
 Pruebas E2E - Semana 5 - Equipo 3
 
 * En este repositorio va a encontrar las siguientes carpetas.
-     * La carpeta "cypress" para ejecutar los escenarios de pruebas en cypress
-     * La carpet kraken_tests_ghost_vanterior_5_73_2 para los escenarios de prueba en kraken con la version 5.73.2 (version inicial)
-     * La carpeta kraken_tests_ghost_vnueva_4_72_2 para os escenarios de prueba en Kraken con la version 4.72.2 (version nueva)
-     * La carpeta backstopjs con el codigo para realizar regresion visual usando la herramienta backstopjs
-     * La carpeta resemblejs con el codigo para realizar regresion visual usando la herramienta resemblejs
+     * La carpeta "cypress" para ejecutar los escenarios de pruebas en cypress. Estos escenarios se ejecutaron en la versión 5.73.2.
+     * La carpet kraken_tests_ghost_vanterior_5_73_2 para los escenarios de prueba en kraken con la version 5.73.2 (version inicial desarrollado para host local)
+     * La carpet kraken_tests_ghost_vanterior_5_72_1 para los escenarios de prueba en kraken con la version 5.73.2 (version inicial desarrollado para host web)
+     * La carpeta kraken_tests_ghost_vnueva_4_72_2 para os escenarios de prueba en Kraken con la version 4.72.2 (version nueva desarrollado para version local y funciona en version web con ghost 4.48.9)
+     * La carpeta backstopjs con el codigo para realizar regresion visual usando la herramienta backstopjs.
+     * La carpeta resemblejs con el codigo para realizar regresion visual usando la herramienta resemblejs.
 * Los escenerios de prueba se describen en la wiki.
-* Las pruebas se realizaron con Ghost version 5.73.2 en el equipo local por lo que esta es la versión que se debe utilizar. Para correr las pruebas debe tener ghost corriendo y funcionando en su equipo local con el comando ghost start tal y como enseñaron en el tutorial del curso.
+
 
 ## Se tendran 2 opciones para la ejecucion de las pruebas, primera con ghosts locales y la segunda con ghost hosteados
 
