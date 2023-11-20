@@ -1,3 +1,5 @@
+Video Semana 6: https://uniandes-my.sharepoint.com/:v:/g/personal/da_gamez96_uniandes_edu_co/Eciq8PqeMzpEp9SSWJeYsDIBK4qfN4E2l9R1JGj6aZypKA?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZyIsInJlZmVycmFsQXBwUGxhdGZvcm0iOiJXZWIiLCJyZWZlcnJhbE1vZGUiOiJ2aWV3In19&e=dnOQah 
+
 # equipo3
 Pruebas E2E - Semana 5 - Equipo 3
 
