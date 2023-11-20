@@ -28,7 +28,7 @@ Utilizar Ghost CLI Version - 1.20.0 y Node 16.13.0
 4. Para correr las pruebas vaya a la carpeta cypress del repositorio en el cmd y ejecute las pruebas con cypress run. Este comando le deberia correr las 20 pruebas y mostrar al final el reporte resumen de la corrida.
 5. Alternativamente puede usar el comando cypress open para correr las pruebas manualmente y ver su ejecución en vivo y en directo en la herramienta de cypress.
 
-#### Instrucciones para ejecución de escenarios de pruebas con Kraken version 5.73.2 y ghost local:
+#### Instrucciones para ejecución de escenarios de pruebas con Kraken y ghost 5.73.2 en local:
 1. Descargue el repositorio en su equipo local utilizando el comando git clone.
 2. Instale la version de ghost 5.73.2 (en la seccion anterior se puede ver las herramientas necesarias para su instalacion)
 3. Sobre la carpeta kraken_tests_ghost_vanterior_5_73_2 corra los comandos "npm install" y ""npm install kraken-node" para instalar las dependendicas del proyecto.
@@ -37,7 +37,11 @@ Utilizar Ghost CLI Version - 1.20.0 y Node 16.13.0
 6. El archivo de windows utiliza el comando "npx kraken-node run" para correr las pruebas localmente, mientras que el archivo de mac utiliza el comando "./node_modules/kraken-node/bin/kraken-node run" para correr las pruebas utilizando el kraken local, para este escenariob es necesario tener la carpeta node_modules dentro de la carpeta kraken_tests_ghost_vanterior_5_73_2, que se genero gracias al paso 2 con el comando "npm install kraken-node".
 7. Si desea una corrida limpia se recomienda borrar las carpetas escenario{n} que estén creados en la carpeta screenshots sin borrar la carpeta que dice "escenario".
 
-#### Instrucciones para ejecución de escenarios de pruebas con Kraken version 4.72.2 y ghost local:
+#### Instrucciones para ejecución de escenarios de pruebas con Kraken y ghost 5.72.1 hosteado en la web (Amazon Web Services):
+1. Realicé la misma instalacion de kraken correspondiente a las instrucciones anteriores sin instalar ghost en local, es decir la correspondiente a la carpeta "kraken_tests_ghost_vnueva_4_72_2".
+2. Cambie las credenciales del archivos properties.json para utilizar usuario: equipo3@uniandes.edu.co contraseña: Equipo3123# y host: http://44.200.235.109/ghost.
+
+#### Instrucciones para ejecución de escenarios de pruebas con Kraken con ghost 4.72.2 en local:
 1. Descargue el repositorio en su equipo local utilizando el comando git clone.
 2. Instale la version de ghost 4.72.2 (en la seccion anterior se puede ver las herramientas necesarias para su instalacion)
 3. Sobre la carpeta kraken_tests_ghost_vnueva_4_72_2 corra los comandos "npm install" y ""npm install kraken-node" para instalar las dependendicas del proyecto.
@@ -46,8 +50,8 @@ Utilizar Ghost CLI Version - 1.20.0 y Node 16.13.0
 6. El archivo de windows utiliza el comando "npx kraken-node run" para correr las pruebas localmente, mientras que el archivo de mac utiliza el comando "./node_modules/kraken-node/bin/kraken-node run" para correr las pruebas utilizando el kraken local, para este escenariob es necesario tener la carpeta node_modules dentro de la carpeta kraken_tests_ghost_vnueva_4_72_2, que se genero gracias al paso 2 con el comando "npm install kraken-node"
 7. Si desea una corrida limpia se recomienda borrar las carpetas escenario{n} que estén creados en la carpeta screenshots sin borrar la carpeta que dice "escenario".
 8. 
-### Utilizando ghost hosteado:
-1. Realicé la misma instalacion de kraken correspondiente a las instrucciones anteriores, es decir la correspondiente a la carpeta "kraken_tests_ghost_vnueva_4_72_2".
+#### Instrucciones para ejecución de escenarios de pruebas con Kraken con ghost 4.48.9 hostead en web (Google Cloud):
+1. Realicé la misma instalacion de kraken correspondiente a las instrucciones anteriores sin instalar ghost en local, es decir la correspondiente a la carpeta "kraken_tests_ghost_vnueva_4_72_2".
 2. Cambie las credenciales del archivos properties.json para utilizar usuario: equipo3@uniandes.edu.co contraseña: Equipo3123# y host: http://104.155.182.18:2368/ghost.
 
 ## Instrucciones para ejecutar reportes con resemblejs:
