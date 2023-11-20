@@ -3,8 +3,8 @@ const { exec } = require("child_process");
 const browserOpen = require('open');
 const currentDateTime = new Date().toISOString().replace(/:/g,".");
 
-const pathToOriginal = './ghost_4_72_2';
-const pathToReference = './ghost_5_73_2';
+const pathToOriginal = './ghost_4_49_9';
+const pathToReference = './ghost_5_72_1';
 
 function readAndProcessConfig() {
     fileSystem.readFile('backstop-config.json', 'utf8', (error, data) => {
