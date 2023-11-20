@@ -1,0 +1,16 @@
+Feature: PruebasE2EGhost
+
+@user9 @web
+Scenario: Escenario 9 - Crear post 1, crear post 2, editar post 2, validar edicion 
+  Given I navigate to ghost
+  Given I delete all content from ghost
+  
+  When I login to ghost
+  And I wait for 2 seconds
+  When I create a random post from dashboard with Title "Titulo 600000"
+  When I create a random post from dashboard with Title "Titulo 700000"
+  When I edit post with Title "Titulo 700000" with the new title "Titulo 800000"
+
+  Then I should have post with title "Titulo 600000"
+  Then I should have post with title "Titulo 800000"
+  Then I should not have post with title "Titulo 700000"

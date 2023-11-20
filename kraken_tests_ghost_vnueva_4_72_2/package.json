@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "appium": "^2.2.2",
+    "cucumber": "^5.1.0",
+    "kraken-node": "^1.0.24"
+  }
+}
