@@ -46,17 +46,17 @@ Utilizar Ghost CLI Version - 1.20.0 y Node 16.13.0
 2. Instale la version de ghost 4.72.2 (en la seccion anterior se puede ver las herramientas necesarias para su instalacion)
 3. Sobre la carpeta kraken_tests_ghost_vnueva_4_72_2 corra los comandos "npm install" y ""npm install kraken-node" para instalar las dependendicas del proyecto.
 4. Se debe modificar un archivo llamado properties.json que se encuentra en la carpeta kraken_tests_ghost_vnueva_4_72_2 el cual debe especificar las credenciales de administrador de Ghost y la URL en la que Ghost esta corriendo.
-5. Dentro de la carpeta kraken_tests_ghost_vnueva_4_72_2 hay 2 archivos para ejecutar los escenarios uno para mac llamado ejecutar_escenarios.sh y uno para windows llamado ejecutar_escenarios.bat. Estos scripts se encargaran de ejecutar los 20 escenarios, se creera una carpeta llamada screenshots la cual tendra subcarpetas con nombres de cada escenario y screenshots de cada paso.
+5. Dentro de la carpeta kraken_tests_ghost_vnueva_4_72_2 hay 2 archivos para ejecutar los escenarios uno para mac llamado ejecutar_escenarios.sh y uno para windows llamado ejecutar_escenarios.bat. Estos scripts se encargaran de ejecutar los 20 escenarios, se creera una carpeta llamada screenshots la cual tendra subcarpetas con nombres de cada escenario y screenshots de cada paso. Estos scripts solamente corren los 10 escenarios escogidos para la semana:2,6,7,8,9,10,12,16,17,18.
 6. El archivo de windows utiliza el comando "npx kraken-node run" para correr las pruebas localmente, mientras que el archivo de mac utiliza el comando "./node_modules/kraken-node/bin/kraken-node run" para correr las pruebas utilizando el kraken local, para este escenariob es necesario tener la carpeta node_modules dentro de la carpeta kraken_tests_ghost_vnueva_4_72_2, que se genero gracias al paso 2 con el comando "npm install kraken-node"
 7. Si desea una corrida limpia se recomienda borrar las carpetas escenario{n} que estén creados en la carpeta screenshots sin borrar la carpeta que dice "escenario".
 8. 
 #### Instrucciones para ejecución de escenarios de pruebas con Kraken con ghost 4.48.9 hostead en web (Google Cloud):
-1. Realicé la misma instalacion de kraken correspondiente a las instrucciones anteriores sin instalar ghost en local, es decir la correspondiente a la carpeta "kraken_tests_ghost_vnueva_4_72_2".
+1. Realicé la misma instalacion e instrucciones de kraken correspondiente a las instrucciones anteriores sin instalar ghost en local, es decir la correspondiente a la carpeta "kraken_tests_ghost_vnueva_4_72_2".
 2. Cambie las credenciales del archivos properties.json para utilizar usuario: equipo3@uniandes.edu.co contraseña: Equipo3123# y host: http://104.155.182.18:2368/ghost.
 
 ## Instrucciones para ejecutar reportes con resemblejs:
 1. Ingrese a la carpeta de resemblejs y ejecute el siguiente comando: npm install
-2. En la carpeta "resemblejs" guarde dos carpetas independientes llamadas "ghost_4_49_9" y "ghost_5_72_1" o las carpetas de ghost que vaya a usar. Copie de las carpetas screenshots de las carpetas "kraken_tests*" los 10 escenarios a probar: 2,6,8,9,10,12,16,17,18.
+2. En la carpeta "resemblejs" guarde dos carpetas independientes llamadas "ghost_4_49_9" y "ghost_5_72_1" o las carpetas de ghost que vaya a usar. Copie de las carpetas screenshots de las carpetas "kraken_tests*" los 10 escenarios a probar: 2,6,7,8,9,10,12,16,17,18.
 3. En la carpeta de resemblejs ejecute el siguiente comando: node index.js o npm start
 4. Ingrese a la carpeta de reports y abra el archivo report.html con algun browser. (ruta seria equipo03/resemblejs/reports/report.html)
 5. (Opcional) Puede configurar el porcentaje de diferencia con el cual solo se generará un reporte que mostrará los cambios más relevantes. Puede configurar este valor entre 0 y 100 en el archivo index.js línea 23 
@@ -64,7 +64,7 @@ Utilizar Ghost CLI Version - 1.20.0 y Node 16.13.0
 ## Instrucciones para ejecutar los escenarios con backstopjs:
 1. Ingresar con el cmd a la carpeta "backstopjs" en la raiz del repositorio.
 2. Instalar backstopjs con el siguiente comando: npm install -g backstopjs
-3. En la carpeta "backstopjs" guarde dos carpetas independientes llamadas "ghost_4_49_9" y "ghost_5_72_1" o las carpetas de ghost que vaya a usar. Copie de las carpetas screenshots de las carpetas "kraken_tests*" los 10 escenarios a probar: 2,6,8,9,10,12,16,17,18.
+3. En la carpeta "backstopjs" guarde dos carpetas independientes llamadas "ghost_4_49_9" y "ghost_5_72_1" o las carpetas de ghost que vaya a usar. Copie de las carpetas screenshots de las carpetas "kraken_tests*" los 10 escenarios a probar: 2,6,7,8,9,10,12,16,17,18.
 3.Revise en la carpeta de backstojs el archivo "index.js" para que ahga referencia a las carpetas del paso anterior.
 4. Ingrese a la carpeta backstopjs y ejecute el siguiente comando: npm install
 5. Inicie backstop con el siguiente comando: npm start
