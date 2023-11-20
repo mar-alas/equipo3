@@ -48,8 +48,9 @@ TBD
 
 ## Instrucciones para ejecutar reportes con resemblejs:
 1. Ingrese a la carpeta de resemblejs y ejecute el siguiente comando: npm install
-2. En la carpeta de resemblejs ejecute el siguiente comando: node index.js
+2. En la carpeta de resemblejs ejecute el siguiente comando: node index.js o npm start
 3. Ingrese a la carpeta de repots y abra el archivo report.html con algun browser. (ruta seria equipo03/resemblejs/reports/report.html)
+4. (Opcional) Puede configurar el porcentaje de diferencia con el cual solo se generará un reporte que mostrará los cambios más relevantes. Puede configurar este valor entre 0 y 100 en el archivo index.js línea 23 
 
 ## Instrucciones para ejecutar los escenarios con backstopjs:
 1. Instalar backstopjs con el siguiente comando: npm install -g backstopjs
