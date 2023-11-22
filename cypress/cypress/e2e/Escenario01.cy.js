@@ -2,9 +2,11 @@ import loginPage from './authentication';
 import crearPost from './post';
 
 const NOMBRE_ESCENARIO = 'Escenario 1 -- Paso ';
-const TWO_SECONDS = 2000;
+const TWO_SECONDS = 20000;
 
 describe('Escenario 1', () => {
+  loginPage.setStrategy('pool');
+  
   beforeEach(() => {
     loginPage.visit();
     cy.screenshot(NOMBRE_ESCENARIO + '0_visit');
@@ -12,10 +14,10 @@ describe('Escenario 1', () => {
 
   it('Login con exito, creacion y validacion de un post, signout', () => {
     // Given I log in in ghost
-    loginPage.fillEmail(Cypress.env("username"));
+    loginPage.fillEmail();
     cy.screenshot(NOMBRE_ESCENARIO + '1_fillEmail');
 
-    loginPage.fillPassword(Cypress.env("password"));
+    loginPage.fillPassword();
     cy.screenshot(NOMBRE_ESCENARIO + '2_fillPassword');
 
     loginPage.submitLoginForm();
