@@ -1,36 +1,27 @@
-const url_base = Cypress.env("host");
 const crearTags = {
 
-    crearTag: (Titulo, body) => {
+  crearTag: (name, description) => {
 
-        cy.get('[data-test-nav="tags"]').then((link) => {
-        const link_href = link.attr("href");
-        cy.visit(url_base + "/" + link_href);
-        });
+    cy.get(".gh-nav-top").contains("Tags").click();
+		cy.wait(1000);
+		cy.url().should('include', '#/tags');
+		cy.get(".gh-canvas-header-content").contains("New tag").click();
+		cy.wait(1000);
+    cy.get(".gh-main-section-content")
+			.contains("Name")
+			.click()
+			.type(name, { parseSpecialCharSequences: false });
+		cy.get(".gh-canvas-header-content").contains("Save").click();
+		cy.get(".gh-canvas-header-content").should("contain", "Saved");
+		cy.wait(1000);
 
-        cy.get(".gh-btn-primary").click();
-  
-        cy.get("#tag-name").type(Titulo);
-  
-        cy.get("#tag-description").type(body);
-
-        cy.get("button.ember-view").click();
   },
   
-  validarTag: (Titulo) => {
+  validarTag: (name) => {
     cy.get('[data-test-link="tags-back"]').click();
-    cy.get(".gh-tag-list-name").should('exist').then(($titles) => {
-      $titles.each((index, element) => {
-        const textContent = Cypress.$(element).text();
-        console.log(`Element ${index + 1}: ${textContent}`);
-      });
-  
-      const matchingElements = $titles.filter((index, element) => {
-        return Cypress.$(element).text() === Titulo;
-      });
-      const total_match = matchingElements.length;
-
-      expect(total_match > 0)
+    cy.get('.gh-tag-list-name').then(tagList => {
+        const exists = Array.from(tagList).some(tag => tag.innerText === name);
+        expect(exists).to.be.true;
     });
   },  
 
