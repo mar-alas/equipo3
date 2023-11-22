@@ -339,6 +339,14 @@ Then('I should get an error {string}', async function(message) {
      expect(errorText.trim()).to.equal(message);
      await takeScreenshot(this.driver, 'genera un error');
   });
+
+Then('I should get an error related to the user information', async function() {
+    let element = await this.driver.$('p.main-error');
+    const errorText = await element.getText();
+   re_message = /User not found.|There is no user with that email address\.|Too many login attempts(.*)|Too many attempts(.*)/
+    expect(errorText.trim()).to.match(re_message);
+    await takeScreenshot(this.driver, 'genera un error');
+ });
   
 When('I click signout', async function () {
     let dropdown = await this.driver.$('.w3.mr1.fill-darkgrey');

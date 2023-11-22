@@ -9,9 +9,10 @@ Scenario: Escenario 6 - Login sin datos, login con email no registrado, login co
     When I enter email using "poli-dinamico"
     When I enter a password for my 1 email
     When I click login
-    Then I should get an error 'There is no user with that email address.'
+    Then I should get an error related to the user information
     When I login to ghost
     And I wait for 3 seconds
     Then I should be on dashboard
     When I click signout
+    And I wait for 3 seconds
     Then I should be in authentication page

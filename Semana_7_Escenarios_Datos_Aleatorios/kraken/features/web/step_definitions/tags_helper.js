@@ -29,8 +29,13 @@ function use_apriori_crear_tag(tags) {
 
 function use_aleatorio_crear_tag(tags) {
     console.log('Usando estrategia aleatorio');
+    let paragraphs;
+    do {
+        paragraphs = faker.lorem.paragraphs();
+    } while (paragraphs.length >= 500);
+
     const faker_name = faker.lorem.words();
-    const faker_body = faker.lorem.paragraphs();
+    const faker_body = paragraphs;
   
     const formattedTag = {
       name: faker_name,

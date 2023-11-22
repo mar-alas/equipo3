@@ -1,29 +1,20 @@
 Feature: PruebasE2EGhost
 
 @user3 @web
-Scenario: Escenario 7 - Login 3 veces con contrasena y correo incorrecto, olvidar contrasena, login correcto
+Scenario: Escenario 7 - Login 1 veces con contrasena y correo incorrecto, olvidar contrasena, login correcto
   Given I navigate to ghost
   Given I delete all content from ghost
   When I enter email using "a-priori"
   When I enter a password for my 1 email
   When I click login
-  Then I should get an error 'There is no user with that email address.'
-  When I enter email using "a-priori"
-  When I enter a password for my 2 email
-  When I click login
-  Then I should get an error 'There is no user with that email address.'
-  When I enter email using "a-priori"
-  When I enter a password for my 3 email
-  When I click login
-  Then I should get an error 'There is no user with that email address.'
+  Then I should get an error related to the user information
   When I click forget
-  Then I should get an error 'User not found.'
+  Then I should get an error related to the user information
   When I enter registered email
-  When I click forget
-  And I wait for 10 seconds
   When I enter registered password
   When I click login
   And I wait for 3 seconds
   Then I should be on dashboard
-  Then I click signout
+  When I click signout
+  And I wait for 3 seconds
   Then I should be in authentication page

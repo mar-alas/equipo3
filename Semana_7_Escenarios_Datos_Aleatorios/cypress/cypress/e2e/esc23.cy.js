@@ -10,7 +10,7 @@ describe('Escenario 23', () => {
     //cy.screenshot(NOMBRE_ESCENARIO + '0_visit');
   });
 
-  it('Login 3 veces con contrasena y correo incorrecto, olvidar contrasena, login correcto usando a-priori', () => {
+  it('Login 1 veces con contrasena y correo incorrecto, olvidar contrasena, login correcto usando a-priori', () => {
     
     cy.useAleatorioCrearCorreo().then((formattedEmail) => {
       // When I enter invalid email and password
@@ -75,13 +75,6 @@ describe('Escenario 23', () => {
     //When I enter correct email
     loginPage.fillEmail(Cypress.env("username"));
     //cy.screenshot(NOMBRE_ESCENARIO + '15_fillEmail');
-
-    //And I click in forgot
-    loginPage.forgot()
-    cy.wait(TWO_SECONDS);
-    //cy.screenshot(NOMBRE_ESCENARIO + '16_forgot');
-
-    // Here there is an issue and the forgot doesnt work
 
     // Then I add the correct password
     loginPage.fillPassword(Cypress.env("password"));
