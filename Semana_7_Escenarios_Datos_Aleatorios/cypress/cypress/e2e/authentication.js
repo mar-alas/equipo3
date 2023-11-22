@@ -23,7 +23,7 @@ const loginPage = {
     error: (message) => {
       cy.get('p.main-error').should(($errorElement) => {
         const errorText = $errorElement.text().trim();
-        expect(errorText).to.equal(message);
+        expect(errorText).to.match(message);
       });
     },
 

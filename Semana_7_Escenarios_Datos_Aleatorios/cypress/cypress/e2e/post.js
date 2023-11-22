@@ -2,7 +2,7 @@ import randomText from "./suppFunctions.js";
 
 const crearPost = {
 
-    crearPost: (Titulo) => {
+    crearPost: (Titulo, Body) => {
       
 	  //click en nuevo post
 	  cy.get('.ember-view.gh-secondary-action.gh-nav-new-post').click();
@@ -10,10 +10,7 @@ const crearPost = {
 	  //se inserta titulo del post
 	  cy.get('.gh-editor-title.ember-text-area.gh-input.ember-view').type(Titulo);
 
-	  
-	  //se inserta contenido del post
-	  const contenidoAleatorio=randomText(50,100);
-	  cy.get('p').type(contenidoAleatorio);
+	  cy.get('p').type(Body);
 	  
 	  //se da publicar
 	  cy.get('[data-test-button="publish-flow"]').click();
@@ -158,7 +155,7 @@ const crearPost = {
     },
 	
   
-	crearPostProgramado: (Titulo, fecha) => {
+	crearPostProgramado: (Titulo, body, fecha) => {
 		
 		//click en nuevo post
 		cy.get('.ember-view.gh-secondary-action.gh-nav-new-post').click();
@@ -168,7 +165,7 @@ const crearPost = {
 
 		
 		//se inserta contenido del post
-		cy.get('p').type("Contenido post programado");
+		cy.get('p').type(body);
 		
 		//se da publicar
 		cy.get('[data-test-button="publish-flow"]').click();

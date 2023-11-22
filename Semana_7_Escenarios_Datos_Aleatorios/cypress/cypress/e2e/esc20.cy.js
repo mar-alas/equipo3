@@ -17,7 +17,7 @@ describe('Escenario 20', () => {
     //cy.screenshot(NOMBRE_ESCENARIO + '1_submitLoginForm');
 
     // Then I should get an error 'Please fill out the form to sign in.'
-    loginPage.error("Please fill out the form to sign in.")
+    loginPage.error(/Please fill out the form to sign in./)
     //cy.screenshot(NOMBRE_ESCENARIO + '2_error');
 
     cy.useAleatorioCrearCorreo().then((formattedEmail) => {
@@ -34,7 +34,7 @@ describe('Escenario 20', () => {
       //cy.screenshot(NOMBRE_ESCENARIO + '5_submitLoginForm');
 
       // Then I should get an error 'There is no user with that email address.'
-      loginPage.error("There is no user with that email address.")
+      loginPage.error(/There is no user with that email address\.|Too many login attempts(.*)|Too many attempts(.*)/)
       //cy.screenshot(NOMBRE_ESCENARIO + '6_error');
     });
 

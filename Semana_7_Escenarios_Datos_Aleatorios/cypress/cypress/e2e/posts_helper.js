@@ -68,7 +68,7 @@ Cypress.Commands.add('usePoliDinamicoCrearPost', () => {
         const data_content = response.body.content
 
         // Return the formatted data
-        return { title: data_title, content: data_content, date: data_date };
+        return { title: data_title, body: data_content, date: data_date };
     });
 });
 

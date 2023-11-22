@@ -6,17 +6,15 @@ const fetch = require('node-fetch');
 // ________________________esto es usando a priori_____________________________
 Cypress.Commands.add('useAprioriCorreo', () => {
     cy.readFile('./cypress/data/email_data.json').then((email_data) => {
-        // Function to get a random item from the data
+
         const randomIndex = Math.floor(Math.random() * email_data.length);
-        const randomPost = email_data[randomIndex];
+        const randomEmail = email_data[randomIndex];
     
-        // Using the a-priori strategy to create a email
         const formattedEmail = {
-            email: randomPost.email,
-            password: randomPost.password,
+            email: randomEmail.email,
+            password: randomEmail.password,
           };
     
-        // Return the formatted email
         return formattedEmail;
       });
 
@@ -56,7 +54,7 @@ Cypress.Commands.add('usePoliDinamicoCrearEmail', () => {
         }
 
         const data_email = response.body.email;
-        const data_password = response.body.date;
+        const data_password = response.body.password;
 
         return { email: data_email, password: data_password };
     });

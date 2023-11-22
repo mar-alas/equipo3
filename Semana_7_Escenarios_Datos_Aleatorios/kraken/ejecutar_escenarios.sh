@@ -1,7 +1,7 @@
 #!/bin/bash
 
 process_files() {
-    index=4
+    index=1
     end=16
     # entra a features
     cd features/
