@@ -40,6 +40,28 @@ Cypress.Commands.add('useAleatorioCrearPost', () => {
         return formattedPost;
 });
 
+Cypress.Commands.add('useAleatorioCrearPostLongitudN', (n) => {
+    const faker_title = faker.lorem.sentence(n);
+
+    //create random tittle of length n
+
+
+
+    const faker_body = faker.lorem.paragraphs();
+    const faker_date = faker.date.future();
+    const year = faker_date.getFullYear();
+    const month = String(faker_date.getMonth() + 1).padStart(2, '0');
+    const day = String(faker_date.getDate()).padStart(2, '0');
+    const faker_formatted_date = `${year}-${month}-${day}`;
+
+    const formattedPost = {
+        title: faker_title,
+        body: faker_body,
+        date: faker_formatted_date,
+    };
+    return formattedPost;
+});
+
 // // _______________________usando poli dinamico ________________
 
 Cypress.Commands.add('usePoliDinamicoCrearPost', () => {
