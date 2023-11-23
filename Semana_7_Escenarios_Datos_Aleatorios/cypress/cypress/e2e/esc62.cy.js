@@ -1,16 +1,16 @@
 import crearTags from './tag';
-import useAprioriTag from './tag_helper';
+import useAleatorioTag from './tag_helper';
 
 context("Actions", () => {
     beforeEach(() => {
       cy.login();
     });
 
-    it("Tags-61 - Creación de tag y validación - Pool a-priori", () => {
-        cy.useAprioriTag().then(newTag => {
+    it("Tags-62 - Creación de tag, validación signout - Aleatorio", () => {
+        cy.useAleatorioTag().then(newTag => {
             crearTags.crearTag(newTag.name, newTag.body)
             crearTags.validarTag(newTag.name)
+            cy.signOut();
         });
     });    
-
 });

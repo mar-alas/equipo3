@@ -1,4 +1,3 @@
-
 const fs = require('fs');
 const { faker } = require('@faker-js/faker');
 const fetch = require('node-fetch'); 
@@ -63,3 +62,15 @@ Cypress.Commands.add('usePoliDinamicoTag', () => {
         return { name: tag_name, body: tag_body };
     });
 });
+
+Cypress.Commands.add('useAleatorioTagNew', (tag = {}) => {
+
+    const length = faker.number.int({ min:1, max: tag.name.limit });
+    const faker_name = faker.string.hexadecimal({ length: length })
+    const formattedTag = {
+        name: faker_name,
+        body: '',
+    };
+    return formattedTag;
+});
+
