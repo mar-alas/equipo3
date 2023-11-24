@@ -7,7 +7,7 @@ context("Actions", () => {
       cy.login();
     });
 
-    it("Tags-64 - Creación de tag con límite de caracteres validación signout - Aleatorio", () => {
+    it("Creación de tag nombre con límite de caracteres dentro de las fronteras, validación, signout - Aleatorio", () => {
         tag.name.limit = 190;
         cy.useAleatorioTagNew(tag).then(newTag => {
             crearTags.crearTag(newTag.name, newTag.body)

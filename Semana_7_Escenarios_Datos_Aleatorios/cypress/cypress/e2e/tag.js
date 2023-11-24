@@ -1,6 +1,6 @@
 const crearTags = {
 
-  crearTag: (name, description) => {
+  crearTag: (name, description, save=true) => {
 
     cy.get(".gh-nav-top").contains("Tags").click();
 		cy.wait(1000);
@@ -11,8 +11,11 @@ const crearTags = {
 			.contains("Name")
 			.click()
 			.type(name, { parseSpecialCharSequences: false });
-		cy.get(".gh-canvas-header-content").contains("Save").click();
-		cy.get(".gh-canvas-header-content").should("contain", "Saved");
+    if (save) {
+      cy.get(".gh-canvas-header-content").contains("Save").click();
+		  cy.get(".gh-canvas-header-content").should("contain", "Saved");
+    }
+		
 		cy.wait(1000);
 
   },

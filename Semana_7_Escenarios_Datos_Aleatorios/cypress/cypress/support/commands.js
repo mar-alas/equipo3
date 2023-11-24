@@ -15,3 +15,8 @@ Cypress.Commands.add('signOut', () => {
     cy.url().should('include', '/ghost/#/signin');
 });
 
+// ############################# GET ERROR #############################
+Cypress.Commands.add('getFormErrorMessage', (selector) => {
+    return cy.get(selector).invoke('text');
+});
+

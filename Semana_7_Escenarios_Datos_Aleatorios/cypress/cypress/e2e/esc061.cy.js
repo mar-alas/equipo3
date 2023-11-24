@@ -6,7 +6,7 @@ context("Actions", () => {
       cy.login();
     });
 
-    it("Tags-61 - Creación de tag y validación - Pool a-priori", () => {
+    it("Creación de tag y validación de creación - Pool a-priori", () => {
         cy.useAprioriTag().then(newTag => {
             crearTags.crearTag(newTag.name, newTag.body)
             crearTags.validarTag(newTag.name)

@@ -2,7 +2,7 @@ const fs = require('fs');
 const { faker } = require('@faker-js/faker');
 const fetch = require('node-fetch'); 
 
-// ________________________esto es usando a priori_____________________________
+// ____________________ A-Priori _____________________________
 Cypress.Commands.add('useAprioriTag', () => {
     cy.readFile('./cypress/data/tag_data.json').then((data) => {
         // Function to get a random item from the data
@@ -20,7 +20,7 @@ Cypress.Commands.add('useAprioriTag', () => {
       });
 
 });
-// ________________________esto es usando a faker_____________________________
+// _____________________ Faker _______________________________
 
 Cypress.Commands.add('useAleatorioTag', () => {
     let paragraphs;
@@ -37,7 +37,7 @@ Cypress.Commands.add('useAleatorioTag', () => {
       };
       return formattedTag;
 });
-// _______________________usando poli dinamico ________________
+// _____________________ Pooli dinamico ______________________
 
 Cypress.Commands.add('usePoliDinamicoTag', () => {
     const apiKey = 'b560e3a0';
@@ -65,7 +65,7 @@ Cypress.Commands.add('usePoliDinamicoTag', () => {
 
 Cypress.Commands.add('useAleatorioTagNew', (tag = {}) => {
 
-    const length = faker.number.int({ min:1, max: tag.name.limit });
+    const length = faker.number.int({ min:192, max: tag.name.limit });
     const faker_name = faker.string.hexadecimal({ length: length })
     const formattedTag = {
         name: faker_name,
