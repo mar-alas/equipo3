@@ -69,8 +69,6 @@ const crearTags = {
     cy.get('[data-test-button="confirm"]').click();
   }
 
-  
-  
 };
 
 export default crearTags;

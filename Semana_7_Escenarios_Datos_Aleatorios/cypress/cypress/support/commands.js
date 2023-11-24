@@ -8,3 +8,10 @@ Cypress.Commands.add("login", () => {
     cy.get(signin.selectors.password).type(signin.user.password);
     cy.get(signin.selectors.submit).click();
 });
+
+// ############################# LOGOUT #############################
+Cypress.Commands.add('signOut', () => {
+    cy.visit(host + '#/signout/');
+    cy.url().should('include', '/ghost/#/signin');
+});
+
