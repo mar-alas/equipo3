@@ -476,6 +476,21 @@ const crearPost = {
     //vuelve al dashboard
     cy.get('[data-test-nav="dashboard"]').click();
   },
+
+  asignarTagPost: (Titulo, Tag) => {
+    cy.get('[data-test-nav="posts"]').click();
+    cy.get('[class="gh-content-entry-title"]').contains(Titulo).click();
+    cy.wait(1000);
+    cy.get('.settings-menu-toggle').click();
+    cy.get('#tag-input input').type(Tag);
+    cy.wait(1000);
+    cy.get(".ember-power-select-option").contains(Tag).click();
+    cy.wait(1000);
+    cy.get('.settings-menu-toggle').click();
+    cy.wait(1000);
+    cy.get('[data-test-button="publish-save"]').click();
+    cy.get('[data-test-button="publish-save"]').should("contain", "Update");
+  },
 };
 
 export default crearPost;
