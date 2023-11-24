@@ -1,24 +1,20 @@
-//manual run: npx cypress run --spec "cypress/cypress/e2e/esc92.cy.js"
+//correr manualmente con: npx cypress run --spec "cypress/cypress/e2e/esc93.cy.js"
 
 import loginPage from './authentication';
 import crearPost from './post';
-import useAprioriCrearPost from './posts_helper'
-import useAleatorioCrearCorreo from './login_helper'
+import usePoliDinamicoCrearPost from './posts_helper'
 
-
-const NOMBRE_ESCENARIO = 'Escenario 92 -- Paso ';
+const NOMBRE_ESCENARIO = 'Escenario 95 -- Paso ';
 const TWO_SECONDS = 2000;
 
-describe('Escenario 92', () => {
+describe('Escenario 95', () => {
   beforeEach(() => {
     loginPage.visit();
     //cy.screenshot(NOMBRE_ESCENARIO + '0_visit');
   });
 
-  it('Login correcto, creacion y validacion de un post valido, creacion y validacion de un post invalido', () => {
-    
-    
-    // Given I log in in ghost with correct credentiales
+  it('Login con exito, creacion y validacion de un post con bookmark, signout', () => {
+    // Given I log in in ghost
     loginPage.fillEmail(Cypress.env("username"));
     //cy.screenshot(NOMBRE_ESCENARIO + '1_fillEmail');
 
@@ -32,9 +28,9 @@ describe('Escenario 92', () => {
     cy.url().should('include', '/dashboard');
     //cy.screenshot(NOMBRE_ESCENARIO + '4_includeDashboard');
 
-    //When I create a new post using aleatorio with a large title
-    cy.useAleatorioCrearPostLongitudN(100).then((formattedPost) => {
-      crearPost.crearPost(formattedPost.title, formattedPost.body);
+    //When I create a new post using "poliDinamico"
+    cy.usePoliDinamicoCrearPost().then((formattedPost) => {
+      crearPost.crearPostContenidoBookmark(formattedPost.title, formattedPost.body);
       cy.wait(TWO_SECONDS);
       //cy.screenshot(NOMBRE_ESCENARIO + '5_crearPost');
 
