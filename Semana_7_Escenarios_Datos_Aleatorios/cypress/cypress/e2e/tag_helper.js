@@ -30,10 +30,14 @@ Cypress.Commands.add('useAleatorioTag', () => {
 
     const faker_name = faker.lorem.words();
     const faker_body = paragraphs;
+    const faker_slug_symbol = faker.string.symbol(15);
+    const faker_name_emoji = faker.internet.emoji({ types: ['food', 'nature'] });
 
     const formattedTag = {
         name: faker_name,
         body: faker_body,
+        slugSymbol: faker_slug_symbol,
+        nameEmoji: faker_name_emoji
       };
       return formattedTag;
 });
@@ -65,11 +69,26 @@ Cypress.Commands.add('usePoliDinamicoTag', () => {
 
 Cypress.Commands.add('useAleatorioTagNew', (tag = {}) => {
 
-    const length = faker.number.int({ min:192, max: tag.name.limit });
+    let paragraphs;
+    do {
+        paragraphs = faker.lorem.paragraphs();
+    } while (paragraphs.length <= tag.description.limitMax);
+
+    const faker_description = faker.string.sample({ min: tag.description.limitMin, max: tag.description.limitMax }) 
+
+    const length = faker.number.int({ min:tag.name.limitMin, max: tag.name.limitMax });
     const faker_name = faker.string.hexadecimal({ length: length })
+
+    const faker_body = paragraphs;
+    const faker_slug_symbol = faker.string.symbol(15);
+    const faker_name_emoji = faker.internet.emoji({ types: ['food', 'nature'] });
+
     const formattedTag = {
         name: faker_name,
-        body: '',
+        body: faker_body,
+        description: faker_description,
+        slugSymbol: faker_slug_symbol,
+        nameEmoji: faker_name_emoji
     };
     return formattedTag;
 });

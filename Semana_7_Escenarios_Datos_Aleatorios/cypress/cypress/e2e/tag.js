@@ -11,6 +11,10 @@ const crearTags = {
 			.contains("Name")
 			.click()
 			.type(name, { parseSpecialCharSequences: false });
+    cy.get(".gh-main-section-content")
+			.contains("Description")
+			.click()
+			.type(description, { parseSpecialCharSequences: false });
     if (save) {
       cy.get(".gh-canvas-header-content").contains("Save").click();
 		  cy.get(".gh-canvas-header-content").should("contain", "Saved");
@@ -70,6 +74,26 @@ const crearTags = {
     cy.get('[data-test-button="delete-tag"]').click();
     cy.wait(3000); 
     cy.get('[data-test-button="confirm"]').click();
+  },
+  editarSlug: (name, slug, save=true) => {
+    cy.get(".gh-nav-top").contains("Tags").click();
+    cy.get('[class="gh-tag-list-name"]').contains(name).click();
+    cy.get('[data-test-input="tag-slug"]').clear();
+    cy.get('[data-test-input="tag-slug"]').type(slug);
+    if (save) {
+      cy.get(".gh-canvas-header-content").contains("Save").click();
+		  cy.get(".gh-canvas-header-content").should("contain", "Saved");
+    }
+  },
+  editarDescripcion: (name, description, save=true) => {
+    cy.get(".gh-nav-top").contains("Tags").click();
+    cy.get('[class="gh-tag-list-name"]').contains(name).click();
+    cy.get('[data-test-input="tag-description"]').clear();
+    cy.get('[data-test-input="tag-description"]').type(description);
+    if (save) {
+      cy.get(".gh-canvas-header-content").contains("Save").click();
+      cy.get(".gh-canvas-header-content").should("contain", "Saved");
+    }
   }
 
 };

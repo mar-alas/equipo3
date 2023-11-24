@@ -1,7 +1,13 @@
 const tag = {
     name: {
         name: '',
-        limit: 191,
+        limitMin: 1,
+        limitMax: 191,
+    },
+    description: {
+        body: '',
+        limitMin: 1,
+        limitMax: 500,
     },
     metaData: {
         metaTitle: {
