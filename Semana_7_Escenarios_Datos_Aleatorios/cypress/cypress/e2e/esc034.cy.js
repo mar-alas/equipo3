@@ -2,10 +2,10 @@
 import loginPage from "./authentication";
 import crearPagina from "./pagina"; 
 
-const NOMBRE_ESCENARIO = 'Escenario 033 -- Paso ';
+const NOMBRE_ESCENARIO = 'Escenario 034 -- Paso ';
 const TAKE_SCREENSHOT = false;
 
-describe("Login exitoso luego crear pagina con contenido MARKDOWN ", () => {
+describe("Login exitoso luego crear una pagina cargando una URL con una IMAGEN", () => {
   beforeEach(() => {
     loginPage.visit();
     if(TAKE_SCREENSHOT) {
@@ -41,7 +41,7 @@ describe("Login exitoso luego crear pagina con contenido MARKDOWN ", () => {
     }
 
     //When I create a new page
-    cy.getAprioriDataMarkdown().then((data) => {
+    cy.getAprioriDataImagesUrl().then((data) => {
         crearPagina.crearPaginaConTituloYContenido(data.title, data.body);
         cy.wait(10000);
         if(TAKE_SCREENSHOT) { 
@@ -49,7 +49,7 @@ describe("Login exitoso luego crear pagina con contenido MARKDOWN ", () => {
         }
 
         //Then I should have the page correcly
-        crearPagina.revisarContenidoPaginaConMarkdown(data.title, data.body);
+        crearPagina.revisarContenidoPaginaConUrlDeImagen(data.title, data.body);
         cy.wait(10000);
         if(TAKE_SCREENSHOT) { 
             cy.screenshot(NOMBRE_ESCENARIO + '7_revisarContenidoPagina');

@@ -118,7 +118,21 @@ const crearPagina = {
 		cy.get('[data-test-link="pages"]').click();
 
 	  },
-	
+
+	revisarContenidoPaginaConUrlDeImagen: (Titulo,Contenido) => {
+		
+		//Navegamos a pages
+		cy.get('[data-test-nav="pages"]').click();
+  
+		// entramos al page que queremos revisar y revisamos contenido.
+		cy.get('[class="gh-content-entry-title"]').contains(Titulo).click();
+		cy.get('p').should('have.text', Contenido);
+
+		//nos devolvemos a pages
+		cy.get('[data-test-link="pages"]').click();
+
+	  },
+
 	existePage: (Titulo) => {
 		
       //Navegamos a page

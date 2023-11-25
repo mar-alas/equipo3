@@ -67,3 +67,18 @@ Cypress.Commands.add('getAprioriDataMarkdown', () => {
 
     });
 });
+
+/**
+    Obtener data a priori de urls de imagenes.
+*/
+Cypress.Commands.add('getAprioriDataImagesUrl', () => {
+    cy.readFile('./cypress/data/images_url_data.json').then((data) => {
+        const selected = data[Math.floor(Math.random() * data.length)];
+    
+        return {
+            title: selected.title,
+            body: selected.image_url
+        };
+
+    });
+});
