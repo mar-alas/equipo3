@@ -84,6 +84,7 @@ Cypress.Commands.add('useAleatorioTagNew', (tag = {}) => {
 
     const faker_body = paragraphs;
     const faker_slug_symbol = faker.string.symbol(15);
+    const faker_animal_name = faker.animal.type();
 
     let faker_name_emoji = '🚨';
     for (let i = 0; i < length; i++) {
@@ -95,8 +96,22 @@ Cypress.Commands.add('useAleatorioTagNew', (tag = {}) => {
         body: faker_body,
         description: faker_description,
         slugSymbol: faker_slug_symbol,
-        nameEmoji: faker_name_emoji
+        nameEmoji: faker_name_emoji,
+        animalName: faker_animal_name
     };
     return formattedTag;
+});
+
+// ____________________ A-Priori caracteres especiales___________
+Cypress.Commands.add('useAprioriCaracteresTag', () => {
+    cy.readFile('./cypress/data/numeros_largos.json').then((data) => {
+        const randomIndex = Math.floor(Math.random() * data.length);
+        const random = data[randomIndex];
+        const randomString = {
+            string: random.n,
+          };
+        return randomString;
+      });
+
 });
 

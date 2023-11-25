@@ -153,7 +153,37 @@ const crearTags = {
         }
     });
     cy.get('[data-test-input="tag-slug"]').invoke('val').should('match', /2$/);
-  }
+  },
+  crearTagDesdePost: (Titulo, name) => {
+    cy.get('[class="gh-content-entry-title"]').contains(Titulo).click();
+    cy.wait(1000);
+    cy.get('.settings-menu-toggle').click();
+    cy.wait(1000);
+    cy.get('#tag-input input').type(name);
+    cy.wait(1000);
+    cy.get(".ember-power-select-options").click();
+    cy.get('.settings-menu-toggle').click();
+    cy.get('[data-test-button="publish-save"]').click();
+    cy.get('[data-test-button="publish-save"]').should("contain", "Update");
+  },
+  editarImagenTag: (name, imageText, save=true) => {
+    cy.get(".gh-nav-top").contains("Tags").click();
+    cy.wait(1000);
+    cy.get('[class="gh-tag-list-name"]').contains(name).click({force: true});
+    cy.get('.gh-image-uploader-unsplash').click();
+    cy.wait(3000);
+    cy.get('.gh-unsplash-search').type(imageText);
+    cy.wait(3000);
+    if (save) {
+      cy.get('.gh-unsplash-photo-container').first().trigger('mouseover');
+      cy.wait(3000);
+      cy.get('.gh-unsplash-photo-footer .gh-unsplash-button').first().contains('Insert image').click();
+      cy.wait(1000);
+      cy.get(".gh-canvas-header-content").contains("Save").click();
+      cy.get(".gh-canvas-header-content").should("contain", "Saved");
+    }
+  },
+  
 
 };
 
