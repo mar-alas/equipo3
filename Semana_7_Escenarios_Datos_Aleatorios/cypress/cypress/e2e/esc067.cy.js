@@ -13,7 +13,7 @@ context("Actions", () => {
             crearTags.crearTag(newTag.name, newTag.body)
             crearTags.validarTag(newTag.name)
             // Editar tag, cambiar slug de navegación, valida cambio
-            crearTags.editarSlug(newTag.name, newTag.slugSymbol, true)
+            crearTags.editarSlugTag(newTag.name, newTag.slugSymbol, true)
         });
     });    
 });

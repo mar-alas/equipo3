@@ -44,8 +44,10 @@ Cypress.Commands.add('useAleatorioTag', () => {
 // _____________________ Pooli dinamico ______________________
 
 Cypress.Commands.add('usePoliDinamicoTag', () => {
-    const apiKey = 'b560e3a0';
-    const apiUrl = 'https://my.api.mockaroo.com/crear_tag.json';
+    // const apiKey = 'b560e3a0';
+    // const apiUrl = 'https://my.api.mockaroo.com/crear_tag.json';
+    const apiKey = 'a0a07e50';
+    const apiUrl = 'https://my.api.mockaroo.com/tag.json';
 
     return cy.request({
         method: 'GET',
@@ -55,15 +57,16 @@ Cypress.Commands.add('usePoliDinamicoTag', () => {
         },
     }).then(response => {
         if (response.status !== 200) {
-            // Log any non-200 status code
             console.error('Non-200 status code:', response.status);
             throw new Error('Non-200 status code');
         }
 
-        const tag_name = response.body.tag_name;
-        const tag_body = response.body.tag_body;
+        const tag_name = response.body.name;
+        const tag_body = response.body.description;
+        const tag_color = response.body.color;
+        const tag_image = response.body.image;
 
-        return { name: tag_name, body: tag_body };
+        return { name: tag_name, body: tag_body, color: tag_color, image: tag_image };
     });
 });
 
@@ -81,7 +84,11 @@ Cypress.Commands.add('useAleatorioTagNew', (tag = {}) => {
 
     const faker_body = paragraphs;
     const faker_slug_symbol = faker.string.symbol(15);
-    const faker_name_emoji = faker.internet.emoji({ types: ['food', 'nature'] });
+
+    let faker_name_emoji = '🚨';
+    for (let i = 0; i < length; i++) {
+        faker_name_emoji += faker.internet.emoji();
+    }
 
     const formattedTag = {
         name: faker_name,
