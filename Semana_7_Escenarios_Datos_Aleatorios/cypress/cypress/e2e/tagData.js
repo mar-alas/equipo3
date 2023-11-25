@@ -2,12 +2,17 @@ const tag = {
     name: {
         name: '',
         limitMin: 1,
-        limitMax: 191,
+        limitMax: 190,
+    },
+    slug: {
+        string: '',
+        limitMin: 1,
+        limitMax: 190,
     },
     description: {
         body: '',
         limitMin: 1,
-        limitMax: 500,
+        limitMax: 498,
     },
     metaData: {
         metaTitle: {

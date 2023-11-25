@@ -1,6 +1,6 @@
 const crearTags = {
 
-  crearTag: (name, description, save=true) => {
+  crearTag: (name, description='', save=true) => {
 
     cy.get(".gh-nav-top").contains("Tags").click();
 		cy.wait(1000);
@@ -11,10 +11,12 @@ const crearTags = {
 			.contains("Name")
 			.click()
 			.type(name, { parseSpecialCharSequences: false });
-    cy.get(".gh-main-section-content")
+    if (description != '') {
+      cy.get(".gh-main-section-content")
 			.contains("Description")
 			.click()
 			.type(description, { parseSpecialCharSequences: false });
+    }
     if (save) {
       cy.get(".gh-canvas-header-content").contains("Save").click();
 		  cy.get(".gh-canvas-header-content").should("contain", "Saved");
@@ -75,11 +77,12 @@ const crearTags = {
     cy.wait(3000); 
     cy.get('[data-test-button="confirm"]').click();
   },
-  editarSlug: (name, slug, save=true) => {
+  editarSlugTag: (name, slug, save=true) => {
     cy.get(".gh-nav-top").contains("Tags").click();
-    cy.get('[class="gh-tag-list-name"]').contains(name).click();
+    cy.wait(1000);
+    cy.get('[class="gh-tag-list-name"]').contains(name).click({force: true});
     cy.get('[data-test-input="tag-slug"]').clear();
-    cy.get('[data-test-input="tag-slug"]').type(slug);
+    cy.get('[data-test-input="tag-slug"]').type(slug, { parseSpecialCharSequences: false });
     if (save) {
       cy.get(".gh-canvas-header-content").contains("Save").click();
 		  cy.get(".gh-canvas-header-content").should("contain", "Saved");
@@ -94,6 +97,36 @@ const crearTags = {
       cy.get(".gh-canvas-header-content").contains("Save").click();
       cy.get(".gh-canvas-header-content").should("contain", "Saved");
     }
+  },
+  editarName: (name='', newName, save=true) => {
+    cy.get(".gh-nav-top").contains("Tags").click();
+    cy.wait(1000);
+    if (name == '') {
+      cy.get('.gh-tag-list-title').first().click();
+      cy.wait(1000);
+    } else {
+      cy.get('.gh-tag-list-title').contains(name).click();
+      cy.wait(1000);
+    }
+
+    cy.get('[data-test-input="tag-name"]').clear();
+    cy.get('[data-test-input="tag-name"]').type(newName);
+    if (save) {
+      cy.get(".gh-canvas-header-content").contains("Save").click();
+      cy.get(".gh-canvas-header-content").should("contain", "Saved");
+    }
+  },
+  eliminarTag: (name) => {
+    cy.get(".gh-nav-top").contains("Tags").click();
+    cy.get('.gh-tag-list-title').contains(name).click();
+    cy.on('uncaught:exception', () => false)
+    cy.get('[data-test-button="delete-tag"]').click();
+    cy.get('[data-test-button="confirm"]').click();
+  },
+  validarEliminar: (name) => {
+    cy.get(".gh-nav-top").contains("Tags").click();
+    cy.wait(2000);
+    cy.get('.gh-tag-list-name').contains(name).should('not.exist');
   }
 
 };
