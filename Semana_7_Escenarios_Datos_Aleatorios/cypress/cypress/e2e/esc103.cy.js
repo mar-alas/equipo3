@@ -2,10 +2,10 @@ import loginPage from './authentication';
 import crearPost from './post';
 import useAprioriCrearPost from './posts_helper'
 
-const NOMBRE_ESCENARIO = 'Escenario 102 -- Paso ';
+const NOMBRE_ESCENARIO = 'Escenario 103 -- Paso ';
 const TWO_SECONDS = 2000;
 
-describe('Escenario 102', () => {
+describe('Escenario 103', () => {
   beforeEach(() => {
     Cypress.on('uncaught:exception', (err, runnable) => {
       // we expect a 3rd party library error with message 'list not defined'
@@ -43,16 +43,17 @@ describe('Escenario 102', () => {
 
       
       cy.useAprioriCrearPost().then((formattedPost) => {
-        //se publica el video esperando 5 segundos
-        crearPost.crearPostContenidoYoutube(formattedPost.title, link_prueba, formattedPost.body,5);
+        //se publica el video esperando 0 segundos
+        crearPost.crearPostContenidoYoutube(formattedPost.title, link_prueba, formattedPost.body,0);
         cy.wait(TWO_SECONDS);
         // Other test steps within the .then() block for proper chaining
 
         // Assertions related to post creation or validations
         crearPost.existePost(formattedPost.title);
         // Other assertions or test steps within this chain
+
+        // Other assertions or test steps within this chain
         crearPost.revisarContenidoPostConVideo(formattedPost.title)
-        
       });
     });
   });

@@ -408,6 +408,18 @@ const crearPost = {
     cy.get('[data-test-link="posts"]').click();
   },
 
+  revisarContenidoPostConVideo: (Titulo) => {
+    //Navegamos a posts
+    cy.get('[data-test-nav="posts"]').click();
+
+    // entramos al post que queremos revisar
+    cy.get('[class="gh-content-entry-title"]').contains(Titulo).click();
+
+    //revisamos que el contenido iframe debe existir
+    cy.get('[data-testid="embed-iframe"]').should("exist");
+    
+  },
+
   existePost: (Titulo) => {
     //Navegamos a posts
     cy.get('[data-test-nav="posts"]').click();
