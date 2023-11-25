@@ -82,3 +82,18 @@ Cypress.Commands.add('getAprioriDataImagesUrl', () => {
 
     });
 });
+
+/**
+    Obtener data a priori de EMOJIS con palabras aleatorias.
+*/
+Cypress.Commands.add('getAprioriEmojisWithText', () => {
+    cy.readFile('./cypress/data/emojis_and_random_text.json').then((data) => {
+        const selected = data[Math.floor(Math.random() * data.length)];
+    
+        return {
+            text: selected.text,
+            emoji: selected.emoji
+        };
+
+    });
+});
