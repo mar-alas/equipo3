@@ -40,6 +40,37 @@ const crearPagina = {
 	  
     },
 	
+	crearPaginaConTituloYContenido: (Titulo, Contenido) => {
+      
+		//click en nueva pagina
+		cy.get('.ember-view.gh-btn.gh-btn-primary.view-actions-top-row').click();
+		
+		//se inserta titulo de la pagina  
+		cy.get('.gh-editor-title.ember-text-area.gh-input.ember-view').type(Titulo);
+  
+		//se inserta contenido del post
+		cy.get('p').type(Contenido);
+		
+		//se da publicar
+		cy.get('[data-test-button="publish-flow"]').click();
+		
+		//da click en continuar en el final review 
+		cy.get('[data-test-button="continue"]').click();
+		
+		//da click en confirmacion
+		cy.get('[data-test-button="confirm-publish"]').click();
+		
+		//vuelve al editor
+		cy.get('[data-test-button="back-to-editor"]').click();
+		
+		//vuelve a las paginas
+		cy.get('[data-test-link="pages"]').click();
+		
+		//vuelve al dashboard
+		cy.get('[data-test-nav="dashboard"]').click();
+		
+	  },
+
 	editarPagina: (Titulo,Contenido) => {
 		
 		//Navegamos a pages
@@ -73,9 +104,20 @@ const crearPagina = {
 		//nos devolvemos a pages
 		cy.get('[data-test-link="pages"]').click();
 
-	  }  
+	  },
 
-	,
+	  revisarContenidoPaginaConMarkdown: (Titulo,Contenido) => {
+		
+		//Navegamos a pages
+		cy.get('[data-test-nav="pages"]').click();
+  
+		// entramos al page que queremos revisar
+		cy.get('[class="gh-content-entry-title"]').contains(Titulo).click();
+
+		//nos devolvemos a pages
+		cy.get('[data-test-link="pages"]').click();
+
+	  },
 	
 	existePage: (Titulo) => {
 		
