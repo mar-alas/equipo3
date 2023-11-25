@@ -126,7 +126,11 @@ const crearPagina = {
   
 		// entramos al page que queremos revisar y revisamos contenido.
 		cy.get('[class="gh-content-entry-title"]').contains(Titulo).click();
-		cy.get('p').should('have.text', Contenido);
+		cy.get('p')
+			.should('have.text', Contenido)
+			.and('contain', 'http')
+			.and('contain', '.com')
+			.and('contain', '.png');
 
 		//nos devolvemos a pages
 		cy.get('[data-test-link="pages"]').click();

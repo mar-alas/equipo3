@@ -52,7 +52,7 @@ describe("Login exitoso luego crear una pagina cargando una URL con una IMAGEN",
         crearPagina.revisarContenidoPaginaConUrlDeImagen(data.title, data.body);
         cy.wait(10000);
         if(TAKE_SCREENSHOT) { 
-            cy.screenshot(NOMBRE_ESCENARIO + '7_revisarContenidoPagina');
+            cy.screenshot(NOMBRE_ESCENARIO + '7_revisarContenidoPaginaConUrlDeImagen');
         }
     });
 	
