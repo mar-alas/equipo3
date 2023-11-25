@@ -2,10 +2,10 @@
 import loginPage from "./authentication";
 import crearPagina from "./pagina"; 
 
-const NOMBRE_ESCENARIO = 'Escenario 033 -- Paso ';
+const NOMBRE_ESCENARIO = 'Escenario 036 -- Paso ';
 const TAKE_SCREENSHOT = false;
 
-describe("Login exitoso luego crear pagina con contenido MARKDOWN ", () => {
+describe("Login exitoso luego crear pagina con emoji en el contenido y texto simple en el titulo", () => {
   beforeEach(() => {
     loginPage.visit();
     if(TAKE_SCREENSHOT) {
@@ -41,18 +41,18 @@ describe("Login exitoso luego crear pagina con contenido MARKDOWN ", () => {
     }
 
     //When I create a new page
-    cy.getAprioriDataMarkdown().then((data) => {
-        crearPagina.crearPaginaConTituloYContenido(data.title, data.body);
+    cy.getAprioriEmojisWithText().then((data) => {
+        crearPagina.crearPaginaConTituloYContenido(data.text, data.emoji);
         cy.wait(10000);
         if(TAKE_SCREENSHOT) { 
             cy.screenshot(NOMBRE_ESCENARIO + '6_crearPaginaConTituloYContenido');
         }
 
         //Then I should have the page correcly
-        crearPagina.revisarContenidoPaginaConMarkdown(data.title, data.body);
+        crearPagina.revisarContenidoPagina(data.text, data.emoji);
         cy.wait(10000);
         if(TAKE_SCREENSHOT) { 
-            cy.screenshot(NOMBRE_ESCENARIO + '7_revisarContenidoPagina');
+            cy.screenshot(NOMBRE_ESCENARIO + '7_revisarContenidoPaginaConUrlDeImagen');
         }
     });
 	
