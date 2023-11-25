@@ -127,6 +127,32 @@ const crearTags = {
     cy.get(".gh-nav-top").contains("Tags").click();
     cy.wait(2000);
     cy.get('.gh-tag-list-name').contains(name).should('not.exist');
+  },
+  editarColorTag: (name, color, save=true) => {
+    cy.get(".gh-nav-top").contains("Tags").click();
+    cy.wait(1000);
+    cy.get('[class="gh-tag-list-name"]').contains(name).click({force: true});
+    cy.get('[data-test-input="accentColor"]').clear();
+    cy.get('[data-test-input="accentColor"]').type(color, { parseSpecialCharSequences: false });
+    if (save) {
+      cy.get(".gh-canvas-header-content").contains("Save").click();
+      cy.get(".gh-canvas-header-content").should("contain", "Saved");
+    }
+  },
+  validarSlugContains2: (name) => {
+    cy.get(".gh-nav-top").contains("Tags").click();
+    cy.wait(1000);
+    let ultimoElementoQueContieneName;
+    cy.get('[class="gh-tag-list-name"]').each(($el, index, $list) => {
+        if ($el.text().includes(name)) {
+            ultimoElementoQueContieneName = $el;
+        }
+    }).then(() => {
+        if (ultimoElementoQueContieneName) {
+            cy.wrap(ultimoElementoQueContieneName).click({ force: true });
+        }
+    });
+    cy.get('[data-test-input="tag-slug"]').invoke('val').should('match', /2$/);
   }
 
 };

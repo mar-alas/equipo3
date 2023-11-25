@@ -63,7 +63,7 @@ Cypress.Commands.add('usePoliDinamicoTag', () => {
 
         const tag_name = response.body.name;
         const tag_body = response.body.description;
-        const tag_color = response.body.color;
+        const tag_color = response.body.color.slice(1);
         const tag_image = response.body.image;
 
         return { name: tag_name, body: tag_body, color: tag_color, image: tag_image };
