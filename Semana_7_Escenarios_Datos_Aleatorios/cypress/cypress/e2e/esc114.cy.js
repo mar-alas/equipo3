@@ -1,12 +1,12 @@
-//corrrer localmente: npx cypress run --spec "cypress/e2e/esc113.cy.js"
+//correr local: npx cypress run --spec "cypress/e2e/esc114.cy.js" --headed
 import loginPage from './authentication';
 import crearPost from './post';
 import useAprioriCrearPost from './posts_helper'
 
-const NOMBRE_ESCENARIO = 'Escenario 113 -- Paso ';
+const NOMBRE_ESCENARIO = 'Escenario 114 -- Paso ';
 const TWO_SECONDS = 2000;
 
-describe('Escenario 113', () => {
+describe('Escenario 114', () => {
   beforeEach(() => {
     Cypress.on('uncaught:exception', (err, runnable) => {
       // we expect a 3rd party library error with message 'list not defined'
@@ -45,7 +45,7 @@ describe('Escenario 113', () => {
       
       cy.useAprioriCrearPost().then((formattedPost) => {
         //se publica el video esperando 5 segundos
-        crearPost.crearPostContenidoVimeo(formattedPost.title, link_prueba, formattedPost.body,5);
+        crearPost.crearPostContenidoVimeo(formattedPost.title, link_prueba, formattedPost.body,0);
         crearPost.publicarPost();
         cy.wait(TWO_SECONDS);
         // Other test steps within the .then() block for proper chaining
