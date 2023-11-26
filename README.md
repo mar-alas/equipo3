@@ -29,6 +29,7 @@
 - [Indice](#indice)
 - [Entrega Semana 5](#pruebas-e2e-semana-5)
   - [Ejecutar con ghost local](#utilizando-ghost-localmente)
+  - [Instrucciones ejecutar pruebas con crypress localmente](#instrucciones-para-ejecución-de-escenarios-de-pruebas-con-cypress-localmente)
 - [Contribuidorxs](#contribuidorxs)
 - [Contacto](#Integrantes-del-equipo)
 
