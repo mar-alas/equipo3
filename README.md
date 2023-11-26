@@ -36,8 +36,7 @@
   - [Instrucciones ejecutar pruebas con Kraken y ghost 4.48.9 en Google Cloud](#instrucciones-para-ejecución-de-escenarios-de-pruebas-con-Kraken-con-ghost-4-48-9-hosteado-en-Google-Cloud)
   - [Instrucciones para ejecutar reportes con Resemble.js](#instrucciones-para-ejecutar-reportes-con-resemblejs)
   - [Instrucciones para ejecutar los escenarios con Backstop.js](#instrucciones-para-ejecutar-los-escenarios-con-backstopjs)
-- [Contribuidorxs](#contribuidorxs)
-- [Contacto](#Integrantes-del-equipo)
+- [Integrante del Equipo](#Integrantes-del-equipo)
 
 <hr>
 
