@@ -21,6 +21,36 @@ Cypress.Commands.add('useAprioriCrearPost', () => {
       });
 
 });
+Cypress.Commands.add('useAprioriCrearPostConVideo', () => {
+    cy.readFile('./cypress/data/post_data.json').then((postsData) => {
+        // Function to get a random item from the data
+        const randomIndex = Math.floor(Math.random() * postsData.length);
+        const randomPost = postsData[randomIndex];
+        
+        const videoData= cy.readFile('./cypress/data/youtube_videos.json')
+        // Function to get a random item from the data
+        const randomIndex2 = Math.floor(Math.random() * videoData.length);
+        const randomVideo= videoData[randomIndex2];
+
+
+        // Using the a-priori strategy to create a post
+        const formattedPost = {
+          title: randomPost.title,
+          body: randomPost.content,
+          date: randomPost.date,
+          url: randomVideo.url
+        };
+    
+        // Return the formatted post
+        return formattedPost;
+      });
+
+        
+    
+        
+      
+
+}); 
 // ________________________esto es usando a faker_____________________________
 
 Cypress.Commands.add('useAleatorioCrearPost', () => {
