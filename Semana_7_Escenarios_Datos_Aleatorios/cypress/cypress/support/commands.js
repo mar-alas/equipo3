@@ -111,3 +111,17 @@ Cypress.Commands.add('getAprioriSpecialCharacteres', () => {
 
     });
 });
+
+/**
+ * Obtener data a priori de numeros largos.
+ */
+Cypress.Commands.add('getAprioriLargeNumbers', () => {
+    cy.readFile('./cypress/data/numeros_largos.json').then((data) => {
+        const selected = data[Math.floor(Math.random() * data.length)];
+    
+        return {
+            text: selected.n
+        };
+
+    });
+});
