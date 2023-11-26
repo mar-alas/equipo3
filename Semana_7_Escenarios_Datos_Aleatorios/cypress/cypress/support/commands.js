@@ -211,3 +211,23 @@ Cypress.Commands.add('getEmojisAPI', () => {
         };
     });
 });
+
+/** 
+ * Obtener UUID desde API.
+*/
+Cypress.Commands.add('getUuidAPI', () => {
+    return cy.request({
+        method: 'GET',
+        url: "https://my.api.mockaroo.com/uuid.json",
+        headers: {
+            'X-API-Key': "ce8f67e0",
+        },
+    }).then(response => {
+        if (response.status !== 200)
+            throw new Error('Non-200 status code');
+
+        return { 
+            uuid: response.body.uuid,
+        };
+    });
+});
