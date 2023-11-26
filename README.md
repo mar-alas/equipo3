@@ -65,14 +65,28 @@ Esta carpeta contiene las estructuras de Cypress y de Kraken necesarias para eje
 Para la implementacion de los 120 escenarios de pruebas decidimos abordarlos asi:
 
 1. La version de ghost es la version 5.73.2
-2. Desarrollamos 105 escenarios en cypress.
-3. Desarrollamos 15 escenarios en Kraken.
-4. 2 personas trabajamos en Windows.
-5. 2 personas trabajamos en MacOS.
-6. Jira como sistema de gestion y reporte de incidentes.
+2. La version de Ghost CLI es 1.25.3
+3. La version de NodeJS es Node 18.18.1
+4. Desarrollamos 105 escenarios en cypress.
+5. Desarrollamos 15 escenarios en Kraken.
+6. 2 personas trabajamos en Windows.
+7. 2 personas trabajamos en MacOS.
+8. Jira como sistema de gestion y reporte de incidentes.
 
 ### Iniciar Ghost
-TBD
+Si no ha instalado ghost en su computador, siga [estas instrucciones](https://ghost.org/docs/install/).
+
+Una vez instalado ghost, acceda a la ruta donde los instaló a tarves de la terminal y ejecute:
+
+Para inciarlo:
+```
+sudo ghost start
+```
+
+Para detenerlo:
+```
+sudo ghost stop
+```
 
 ### Ejecucion de pruebas con Cypress
 ⚠️ **Recomendacion:** para una completa y correcta ejecucion de las pruebas, recomendamos tener ghost limpio, sin data previa.
