@@ -71,8 +71,53 @@ Para la implementacion de los 120 escenarios de pruebas decidimos abordarlos asi
 5. 2 personas trabajamos en MacOS.
 6. Jira como sistema de gestion y reporte de incidentes.
 
+### Iniciar Ghost
+TBD
+
 ### Ejecucion de pruebas con Cypress
-TODO
+Para ejecutar las pruebas de cypress siga las siguientes instrucciones:
+
+1. Abra una terminal en su computador.
+2. Clone este repositorio en su maquina local.
+
+Para clonarlo a traves de HTTPS ejecute:
+```
+git clone https://github.com/mar-alas/equipo3.git
+```
+
+para clonarlo a traves de SSH (_Asegurate de que la clave SSH asociada con tu cuenta de GitHub está configurada correctamente en tu máquina._)
+```
+git clone git@github.com:mar-alas/equipo3.git
+```
+
+Para clonarlo a traves de GitHub CLI:
+```
+gh repo clone mar-alas/equipo3
+```
+
+3. Abra su editor de codigo favorito. Recomendado: [Visual Studio Code](https://code.visualstudio.com/)
+4. Desde el editor de codigo abra la carpeta que clonó llamada **equipo3**
+5. Ubique la terminal en la ruta: "equipo3/Semana_7_Escenarios_Datos_Aleatorios/cypress"
+6. Ejecute el siguiente comando para ejecutar un escenario:
+```
+npx cypress run --spec cypress/e2e/escXYZ.cy.js
+```
+o si esta en linux o MacOs:
+
+```
+sudo npx cypress run --spec cypress/e2e/escXYZ.cy.js
+```
+XYZ es el numero de esceario a ejecutar.
+
+8. Ejecute el siguiente comando para ejecutar todos los escenarios
+```
+npx cypress run
+```
+o si esta en linux o MacOs
+
+```
+sudo npx cypress run
+```
 
 ### Ejecucion de pruebas con Kraken
 TODO
