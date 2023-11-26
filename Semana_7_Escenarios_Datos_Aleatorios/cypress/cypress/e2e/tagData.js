@@ -17,32 +17,38 @@ const tag = {
     metaData: {
         metaTitle: {
             title: '',
-            limit: 191,
+            limitMin: 1,
+            limitMax: 69,
         },
         metaDescription: {
             description: '',
-            limit: 500,
+            limitMin: 1,
+            limitMax: 155,
         }
   
     },
     xCard: {
         title: {
             title: '',
-            limit: 70,
+            limitMin: 1,
+            limitMax: 69,
         },
         description: {
             description: '',
-            limit: 125,
+            limitMin: 1,
+            limitMax: 124,
         }
     },
     facCard: {
         oggTitle: {
             title: '',
-            limit: 100,
+            limitMin: 1,
+            limitMax: 99,
         },
         oggDescription: {
             description: '',
-            limit: 65,
+            llimitMin: 1,
+            limitMax: 64,
         }
     },
   };

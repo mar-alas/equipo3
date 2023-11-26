@@ -27,7 +27,7 @@ const crearTags = {
   },
   
   validarTag: (name) => {
-    cy.get('[data-test-link="tags-back"]').click();
+    cy.get(".gh-nav-top").contains("Tags").click();
     cy.get('.gh-tag-list-name').then(tagList => {
         const exists = Array.from(tagList).some(tag => tag.innerText === name);
         expect(exists).to.be.true;
@@ -194,6 +194,96 @@ const crearTags = {
     cy.get('.settings-menu-toggle').click();
     cy.get('[data-test-button="publish-save"]').click();
     cy.get('[data-test-button="publish-save"]').should("contain", "Update");
+  },
+  crearTagDesdeMenuContextual: (Titulo, name) => {
+    cy.get('[class="gh-content-entry-title"]').contains(Titulo).trigger('contextmenu');
+    cy.wait(1000);
+    cy.get('.gh-posts-context-menu li').eq(2).click();
+    cy.wait(1000);
+    cy.get('.ember-view input').type(name);
+    cy.wait(2000);
+    cy.get('.ember-power-select-option').click();
+    cy.get('h1').click();
+    cy.get('[data-test-button="confirm"]').click();
+    
+    // cy.get('h1').should('not.exist');
+
+  },
+  editarMetaDatosTag: (name, metatitle, metadescription, save=true) => {
+    cy.get(".gh-nav-top").contains("Tags").click();
+    cy.wait(1000);
+    cy.get('[class="gh-tag-list-name"]').contains(name).click({force: true});
+    cy.wait(1000);
+    cy.get('button.gh-btn-expand').first().click();
+    cy.wait(1000);
+    cy.get('#meta-title').clear();
+    cy.get('#meta-title').type(metatitle, { parseSpecialCharSequences: false });
+    cy.get('#meta-description').clear();
+    cy.get('#meta-description').type(metadescription, { parseSpecialCharSequences: false });
+    if (save) {
+      cy.get(".gh-canvas-header-content").contains("Save").click();
+      cy.get(".gh-canvas-header-content").should("contain", "Saved");
+    }
+  },
+  editarXcardTag: (name, xtitle, xdescription, save=true) => {
+    cy.get(".gh-nav-top").contains("Tags").click();
+    cy.wait(1000);
+    cy.get('[class="gh-tag-list-name"]').contains(name).click({force: true});
+    cy.wait(1000);
+    cy.get('button.gh-btn-expand').eq(1).click();
+    cy.wait(1000);
+    cy.get('#twitter-title').clear();
+    cy.get('#twitter-title').type(xtitle, { parseSpecialCharSequences: false });
+    cy.get('#twitter-description').clear();
+    cy.get('#twitter-description').type(xdescription, { parseSpecialCharSequences: false });
+    if (save) {
+      cy.get(".gh-canvas-header-content").contains("Save").click();
+      cy.get(".gh-canvas-header-content").should("contain", "Saved");
+    }
+  },
+  editarMetaFacebookTag: (name, facOggTitle, facOggDescription, save=true) => {
+    cy.get(".gh-nav-top").contains("Tags").click();
+    cy.wait(1000);
+    cy.get('[class="gh-tag-list-name"]').contains(name).click({force: true});
+    cy.wait(1000);
+    cy.get('button.gh-btn-expand').eq(2).click();
+    cy.wait(1000);
+    cy.get('#og-title').clear();
+    cy.get('#og-title').type(facOggTitle, { parseSpecialCharSequences: false });
+    cy.get('#og-description').clear();
+    cy.get('#og-description').type(facOggDescription, { parseSpecialCharSequences: false });
+    if (save) {
+      cy.get(".gh-canvas-header-content").contains("Save").click();
+      cy.get(".gh-canvas-header-content").should("contain", "Saved");
+    }
+  },
+  agregarCodeInjectionTagHeader: (name, codeinjectionhead, save=true) => {
+    cy.get(".gh-nav-top").contains("Tags").click();
+    cy.wait(1000);
+    cy.get('[class="gh-tag-list-name"]').contains(name).click({force: true});
+    cy.wait(1000);
+    cy.get('button.gh-btn-expand').eq(3).click();
+    cy.wait(1000);
+    cy.get('#tag-setting-codeinjection-head .gh-cm-editor-textarea').invoke('css', 'display', 'block');
+    cy.get('#tag-setting-codeinjection-head .gh-cm-editor-textarea').type(codeinjectionhead, { parseSpecialCharSequences: false });
+    if (save) {
+      cy.get(".gh-canvas-header-content").contains("Save").click();
+      cy.get(".gh-canvas-header-content").should("contain", "Saved");
+    }
+  },
+  agregarCodeInjectionTagFooter: (name, codeinjectionfoot, save=true) => {
+    cy.get(".gh-nav-top").contains("Tags").click();
+    cy.wait(1000);
+    cy.get('[class="gh-tag-list-name"]').contains(name).click({force: true});
+    cy.wait(1000);
+    cy.get('button.gh-btn-expand').eq(3).click();
+    cy.wait(1000);
+    cy.get('#tag-setting-codeinjection-foot .gh-cm-editor-textarea').invoke('css', 'display', 'block');
+    cy.get('#tag-setting-codeinjection-foot .gh-cm-editor-textarea').type(codeinjectionfoot, { parseSpecialCharSequences: false });
+    if (save) {
+      cy.get(".gh-canvas-header-content").contains("Save").click();
+      cy.get(".gh-canvas-header-content").should("contain", "Saved");
+    }
   }
   
 
