@@ -262,15 +262,31 @@ Cypress.Commands.add('getColorsInShortHexadecimalAPI', () => {
     return cy.request({
         method: 'GET',
         url: "https://my.api.mockaroo.com/colors_hexadecimal.json",
-        headers: {
-            'X-API-Key': "ce8f67e0",
-        },
+        headers: { 'X-API-Key': "ce8f67e0" },
     }).then(response => {
         if (response.status !== 200)
             throw new Error('Non-200 status code');
-
         return { 
             color: response.body.color,
         };
     });
 });
+
+/** 
+ * Obtener user agents desde API.
+*/
+Cypress.Commands.add('getUserAgentAPI', () => {
+    return cy.request({
+        method: 'GET',
+        url: "https://my.api.mockaroo.com/user_agent.json",
+        headers: { 'X-API-Key': "ce8f67e0" },
+    }).then(response => {
+        if (response.status !== 200)
+            throw new Error('Non-200 status code');
+        return { 
+            user_agent: response.body.user_agent,
+        };
+    });
+});
+
+
