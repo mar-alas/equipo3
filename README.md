@@ -30,8 +30,8 @@
 - [Entrega Semana 5](#pruebas-e2e-semana-5)
   - [Ejecutar con ghost local](#utilizando-ghost-localmente)
   - [Instrucciones ejecutar pruebas con crypress localmente](#instrucciones-para-ejecución-de-escenarios-de-pruebas-con-cypress-localmente)
-  - [Instrucciones ejecutar pruebas con Kraken y ghost localmente](#instrucciones-para-ejecución-de-escenarios-de-pruebas-con-Kraken-y-ghost-5-73-2-en-local)
-  - [Instrucciones ejecutar pruebas con Kraken y ghost en AWS](#instrucciones-para-ejecución-de-escenarios-de-pruebas-con-Kraken-y-ghost-5-72-1-hosteado-en-Amazon-Web-Services)
+  - [Instrucciones ejecutar pruebas con Kraken y ghost 5.73 localmente](#instrucciones-para-ejecución-de-escenarios-de-pruebas-con-Kraken-y-ghost-5-73-2-en-local)
+  - [Instrucciones ejecutar pruebas con Kraken y ghost 5.72 en AWS](#instrucciones-para-ejecución-de-escenarios-de-pruebas-con-Kraken-y-ghost-5-72-1-hosteado-en-Amazon-Web-Services)
 - [Contribuidorxs](#contribuidorxs)
 - [Contacto](#Integrantes-del-equipo)
 
