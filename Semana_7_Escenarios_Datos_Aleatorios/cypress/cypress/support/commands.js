@@ -254,3 +254,23 @@ Cypress.Commands.add('getSpecialCharacteresAPI', () => {
     });
 });
 
+
+/** 
+ * Obtener colors in Hexadecimal desde API.
+*/
+Cypress.Commands.add('getColorsInShortHexadecimalAPI', () => {
+    return cy.request({
+        method: 'GET',
+        url: "https://my.api.mockaroo.com/colors_hexadecimal.json",
+        headers: {
+            'X-API-Key': "ce8f67e0",
+        },
+    }).then(response => {
+        if (response.status !== 200)
+            throw new Error('Non-200 status code');
+
+        return { 
+            color: response.body.color,
+        };
+    });
+});
