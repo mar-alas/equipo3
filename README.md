@@ -75,6 +75,8 @@ Para la implementacion de los 120 escenarios de pruebas decidimos abordarlos asi
 TBD
 
 ### Ejecucion de pruebas con Cypress
+⚠️ **Recomendacion:** para una completa y correcta ejecucion de las pruebas, recomendamos tener ghost limpio, sin data previa.
+
 Para ejecutar las pruebas de cypress siga las siguientes instrucciones:
 
 1. Abra una terminal en su computador.
@@ -120,7 +122,9 @@ sudo npx cypress run
 ```
 
 ### Ejecucion de pruebas con Kraken
-TODO
+⚠️ **Recomendacion:** para una completa y correcta ejecucion de las pruebas, recomendamos tener ghost limpio, sin data previa.
+
+TBD
 
 ## Pruebas E2E Semana 5
 * En este repositorio va a encontrar las siguientes carpetas.
