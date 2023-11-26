@@ -4,6 +4,7 @@ import tag from './tagData';
 
 context("Actions", () => {
     beforeEach(() => {
+      // Given I log in in ghost
       cy.login();
     });
 
@@ -11,11 +12,13 @@ context("Actions", () => {
         tag.name.limitMin = 200;
         tag.name.limitMax = 250;
         cy.useAleatorioTagNew(tag).then(newTag => {
-            crearTags.crearTag(newTag.name, '', false);
-            cy.get('#tag-name').blur();
-            cy.getFormErrorMessage('.error').then(errorMessage => {
-                expect(errorMessage).to.contain('Tag names cannot be longer than 191 characters.');
-            });
+          // When I create a new tag width name outside the borders
+          crearTags.crearTag(newTag.name, '', false);
+          cy.get('#tag-name').blur();
+          cy.getFormErrorMessage('.error').then(errorMessage => {
+            // Then there should be a validation message
+            expect(errorMessage).to.contain('Tag names cannot be longer than 191 characters.');
+          });
         });
     });
        

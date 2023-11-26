@@ -102,7 +102,7 @@ const crearTags = {
     cy.get(".gh-nav-top").contains("Tags").click();
     cy.wait(1000);
     if (name == '') {
-      cy.get('.gh-tag-list-title').first().click();
+      cy.get('.gh-tag-list-title').first().click( {force: true});
       cy.wait(1000);
     } else {
       cy.get('.gh-tag-list-title').contains(name).click();
@@ -118,7 +118,7 @@ const crearTags = {
   },
   eliminarTag: (name) => {
     cy.get(".gh-nav-top").contains("Tags").click();
-    cy.get('.gh-tag-list-title').contains(name).click();
+    cy.get('.gh-tag-list-title').contains(name).click( {force: true} );
     cy.on('uncaught:exception', () => false)
     cy.get('[data-test-button="delete-tag"]').click();
     cy.get('[data-test-button="confirm"]').click();

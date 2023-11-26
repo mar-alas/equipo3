@@ -6,6 +6,7 @@ import tag from './tagData';
 
 context("Actions", () => {
     beforeEach(() => {
+      // Given I log in in ghost
       cy.login();
     });
 
@@ -15,8 +16,10 @@ context("Actions", () => {
         tag.description.limitMin = 10;
         tag.description.limitMax = 15;
         cy.useAleatorioTagNew(tag).then(newTag => {
+          // When I create a new tag with name newTag.name
             crearTags.crearTag(newTag.name, newTag.description)
             crearTags.validarTag(newTag.name)
+            // Then there should be a successful save button.
             crearTags.editarImagenTag(newTag.name, newTag.animalName)
         });
         
