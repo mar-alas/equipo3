@@ -30,7 +30,7 @@
 - [Entrega Semana 5](#pruebas-e2e-semana-5)
   - [Ejecutar con ghost local](#utilizando-ghost-localmente)
   - [Instrucciones ejecutar pruebas con crypress localmente](#instrucciones-para-ejecución-de-escenarios-de-pruebas-con-cypress-localmente)
-  - [Instrucciones ejecutar pruebas con Kraken y ghost localmente](#instrucciones-para-ejecución-de-escenarios-de-pruebas-con-kraken-y-ghost-5.73.2-en-local)
+  - [Instrucciones ejecutar pruebas con Kraken y ghost localmente](#instrucciones-para-ejecución-de-escenarios-de-pruebas-con-Kraken-y-ghost-5-73-2-en-local)
 - [Contribuidorxs](#contribuidorxs)
 - [Contacto](#Integrantes-del-equipo)
 
@@ -63,7 +63,7 @@ Utilizar Ghost CLI Version - 1.20.0 y Node 16.13.0
 4. Para correr las pruebas vaya a la carpeta cypress del repositorio en el cmd y ejecute las pruebas con cypress run. Este comando le deberia correr las 20 pruebas y mostrar al final el reporte resumen de la corrida.
 5. Alternativamente puede usar el comando cypress open para correr las pruebas manualmente y ver su ejecución en vivo y en directo en la herramienta de cypress.
 
-#### Instrucciones para ejecución de escenarios de pruebas con Kraken y ghost 5.73.2 en local:
+#### Instrucciones para ejecución de escenarios de pruebas con Kraken y ghost 5-73-2 en local:
 1. Descargue el repositorio en su equipo local utilizando el comando git clone.
 2. Instale la version de ghost 5.73.2 (en la seccion anterior se puede ver las herramientas necesarias para su instalacion)
 3. Sobre la carpeta kraken_tests_ghost_vanterior_5_73_2 corra los comandos "npm install" y ""npm install kraken-node" para instalar las dependendicas del proyecto.
