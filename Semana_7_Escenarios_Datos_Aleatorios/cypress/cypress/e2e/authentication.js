@@ -13,6 +13,8 @@ const loginPage = {
     
     submitLoginForm: () => {
       cy.get('button[type="submit"]').click();
+      cy.wait(2000);
+      cy.borrarDatosGhost();
     },
 
     signout: () => {

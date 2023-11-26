@@ -8,6 +8,8 @@ Cypress.Commands.add("login", () => {
     cy.get(signin.selectors.email).type(signin.user.email);
     cy.get(signin.selectors.password).type(signin.user.password);
     cy.get(signin.selectors.submit).click();
+    cy.wait(1000);
+    cy.borrarDatosGhost();
 });
 
 // ############################# LOGOUT #############################
@@ -502,4 +504,15 @@ Cypress.Commands.add('getCredencialesAPI', () => {
             password: response.body.password,
         };
     });
+});
+
+Cypress.Commands.add('borrarDatosGhost', () => {
+    cy.visit(host + "#/settings/labs");
+    cy.wait(2000);
+    cy.get('[data-testid="labs"]').find('button.rounded').click();
+    cy.wait(1000);
+    cy.get('div[data-testid="labs"]').find('button.bg-red').click();
+    cy.wait(1000);
+    cy.get('[data-testid="confirmation-modal"]').find('button.bg-red').click();
+    cy.visit(host + "#/dashboard");
 });
