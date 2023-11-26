@@ -41,6 +41,22 @@
 
 <hr>
 
+## Pruebas E2E Semana 7
+Para la semana 7, decidimos como equipo, crear una nueva carpeta llamada "Semana_7_Escenarios_Datos_Aleatorios".
+Esta carpeta contiene las estructuras de Cypress y de Kraken necesarias para ejecutar las pruebas con la nueva funcionalidad de datos aleatoirios, pool a priori y pool dinamico.
+
+### Estructura de carpetas
+TODO
+
+### Stack elegido para las pruebas
+TODO
+
+### Ejecucion de pruebas con Cypress
+TODO
+
+### Ejecucion de pruebas con Kraken
+TODO
+
 ## Pruebas E2E Semana 5
 * En este repositorio va a encontrar las siguientes carpetas.
      * La carpeta "cypress" para ejecutar los escenarios de pruebas en cypress. Estos escenarios se ejecutaron en la versión 5.73.2.
