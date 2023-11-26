@@ -1,5 +1,6 @@
 import crearTags from './tag';
 import crearPost from './post';
+import crearPagina from './pagina';
 
 import usePoliDinamicoTag from './tag_helper';
 import useAprioriCrearPost from './posts_helper'
@@ -11,11 +12,11 @@ context("Actions", () => {
 
     it("Login con éxito, Crear page, Editar page, Crear tag desde page, signout - A-priori", () => {
         cy.useAprioriCrearPost().then((formattedPost) => {
-            crearPost.crearPost(formattedPost.title, formattedPost.body);
+            crearPagina.navegarAPages();
+            crearPagina.crearPagina(formattedPost.title, formattedPost.body);
             cy.wait(2000);
-            crearPost.existePost(formattedPost.title);
-            cy.wait(2000);
-            crearTags.crearTagDesdePost(formattedPost.title, formattedPost.title);
+            crearPagina.navegarAPages();
+            crearTags.crearTagDesdePagina(formattedPost.title, formattedPost.title+'-tag');
             cy.signOut();
         });
         
