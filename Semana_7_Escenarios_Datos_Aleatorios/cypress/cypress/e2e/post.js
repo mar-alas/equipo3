@@ -224,6 +224,81 @@ const crearPost = {
 
 
   },
+  crearPostContenidoSpotify: (Titulo, enlace,Body,segundosEspera) => {
+    //click en nuevo post
+    cy.get(".ember-view.gh-secondary-action.gh-nav-new-post").click();
+
+    //se inserta titulo del post
+    cy.get(".gh-editor-title.ember-text-area.gh-input.ember-view").type(Titulo);
+
+    //se da click en el cuepo
+    cy.get("p").click();
+
+    //se da click en el mas de la parte izqueirda para mas opciones
+    cy.get('[aria-label="Add a card"]').click();
+
+    //se da click en Spotify
+    cy.get('[data-kg-card-menu-item="Spotify"]').click();
+
+    //se llena la seccion de url
+    cy.get('[data-testid="embed-url"]').type(enlace + '{enter}');
+
+    //wait 5 seconds
+    cy.wait(segundosEspera*1000);
+
+
+
+  },
+  crearPostContenidoSoundCloud: (Titulo, enlace,Body,segundosEspera) => {
+    //click en nuevo post
+    cy.get(".ember-view.gh-secondary-action.gh-nav-new-post").click();
+
+    //se inserta titulo del post
+    cy.get(".gh-editor-title.ember-text-area.gh-input.ember-view").type(Titulo);
+
+    //se da click en el cuepo
+    cy.get("p").click();
+
+    //se da click en el mas de la parte izqueirda para mas opciones
+    cy.get('[aria-label="Add a card"]').click();
+
+    //se da click en Sound Cloud
+    cy.get('[data-kg-card-menu-item="SoundCloud"]').click();
+
+    //se llena la seccion de url
+    cy.get('[data-testid="embed-url"]').type(enlace + '{enter}');
+
+    //wait 5 seconds
+    cy.wait(segundosEspera*1000);
+
+
+
+  },
+  crearPostContenidoOtherUrl: (Titulo, enlace,Body,segundosEspera) => {
+    //click en nuevo post
+    cy.get(".ember-view.gh-secondary-action.gh-nav-new-post").click();
+
+    //se inserta titulo del post
+    cy.get(".gh-editor-title.ember-text-area.gh-input.ember-view").type(Titulo);
+
+    //se da click en el cuepo
+    cy.get("p").click();
+
+    //se da click en el mas de la parte izqueirda para mas opciones
+    cy.get('[aria-label="Add a card"]').click();
+
+    //se da click en other url
+    cy.get('[data-kg-card-menu-item="Other..."]').click();
+
+    //se llena la seccion de url
+    cy.get('[data-testid="embed-url"]').type(enlace + '{enter}');
+
+    //wait 5 seconds
+    cy.wait(segundosEspera*1000);
+
+
+
+  },
   crearPostContenidoBookmark: (Titulo, Body) => {
     //click en nuevo post
     cy.get(".ember-view.gh-secondary-action.gh-nav-new-post").click();
