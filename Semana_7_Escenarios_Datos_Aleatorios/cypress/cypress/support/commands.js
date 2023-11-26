@@ -168,3 +168,24 @@ Cypress.Commands.add('getHtmlTagAPI', () => {
         };
     });
 });
+
+
+/** 
+ * Obtener images desde API.
+*/
+Cypress.Commands.add('getImagesAPI', () => {
+    return cy.request({
+        method: 'GET',
+        url: "https://my.api.mockaroo.com/images.json",
+        headers: {
+            'X-API-Key': "ce8f67e0",
+        },
+    }).then(response => {
+        if (response.status !== 200)
+            throw new Error('Non-200 status code');
+
+        return { 
+            image: response.body.image,
+        };
+    });
+});
