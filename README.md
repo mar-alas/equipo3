@@ -31,6 +31,7 @@
   - [Ejecutar con ghost local](#utilizando-ghost-localmente)
   - [Instrucciones ejecutar pruebas con crypress localmente](#instrucciones-para-ejecución-de-escenarios-de-pruebas-con-cypress-localmente)
   - [Instrucciones ejecutar pruebas con Kraken y ghost localmente](#instrucciones-para-ejecución-de-escenarios-de-pruebas-con-Kraken-y-ghost-5-73-2-en-local)
+  - [Instrucciones ejecutar pruebas con Kraken y ghost en AWS](#instrucciones-para-ejecución-de-escenarios-de-pruebas-con-Kraken-y-ghost-5-72-1-hosteado-en-Amazon-Web-Services)
 - [Contribuidorxs](#contribuidorxs)
 - [Contacto](#Integrantes-del-equipo)
 
@@ -72,7 +73,7 @@ Utilizar Ghost CLI Version - 1.20.0 y Node 16.13.0
 6. El archivo de windows utiliza el comando "npx kraken-node run" para correr las pruebas localmente, mientras que el archivo de mac utiliza el comando "./node_modules/kraken-node/bin/kraken-node run" para correr las pruebas utilizando el kraken local, para este escenariob es necesario tener la carpeta node_modules dentro de la carpeta kraken_tests_ghost_vanterior_5_73_2, que se genero gracias al paso 2 con el comando "npm install kraken-node".
 7. Si desea una corrida limpia se recomienda borrar las carpetas escenario{n} que estén creados en la carpeta screenshots sin borrar la carpeta que dice "escenario".
 
-#### Instrucciones para ejecución de escenarios de pruebas con Kraken y ghost 5.72.1 hosteado en la web (Amazon Web Services):
+#### Instrucciones para ejecución de escenarios de pruebas con Kraken y ghost 5-72-1 hosteado en Amazon Web Services:
 1. Realicé la misma instalacion de kraken correspondiente a las instrucciones anteriores sin instalar ghost en local, es decir la correspondiente a la carpeta "kraken_tests_ghost_vnueva_4_72_2".
 2. Cambie las credenciales del archivos properties.json para utilizar usuario: equipo3@uniandes.edu.co contraseña: Equipo3123# y host: http://44.200.235.109/ghost.
 
