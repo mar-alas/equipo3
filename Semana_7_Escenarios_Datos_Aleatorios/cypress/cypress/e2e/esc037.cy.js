@@ -11,7 +11,7 @@ const BUG_TSDC66_IS_SOLVED = false;
  * La incidencia se encuentra reportada en Jira.
  * Link: https://uniandes-miso-pruebas-automatizadas-equipo-01.atlassian.net/browse/TSDC-66
  * 
- * NOTA IMPORTANTE: habilite el flag BUG_TSDC64_SOLVED a true para validar si ya esta solucionado.
+ * NOTA IMPORTANTE: habilite el flag BUG_TSDC66_SOLVED a true para validar si ya esta solucionado.
  * 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑
 */
 
