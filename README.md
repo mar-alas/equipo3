@@ -62,7 +62,14 @@ Esta carpeta contiene las estructuras de Cypress y de Kraken necesarias para eje
 
 
 ### Stack elegido para las pruebas
-TODO
+Para la implementacion de los 120 escenarios de pruebas decidimos abordarlos asi:
+
+1. La version de ghost es la version 5.73.2
+2. Desarrollamos 105 escenarios en cypress.
+3. Desarrollamos 15 escenarios en Kraken.
+4. 2 personas trabajamos en Windows.
+5. 2 personas trabajamos en MacOS.
+6. Jira como sistema de gestion y reporte de incidentes.
 
 ### Ejecucion de pruebas con Cypress
 TODO
