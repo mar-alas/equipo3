@@ -231,3 +231,26 @@ Cypress.Commands.add('getUuidAPI', () => {
         };
     });
 });
+
+
+
+/** 
+ * Obtener Special Characters desde API.
+*/
+Cypress.Commands.add('getSpecialCharacteresAPI', () => {
+    return cy.request({
+        method: 'GET',
+        url: "https://my.api.mockaroo.com/special_characteres.json",
+        headers: {
+            'X-API-Key': "ce8f67e0",
+        },
+    }).then(response => {
+        if (response.status !== 200)
+            throw new Error('Non-200 status code');
+
+        return { 
+            character: response.body.character,
+        };
+    });
+});
+
