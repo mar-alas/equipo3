@@ -284,8 +284,47 @@ const crearTags = {
       cy.get(".gh-canvas-header-content").contains("Save").click();
       cy.get(".gh-canvas-header-content").should("contain", "Saved");
     }
+  },
+  editarImagenXcardTag: (name, imageText, save=true) => {
+    cy.get(".gh-nav-top").contains("Tags").click();
+    cy.wait(1000);
+    cy.get('[class="gh-tag-list-name"]').contains(name).click({force: true});
+    cy.wait(1000);
+    cy.get('button.gh-btn-expand').eq(1).click();
+    cy.wait(1000);
+    cy.get('.gh-twitter-settings .gh-image-uploader-unsplash').click();
+    cy.wait(3000);
+    cy.get('.gh-unsplash-search').type(imageText);
+    cy.wait(3000);
+    if (save) {
+      cy.get('.gh-unsplash-photo-container').first().trigger('mouseover');
+      cy.wait(3000);
+      cy.get('.gh-unsplash-photo-footer .gh-unsplash-button').first().contains('Insert image').click();
+      cy.wait(1000);
+      cy.get(".gh-canvas-header-content").contains("Save").click();
+      cy.get(".gh-canvas-header-content").should("contain", "Saved");
+    }
+  },
+  editarImagenFacebookTag: (name, imageText, save=true) => {
+    cy.get(".gh-nav-top").contains("Tags").click();
+    cy.wait(1000);
+    cy.get('[class="gh-tag-list-name"]').contains(name).click({force: true});
+    cy.wait(1000);
+    cy.get('button.gh-btn-expand').eq(2).click();
+    cy.wait(1000);
+    cy.get('.gh-og-settings .gh-image-uploader-unsplash').click();
+    cy.wait(3000);
+    cy.get('.gh-unsplash-search').type(imageText);
+    cy.wait(3000);
+    if (save) {
+      cy.get('.gh-unsplash-photo-container').first().trigger('mouseover');
+      cy.wait(3000);
+      cy.get('.gh-unsplash-photo-footer .gh-unsplash-button').first().contains('Insert image').click();
+      cy.wait(1000);
+      cy.get(".gh-canvas-header-content").contains("Save").click();
+      cy.get(".gh-canvas-header-content").should("contain", "Saved");
+    }
   }
-  
 
 };
 
