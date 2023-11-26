@@ -11,15 +11,17 @@ context("Actions", () => {
       cy.login();
     });
 
-    it("Login con éxito, Crear page, Editar page, Crear tag desde page, signout - A-priori", () => {
+    it("Login con éxito, Crear page, Crear tag desde menú contextual, signout - A-priori", () => {
         cy.useAprioriCrearPost().then((formattedPost) => {
             crearPagina.navegarAPages();
-            // When I create a new page with name formattedPost.title
+            // When I create a new page
             crearPagina.crearPagina(formattedPost.title, formattedPost.body);
             cy.wait(2000);
             crearPagina.navegarAPages();
-            // Then there should be a button with the confirmation text when saving the tag on the page
-            crearTags.crearTagDesdePagina(formattedPost.title, formattedPost.title+'-tag');
+            crearTags.crearTagDesdeMenuContextual(formattedPost.title, formattedPost.title+'-tag');
+            cy.wait(2000);
+            // Then there should be a tag with a title formattedPost.title+'-tag'
+            crearTags.validarTag(formattedPost.title+'-tag');
             cy.signOut();
         });
         

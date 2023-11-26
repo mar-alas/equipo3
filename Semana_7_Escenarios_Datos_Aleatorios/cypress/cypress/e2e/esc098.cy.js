@@ -27,7 +27,7 @@ describe('Escenario 98', () => {
     //cy.screenshot(NOMBRE_ESCENARIO + '4_includeDashboard');
 
     //When I create a new post using "a-priori"
-    cy.useAprioriCrearPost().then((formattedPost) => {
+    cy.useAleatorioCrearPost().then((formattedPost) => {
       crearPost.crearPostContenidoCallOut(formattedPost.title, formattedPost.body);
       cy.wait(TWO_SECONDS);
       //cy.screenshot(NOMBRE_ESCENARIO + '5_crearPost');

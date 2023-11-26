@@ -4,6 +4,7 @@ import tag from './tagData';
 
 context("Actions", () => {
     beforeEach(() => {
+      // Given I log in in ghost
       cy.login();
     });
 
@@ -11,9 +12,11 @@ context("Actions", () => {
         tag.name.limitMin = 187;
         tag.name.limitMax = 189;
         cy.useAleatorioTagNew(tag).then(newTag => {
-            crearTags.crearTag(newTag.name, '', true)
-            crearTags.validarTag(newTag.name)
-            cy.signOut();
+          // When I create a new tag using "Aleatorio"
+          crearTags.crearTag(newTag.name, '', true)
+          // Then there should be a tag with a title newTag.name
+          crearTags.validarTag(newTag.name)
+          cy.signOut();
         });
     });    
 });
