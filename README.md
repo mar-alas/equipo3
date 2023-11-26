@@ -76,6 +76,8 @@ Para la implementacion de los 120 escenarios de pruebas decidimos abordarlos asi
 7. 2 personas trabajamos en MacOS.
 8. Jira como sistema de gestion y reporte de incidentes.
 
+[Volver al indice](#indice)
+
 ### Iniciar Ghost
 Si no ha instalado ghost en su computador, siga [estas instrucciones](https://ghost.org/docs/install/).
 
@@ -90,6 +92,8 @@ Para detenerlo:
 ```
 sudo ghost stop
 ```
+
+[Volver al indice](#indice)
 
 ### Ejecucion de pruebas con Cypress
 ⚠️ **Recomendacion:** para una completa y correcta ejecucion de las pruebas, recomendamos tener ghost limpio, sin data previa. [Ver como limpiar ghost](#como-limpiar-ghost)
@@ -138,10 +142,14 @@ o si esta en linux o MacOs
 sudo npx cypress run
 ```
 
+[Volver al indice](#indice)
+
 ### Ejecucion de pruebas con Kraken
 ⚠️ **Recomendacion:** para una completa y correcta ejecucion de las pruebas, recomendamos tener ghost limpio, sin data previa. [Ver como limpiar ghost](#como-limpiar-ghost)
 
 TBD
+
+[Volver al indice](#indice)
 
 ## Pruebas E2E Semana 5
 * En este repositorio va a encontrar las siguientes carpetas.
@@ -170,6 +178,8 @@ Utilizar Ghost CLI Version - 1.20.0 y Node 16.13.0
 4. Para correr las pruebas vaya a la carpeta cypress del repositorio en el cmd y ejecute las pruebas con cypress run. Este comando le deberia correr las 20 pruebas y mostrar al final el reporte resumen de la corrida.
 5. Alternativamente puede usar el comando cypress open para correr las pruebas manualmente y ver su ejecución en vivo y en directo en la herramienta de cypress.
 
+[Volver al indice](#indice)
+
 #### Instrucciones para ejecución de escenarios de pruebas con Kraken y ghost 5-73-2 en local:
 1. Descargue el repositorio en su equipo local utilizando el comando git clone.
 2. Instale la version de ghost 5.73.2 (en la seccion anterior se puede ver las herramientas necesarias para su instalacion)
@@ -179,9 +189,13 @@ Utilizar Ghost CLI Version - 1.20.0 y Node 16.13.0
 6. El archivo de windows utiliza el comando "npx kraken-node run" para correr las pruebas localmente, mientras que el archivo de mac utiliza el comando "./node_modules/kraken-node/bin/kraken-node run" para correr las pruebas utilizando el kraken local, para este escenariob es necesario tener la carpeta node_modules dentro de la carpeta kraken_tests_ghost_vanterior_5_73_2, que se genero gracias al paso 2 con el comando "npm install kraken-node".
 7. Si desea una corrida limpia se recomienda borrar las carpetas escenario{n} que estén creados en la carpeta screenshots sin borrar la carpeta que dice "escenario".
 
+[Volver al indice](#indice)
+
 #### Instrucciones para ejecución de escenarios de pruebas con Kraken y ghost 5-72-1 hosteado en Amazon Web Services:
 1. Realicé la misma instalacion de kraken correspondiente a las instrucciones anteriores sin instalar ghost en local, es decir la correspondiente a la carpeta "kraken_tests_ghost_vnueva_4_72_2".
 2. Cambie las credenciales del archivos properties.json para utilizar usuario: equipo3@uniandes.edu.co contraseña: Equipo3123# y host: http://44.200.235.109/ghost.
+
+[Volver al indice](#indice)
 
 #### Instrucciones para ejecución de escenarios de pruebas con Kraken con ghost 4-72-2 en local:
 1. Descargue el repositorio en su equipo local utilizando el comando git clone.
@@ -191,10 +205,14 @@ Utilizar Ghost CLI Version - 1.20.0 y Node 16.13.0
 5. Dentro de la carpeta kraken_tests_ghost_vnueva_4_72_2 hay 2 archivos para ejecutar los escenarios uno para mac llamado ejecutar_escenarios.sh y uno para windows llamado ejecutar_escenarios.bat. Estos scripts se encargaran de ejecutar los 20 escenarios, se creera una carpeta llamada screenshots la cual tendra subcarpetas con nombres de cada escenario y screenshots de cada paso. Estos scripts solamente corren los 10 escenarios escogidos para la semana:2,6,7,8,9,10,12,16,17,18.
 6. El archivo de windows utiliza el comando "npx kraken-node run" para correr las pruebas localmente, mientras que el archivo de mac utiliza el comando "./node_modules/kraken-node/bin/kraken-node run" para correr las pruebas utilizando el kraken local, para este escenariob es necesario tener la carpeta node_modules dentro de la carpeta kraken_tests_ghost_vnueva_4_72_2, que se genero gracias al paso 2 con el comando "npm install kraken-node"
 7. Si desea una corrida limpia se recomienda borrar las carpetas escenario{n} que estén creados en la carpeta screenshots sin borrar la carpeta que dice "escenario".
-8. 
+
+[Volver al indice](#indice)
+
 #### Instrucciones para ejecución de escenarios de pruebas con Kraken con ghost 4-48-9 hosteado en Google Cloud:
 1. Realicé la misma instalacion e instrucciones de kraken correspondiente a las instrucciones anteriores sin instalar ghost en local, es decir la correspondiente a la carpeta "kraken_tests_ghost_vnueva_4_72_2".
 2. Cambie las credenciales del archivos properties.json para utilizar usuario: equipo3@uniandes.edu.co contraseña: Equipo3123# y host: http://104.155.182.18:2368/ghost.
+
+[Volver al indice](#indice)
 
 ## Instrucciones para ejecutar reportes con resemblejs:
 1. Ingrese a la carpeta de resemblejs y ejecute el siguiente comando: npm install
@@ -202,6 +220,8 @@ Utilizar Ghost CLI Version - 1.20.0 y Node 16.13.0
 3. En la carpeta de resemblejs ejecute el siguiente comando: node index.js o npm start
 4. Ingrese a la carpeta de reports y abra el archivo report.html con algun browser. (ruta seria equipo03/resemblejs/reports/report.html)
 5. (Opcional) Puede configurar el porcentaje de diferencia con el cual solo se generará un reporte que mostrará los cambios más relevantes. Puede configurar este valor entre 0 y 100 en el archivo index.js línea 23 
+
+[Volver al indice](#indice)
 
 ## Instrucciones para ejecutar los escenarios con backstopjs:
 1. Ingresar con el cmd a la carpeta "backstopjs" en la raiz del repositorio.
@@ -211,6 +231,8 @@ Utilizar Ghost CLI Version - 1.20.0 y Node 16.13.0
 4. Ingrese a la carpeta backstopjs y ejecute el siguiente comando: npm install
 5. Inicie backstop con el siguiente comando: npm start
 6. Se abrira un browser con el reporte
+
+[Volver al indice](#indice)
 
 ## Como Limpiar Ghost
 Para limpiar ghost siga las siguientes instrucciones:
@@ -222,9 +244,12 @@ Para limpiar ghost siga las siguientes instrucciones:
 
 <img width="1068" alt="imagen" src="https://github.com/mar-alas/equipo3/assets/142593813/f013e33a-6e5a-4f93-a053-8c8ea0b852e9">
 
+[Volver al indice](#indice)
 
 ## Integrantes del equipo:
 - Maria Alas - m.alas@uniandes.edu.co
 - Daniel Gamez - da.gamez96@uniandes.edu.co
 - Jhon Puentes - j.puentesn@uniandes.edu.co
 - Robert Castro - ra.castro2@uniandes.edu.co
+
+[Volver al indice](#indice)
