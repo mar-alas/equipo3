@@ -1,6 +1,48 @@
-# equipo3
-Pruebas E2E - Semana 5 - Equipo 3
+<h1 align="center">Automatización de pruebas Ghost - Equipo03</h1>
 
+<p align="center">
+  <br>
+  <i>Este repositorio busca automatizar las pruebas de software end-to-end, encontrar bugs y aumentar la productividad del ingeniero automatizador de pruebas
+      haciendo uso de tecnologias, tecnicas y practicas modernas. La aplicacion bajo pruebas usada para este desarrollo es <a href="https://ghost.org">Ghost</a>, una plataforma open source para gestion y publicacion de contenido.
+    </i>
+  <br>
+  
+  <p align="center">
+       <a href="">
+      <img src="https://img.shields.io/badge/test-passing-blue"/>
+    </a>
+      
+      
+  <a href="">
+      <img src="https://img.shields.io/badge/release-semana7-brightgreen"/>
+    </a>
+  </p>
+  
+  <p align="center">
+    <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/mar-alas/equipo3?style=social">
+  </p>
+</p>
+
+<hr>
+
+## Indice
+- [Indice](#indice)
+- [Sobre la librería](#sobre-la-librería)
+- [Casos de uso](#Pruebas-E2E-Semana-5)
+- [Status Desarrollo](#status-desarrollo)
+- [Instalación](#instalación)
+- [Funcionamiento](#funcionamiento)
+  - [Uso básico](#uso-basico)
+  - [Uso avanzado](#uso-avanzado)
+  - [Pre-procesamiento de datos](#preprocesamiento-de-texto)
+- [Testing](#testing)
+- [Reportar un bug](#reportar-un-bug)
+- [Contribuidorxs](#contribuidorxs)
+- [Contacto](#Integrantes-del-equipo)
+
+<hr>
+
+## Pruebas E2E Semana 5
 * En este repositorio va a encontrar las siguientes carpetas.
      * La carpeta "cypress" para ejecutar los escenarios de pruebas en cypress. Estos escenarios se ejecutaron en la versión 5.73.2.
      * La carpet kraken_tests_ghost_vanterior_5_73_2 para los escenarios de prueba en kraken con la version 5.73.2 (version inicial desarrollado para host local)
@@ -9,7 +51,6 @@ Pruebas E2E - Semana 5 - Equipo 3
      * La carpeta backstopjs con el codigo para realizar regresion visual usando la herramienta backstopjs. Este desarrollo se puede correr con la version de node 16.16.0 o la version 16.13.0.
      * La carpeta resemblejs con el codigo para realizar regresion visual usando la herramienta resemblejs. Este desarrollo se puede correr con la version de node 16.16.0 o la version 16.13.0.
 * Los escenerios de prueba se describen en la wiki.
-
 
 ## Se tendran 2 opciones para la ejecucion de las pruebas, primera con ghosts locales y la segunda con ghost hosteados
 
