@@ -125,3 +125,25 @@ Cypress.Commands.add('getAprioriLargeNumbers', () => {
 
     });
 });
+
+
+/** 
+ * Obtener una pagina desde API con titulo y texto simple.
+*/
+Cypress.Commands.add('getBasicDataPageWithSimpleTextAPI', () => {
+    return cy.request({
+        method: 'GET',
+        url: "https://my.api.mockaroo.com/basic_page_content.json",
+        headers: {
+            'X-API-Key': "ce8f67e0",
+        },
+    }).then(response => {
+        if (response.status !== 200)
+            throw new Error('Non-200 status code');
+
+        return { 
+            title: response.body.title, 
+            text: response.body.text
+        };
+    });
+});
