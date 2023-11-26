@@ -28,6 +28,10 @@
 ## Indice
 - [Indice](#indice)
 - [Entrega Semana 7](#pruebas-e2e-semana-7)
+  - [Estructura de carpetas](#estructura-de-carpetas)
+  - [Stack elegido para las pruebas](#stack-elegido-para-las-pruebas)
+  - [Ejecucion de pruebas con Cypress](#ejecucion-de-pruebas-con-cypress)
+  - [Ejecucion de pruebas con Kraken](#ejecucion-de-pruebas-con-kraken)
 - [Entrega Semana 5](#pruebas-e2e-semana-5)
   - [Ejecutar con ghost local](#utilizando-ghost-localmente)
   - [Instrucciones ejecutar pruebas con crypress localmente](#instrucciones-para-ejecución-de-escenarios-de-pruebas-con-cypress-localmente)
