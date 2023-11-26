@@ -183,6 +183,18 @@ const crearTags = {
       cy.get(".gh-canvas-header-content").should("contain", "Saved");
     }
   },
+  crearTagDesdePagina: (Titulo, name) => {
+    cy.get('[class="gh-content-entry-title"]').contains(Titulo).click();
+    cy.wait(1000);
+    cy.get('.settings-menu-toggle').click();
+    cy.wait(1000);
+    cy.get('#tag-input input').type(name);
+    cy.wait(1000);
+    cy.get(".ember-power-select-options").click();
+    cy.get('.settings-menu-toggle').click();
+    cy.get('[data-test-button="publish-save"]').click();
+    cy.get('[data-test-button="publish-save"]').should("contain", "Update");
+  }
   
 
 };
