@@ -1,3 +1,5 @@
+//correr con: npx cypress run --spec "cypress/cypress/e2e/esc103.cy.js"
+
 import loginPage from './authentication';
 import crearPost from './post';
 import useAprioriCrearPost from './posts_helper'
