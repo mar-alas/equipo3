@@ -2,10 +2,10 @@
 import loginPage from "./authentication";
 import crearPagina from "./pagina"; 
 
-const NOMBRE_ESCENARIO = 'Escenario 039 -- Paso ';
+const NOMBRE_ESCENARIO = 'Escenario 040 -- Paso ';
 const TAKE_SCREENSHOT = false;
 
-describe("Login exitoso luego crear pagina con numeros largos en el titulo y un contenido de espacios en blanco", () => {
+describe("Login exitoso luego crear pagina con numero largos en el tiutlo y numeros largos en el contenido", () => {
   beforeEach(() => {
     loginPage.visit();
     if(TAKE_SCREENSHOT) {
@@ -42,14 +42,13 @@ describe("Login exitoso luego crear pagina con numeros largos en el titulo y un 
 
     //When I create a new page
     cy.getAprioriLargeNumbers().then((data) => {
-        crearPagina.crearPaginaConTituloConContenidoEnBlanco(data.text);
+        crearPagina.crearPaginaConTituloYContenido(data.text, data.text);
         cy.wait(10000);
         if(TAKE_SCREENSHOT) { 
-            cy.screenshot(NOMBRE_ESCENARIO + '6_crearPaginaConTituloConContenidoEnBlanco');
+            cy.screenshot(NOMBRE_ESCENARIO + '6_crearPaginaConTituloYContenido');
         }
         //Then I should have the page correcly
-        const FIVE_SPACES = "     "
-        crearPagina.revisarContenidoPagina(data.text,FIVE_SPACES);
+        crearPagina.revisarContenidoPagina(data.text, data.text);
         cy.wait(10000);
         if(TAKE_SCREENSHOT) { 
             cy.screenshot(NOMBRE_ESCENARIO + '7_revisarContenidoPaginaConUrlDeImagen');
