@@ -28,15 +28,7 @@
 ## Indice
 - [Indice](#indice)
 - [Entrega Semana 5](#pruebas-e2e-semana-5)
-- [Casos de uso](#Pruebas-E2E-Semana-5)
-- [Status Desarrollo](#status-desarrollo)
-- [Instalación](#instalación)
-- [Funcionamiento](#funcionamiento)
-  - [Uso básico](#uso-basico)
-  - [Uso avanzado](#uso-avanzado)
-  - [Pre-procesamiento de datos](#preprocesamiento-de-texto)
-- [Testing](#testing)
-- [Reportar un bug](#reportar-un-bug)
+  - [Ejecutar con ghost local](#utilizando-ghost-localmente)
 - [Contribuidorxs](#contribuidorxs)
 - [Contacto](#Integrantes-del-equipo)
 
