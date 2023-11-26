@@ -29,6 +29,26 @@ const crearPost = {
     cy.get('[data-test-nav="dashboard"]').click();
   },
 
+  publicarPost: () => {
+    //se da publicar
+    cy.get('[data-test-button="publish-flow"]').click();
+
+    //da click en continuar en el final review
+    cy.get('[data-test-button="continue"]').click();
+
+    //da click en confirmacion
+    cy.get('[data-test-button="confirm-publish"]').click();
+
+    //vuelve al editor
+    cy.get('[data-test-button="back-to-editor"]').click();
+
+    //vuelve a los posts
+    cy.get('[data-test-link="posts"]').click();
+
+    //vuelve al dashboard
+    cy.get('[data-test-nav="dashboard"]').click();
+  },
+
   crearPostContenidoMarkdown: (Titulo, Body) => {
     //click en nuevo post
     cy.get(".ember-view.gh-secondary-action.gh-nav-new-post").click();
@@ -127,26 +147,32 @@ const crearPost = {
     cy.wait(segundosEspera*1000);
 
 
-    //dar enter
-    //cy.get('[data-testid="embed-url"]').type('{enter}');
 
-    //se da publicar
-    cy.get('[data-test-button="publish-flow"]').click();
+  },
+  crearPostContenidoXTwiter: (Titulo, enlace,Body,segundosEspera) => {
+    //click en nuevo post
+    cy.get(".ember-view.gh-secondary-action.gh-nav-new-post").click();
 
-    //da click en continuar en el final review
-    cy.get('[data-test-button="continue"]').click();
+    //se inserta titulo del post
+    cy.get(".gh-editor-title.ember-text-area.gh-input.ember-view").type(Titulo);
 
-    //da click en confirmacion
-    cy.get('[data-test-button="confirm-publish"]').click();
+    //se da click en el cuepo
+    cy.get("p").click();
 
-    //vuelve al editor
-    cy.get('[data-test-button="back-to-editor"]').click();
+    //se da click en el mas de la parte izqueirda para mas opciones
+    cy.get('[aria-label="Add a card"]').click();
 
-    //vuelve a los posts
-    cy.get('[data-test-link="posts"]').click();
+    //se da click en Twiter
+    cy.get('[data-kg-card-menu-item="X (formerly Twitter)"]').click();
 
-    //vuelve al dashboard
-    cy.get('[data-test-nav="dashboard"]').click();
+    //se llena la seccion de url youtube
+    cy.get('[data-testid="embed-url"]').type(enlace + '{enter}');
+
+    //wait 5 seconds
+    cy.wait(segundosEspera*1000);
+
+
+
   },
   crearPostContenidoBookmark: (Titulo, Body) => {
     //click en nuevo post

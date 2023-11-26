@@ -47,6 +47,7 @@ describe('Escenario 103', () => {
       cy.useAprioriCrearPost().then((formattedPost) => {
         //se publica el video esperando 0 segundos
         crearPost.crearPostContenidoYoutube(formattedPost.title, link_prueba, formattedPost.body,0);
+        crearPost.publicarPost();
         cy.wait(TWO_SECONDS);
         // Other test steps within the .then() block for proper chaining
 
