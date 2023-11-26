@@ -32,6 +32,7 @@
   - [Stack elegido para las pruebas](#stack-elegido-para-las-pruebas)
   - [Ejecucion de pruebas con Cypress](#ejecucion-de-pruebas-con-cypress)
   - [Ejecucion de pruebas con Kraken](#ejecucion-de-pruebas-con-kraken)
+  - [Como limpiar ghost](#como-limpiar-ghost)
 - [Entrega Semana 5](#pruebas-e2e-semana-5)
   - [Ejecutar con ghost local](#utilizando-ghost-localmente)
   - [Instrucciones ejecutar pruebas con crypress localmente](#instrucciones-para-ejecución-de-escenarios-de-pruebas-con-cypress-localmente)
@@ -39,8 +40,10 @@
   - [Instrucciones ejecutar pruebas con Kraken y ghost 5.72 en AWS](#instrucciones-para-ejecución-de-escenarios-de-pruebas-con-Kraken-y-ghost-5-72-1-hosteado-en-Amazon-Web-Services)
   - [Instrucciones ejecutar pruebas con Kraken y ghost 4.72.2 en localhost](#instrucciones-para-ejecución-de-escenarios-de-pruebas-con-Kraken-con-ghost-4-72-2-en-local)
   - [Instrucciones ejecutar pruebas con Kraken y ghost 4.48.9 en Google Cloud](#instrucciones-para-ejecución-de-escenarios-de-pruebas-con-Kraken-con-ghost-4-48-9-hosteado-en-Google-Cloud)
+  - [Como limpiar ghost](#como-limpiar-ghost)
   - [Instrucciones para ejecutar reportes con Resemble.js](#instrucciones-para-ejecutar-reportes-con-resemblejs)
   - [Instrucciones para ejecutar los escenarios con Backstop.js](#instrucciones-para-ejecutar-los-escenarios-con-backstopjs)
+- [Como limpiar ghost](#como-limpiar-ghost)
 - [Integrante del Equipo](#Integrantes-del-equipo)
 
 <hr>
@@ -89,7 +92,7 @@ sudo ghost stop
 ```
 
 ### Ejecucion de pruebas con Cypress
-⚠️ **Recomendacion:** para una completa y correcta ejecucion de las pruebas, recomendamos tener ghost limpio, sin data previa.
+⚠️ **Recomendacion:** para una completa y correcta ejecucion de las pruebas, recomendamos tener ghost limpio, sin data previa. [Ver como limpiar ghost](#como-limpiar-ghost)
 
 Para ejecutar las pruebas de cypress siga las siguientes instrucciones:
 
@@ -136,7 +139,7 @@ sudo npx cypress run
 ```
 
 ### Ejecucion de pruebas con Kraken
-⚠️ **Recomendacion:** para una completa y correcta ejecucion de las pruebas, recomendamos tener ghost limpio, sin data previa.
+⚠️ **Recomendacion:** para una completa y correcta ejecucion de las pruebas, recomendamos tener ghost limpio, sin data previa. [Ver como limpiar ghost](#como-limpiar-ghost)
 
 TBD
 
@@ -208,6 +211,17 @@ Utilizar Ghost CLI Version - 1.20.0 y Node 16.13.0
 4. Ingrese a la carpeta backstopjs y ejecute el siguiente comando: npm install
 5. Inicie backstop con el siguiente comando: npm start
 6. Se abrira un browser con el reporte
+
+## Como Limpiar Ghost
+Para limpiar ghost siga las siguientes instrucciones:
+1. Inicie sesion en su instancia de ghost.
+2. De click en el engranaje ⚙️ de settings que aparece en el menu inferior izquierdo.
+3. En el campo de busqueda en el lado superior izquierdo, escriba la palabra "labs".
+4. Aparecerá un resultado a la derecha, de click en la opcion "Open"
+5. Luego de click en el boton Delete de la seccion "Delete all content" y confirme.
+
+<img width="1068" alt="imagen" src="https://github.com/mar-alas/equipo3/assets/142593813/f013e33a-6e5a-4f93-a053-8c8ea0b852e9">
+
 
 ## Integrantes del equipo:
 - Maria Alas - m.alas@uniandes.edu.co
