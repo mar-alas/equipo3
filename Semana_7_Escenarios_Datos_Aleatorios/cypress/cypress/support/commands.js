@@ -309,3 +309,197 @@ Cypress.Commands.add('getMD5API', () => {
         };
     });
 });
+
+/** 
+ * Obtener coordenadas desde API.
+*/
+Cypress.Commands.add('getCoordenadasAPI', () => {
+    return cy.request({
+        method: 'GET',
+        url: "https://my.api.mockaroo.com/coordenadas.json",
+        headers: { 'X-API-Key': "ce8f67e0" },
+    }).then(response => {
+        if (response.status !== 200)
+            throw new Error('Non-200 status code');
+        return { 
+            coordenadas: response.body.coordenadas,
+        };
+    });
+});
+
+
+
+
+/** 
+ * Obtener Direccion desde API.
+*/
+Cypress.Commands.add('getDireccionAPI', () => {
+    return cy.request({
+        method: 'GET',
+        url: "https://my.api.mockaroo.com/direcciones.json",
+        headers: { 'X-API-Key': "ce8f67e0" },
+    }).then(response => {
+        if (response.status !== 200)
+            throw new Error('Non-200 status code');
+        return { 
+            direccion: response.body.direccion,
+        };
+    });
+});
+
+/** 
+ * Obtener SQL expression desde API.
+*/
+Cypress.Commands.add('getSqlAPI', () => {
+    return cy.request({
+        method: 'GET',
+        url: "https://my.api.mockaroo.com/sql.json",
+        headers: { 'X-API-Key': "ce8f67e0" },
+    }).then(response => {
+        if (response.status !== 200)
+            throw new Error('Non-200 status code');
+        return { 
+            sql: response.body.sql,
+        };
+    });
+});
+
+
+/** 
+ * Obtener XML tag desde API.
+*/
+Cypress.Commands.add('getXmlAPI', () => {
+    return cy.request({
+        method: 'GET',
+        url: "https://my.api.mockaroo.com/xml.json",
+        headers: { 'X-API-Key': "ce8f67e0" },
+    }).then(response => {
+        if (response.status !== 200)
+            throw new Error('Non-200 status code');
+        return { 
+            xml: response.body.xml,
+        };
+    });
+});
+
+/** 
+ * Obtener Credit Cards Numbers desde API.
+*/
+Cypress.Commands.add('getCreditCardAPI', () => {
+    return cy.request({
+        method: 'GET',
+        url: "https://my.api.mockaroo.com/credit_card.json",
+        headers: { 'X-API-Key': "ce8f67e0" },
+    }).then(response => {
+        if (response.status !== 200)
+            throw new Error('Non-200 status code');
+        return { 
+            credit_card: response.body.credit_card,
+        };
+    });
+});
+
+
+/** 
+ * Obtener bitcoin address desde API.
+*/
+Cypress.Commands.add('getBitcoinAPI', () => {
+    return cy.request({
+        method: 'GET',
+        url: "https://my.api.mockaroo.com/bitcoin.json",
+        headers: { 'X-API-Key': "ce8f67e0" },
+    }).then(response => {
+        if (response.status !== 200)
+            throw new Error('Non-200 status code');
+        return { 
+            bitcoin: response.body.bitcoin,
+        };
+    });
+});
+
+
+/** 
+ * Obtener ethereum desde API.
+*/
+Cypress.Commands.add('getEthereumAPI', () => {
+    return cy.request({
+        method: 'GET',
+        url: "https://my.api.mockaroo.com/ethereum.json",
+        headers: { 'X-API-Key': "ce8f67e0" },
+    }).then(response => {
+        if (response.status !== 200)
+            throw new Error('Non-200 status code');
+        return { 
+            ethereum: response.body.ethereum,
+        };
+    });
+});
+
+/** 
+ * Obtener id_seguridad_social desde API.
+*/
+Cypress.Commands.add('getIdSeguridadSocialAPI', () => {
+    return cy.request({
+        method: 'GET',
+        url: "https://my.api.mockaroo.com/id_seguridad_social.json",
+        headers: { 'X-API-Key': "ce8f67e0" },
+    }).then(response => {
+        if (response.status !== 200)
+            throw new Error('Non-200 status code');
+        return { 
+            id_seguridad_social: response.body.id_seguridad_social,
+        };
+    });
+});
+
+/** 
+ * Obtener mac address desde API.
+*/
+Cypress.Commands.add('getMacAddressAPI', () => {
+    return cy.request({
+        method: 'GET',
+        url: "https://my.api.mockaroo.com/mac.json",
+        headers: { 'X-API-Key': "ce8f67e0" },
+    }).then(response => {
+        if (response.status !== 200)
+            throw new Error('Non-200 status code');
+        return { 
+            mac: response.body.mac,
+        };
+    });
+});
+
+/** 
+ * Obtener phone numbers desde API.
+*/
+Cypress.Commands.add('getPhoneAPI', () => {
+    return cy.request({
+        method: 'GET',
+        url: "https://my.api.mockaroo.com/phone.json",
+        headers: { 'X-API-Key': "ce8f67e0" },
+    }).then(response => {
+        if (response.status !== 200)
+            throw new Error('Non-200 status code');
+        return { 
+            phone: response.body.phone,
+        };
+    });
+});
+
+/** 
+ * Obtener credenciales desde API.
+*/
+Cypress.Commands.add('getCredencialesAPI', () => {
+    return cy.request({
+        method: 'GET',
+        url: "https://my.api.mockaroo.com/credenciales.json",
+        headers: { 'X-API-Key': "ce8f67e0" },
+    }).then(response => {
+        if (response.status !== 200)
+            throw new Error('Non-200 status code');
+        return { 
+            email: response.body.email,
+            password: response.body.password,
+        };
+    });
+});
