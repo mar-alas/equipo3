@@ -2,20 +2,20 @@
 import loginPage from "./authentication";
 import crearPagina from "./pagina"; 
 
-const NOMBRE_ESCENARIO = 'Escenario 037 -- Paso ';
+const NOMBRE_ESCENARIO = 'Escenario 038 -- Paso ';
 const TAKE_SCREENSHOT = false;
-const BUG_TSDC66_IS_SOLVED = false;
+const BUG_TSDC67_IS_SOLVED = false;
 /** 
  * 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑
  * Este escenario falla.
  * La incidencia se encuentra reportada en Jira.
- * Link: https://uniandes-miso-pruebas-automatizadas-equipo-01.atlassian.net/browse/TSDC-66
+ * Link: https://uniandes-miso-pruebas-automatizadas-equipo-01.atlassian.net/browse/TSDC-67
  * 
  * NOTA IMPORTANTE: habilite el flag BUG_TSDC64_SOLVED a true para validar si ya esta solucionado.
  * 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑
 */
 
-describe("Login exitoso luego crear pagina con caracteres extraños en el titulo y sin contenido", () => {
+describe("Login exitoso luego crear pagina con caracteres extraños en el tiutlo y caracteres extraños en el contenido", () => {
   beforeEach(() => {
     loginPage.visit();
     if(TAKE_SCREENSHOT) {
@@ -51,12 +51,12 @@ describe("Login exitoso luego crear pagina con caracteres extraños en el titulo
     }
 
     //When I create a new page
-    if(BUG_TSDC66_IS_SOLVED) {
+    if(BUG_TSDC67_IS_SOLVED) {
         cy.getAprioriSpecialCharacteres().then((data) => {
-            crearPagina.crearPaginaConTituloConContenidoEnBlanco(data.text);
+            crearPagina.crearPaginaConTituloYContenido(data.text, data.text);
             cy.wait(10000);
             if(TAKE_SCREENSHOT) { 
-                cy.screenshot(NOMBRE_ESCENARIO + '6_crearPaginaConTituloSinContenido');
+                cy.screenshot(NOMBRE_ESCENARIO + '6_crearPaginaConTituloYContenido');
             }
             //Then I should have the page correcly
             crearPagina.revisarContenidoPagina(data.text);
