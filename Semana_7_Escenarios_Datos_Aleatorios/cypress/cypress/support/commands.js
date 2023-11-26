@@ -97,3 +97,17 @@ Cypress.Commands.add('getAprioriEmojisWithText', () => {
 
     });
 });
+
+/**
+ * Obtener data a priori de caracteres extraños y simbolos de poco uso.
+ */
+Cypress.Commands.add('getAprioriEmojisWithText', () => {
+    cy.readFile('./cypress/data/random_string.json').then((data) => {
+        const selected = data[Math.floor(Math.random() * data.length)];
+    
+        return {
+            text: selected.datos
+        };
+
+    });
+});
