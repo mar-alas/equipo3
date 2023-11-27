@@ -512,5 +512,19 @@ Cypress.Commands.add('borrarDatosGhost', () => {
     cy.get('div[data-testid="labs"]').find('button.bg-red').click();
     cy.wait(1000);
     cy.get('[data-testid="confirmation-modal"]').find('button.bg-red').click();
-    cy.visit(host + "#/dashboard");
+    cy.visit(host);
+});
+
+Cypress.Commands.add('borrarDatosGhostV2', () => {
+    
+    cy.wait(1000);
+    cy.get('[href="#/settings/"]').click();
+    cy.wait(1000);
+
+    cy.get('.z-10 > .cursor-pointer > span').click();
+    cy.wait(1000);
+    cy.get('div[data-testid="labs"]').find('button.bg-red').click();
+    cy.wait(1000);
+    cy.get('[data-testid="confirmation-modal"]').find('button.bg-red').click();
+    cy.visit(host);
 });

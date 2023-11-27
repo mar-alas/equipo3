@@ -73,7 +73,7 @@ Given('I navigate to ghost', async function () {
 
 //when i delete content
 Given('I delete all content from ghost', async function () {
-
+  await this.driver.pause(2000);
     //hacemos login
     let element2 = await this.driver.$('#identification');
     await element2.setValue(email_const);
@@ -92,7 +92,7 @@ Given('I delete all content from ghost', async function () {
 
     //vamos a settings
     await this.driver.$('[href="#/settings/"]').click();
-    await this.driver.pause(1000);
+    await this.driver.pause(2000);
 
     //vamos a labs
     await this.driver.$('button=Open').click();

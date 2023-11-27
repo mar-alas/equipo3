@@ -3,6 +3,7 @@ Feature: PruebasE2EGhost
 @user1 @web
 Scenario: Escenario 1 - Creacion y validacion de un post con a-priori
   Given I navigate to ghost
+  And I wait for 2 seconds
   When I login to ghost
   And I wait for 2 seconds
   When I create a new post using "poli-dinamico"

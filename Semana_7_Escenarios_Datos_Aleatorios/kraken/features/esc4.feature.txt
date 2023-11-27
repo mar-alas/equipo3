@@ -3,6 +3,7 @@ Feature: PruebasE2EGhost
 @user2 @web
 Scenario: Escenario 4 - Login sin datos, login con email no registrado, login con exito
     Given I navigate to ghost
+    And I wait for 2 seconds
     Given I delete all content from ghost
     When I click login
     Then I should get an error 'Please fill out the form to sign in.'

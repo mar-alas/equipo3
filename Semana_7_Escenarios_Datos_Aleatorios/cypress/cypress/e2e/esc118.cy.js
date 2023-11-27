@@ -3,10 +3,10 @@ import loginPage from './authentication';
 import crearPost from './post';
 import useAprioriCrearPost from './posts_helper'
 
-const NOMBRE_ESCENARIO = 'Escenario 117 -- Paso ';
+const NOMBRE_ESCENARIO = 'Escenario 118 -- Paso ';
 const TWO_SECONDS = 2000;
 
-describe('Escenario 117', () => {
+describe('Escenario 118', () => {
   beforeEach(() => {
     Cypress.on('uncaught:exception', (err, runnable) => {
       // we expect a 3rd party library error with message 'list not defined'
@@ -32,6 +32,10 @@ describe('Escenario 117', () => {
     cy.wait(TWO_SECONDS);
     //cy.screenshot(NOMBRE_ESCENARIO + '3_submitLoginForm');
 
+    //borrar datos ghost
+    cy.borrarDatosGhostV2()
+    cy.wait(TWO_SECONDS);
+    
     cy.url().should('include', '/dashboard');
     //cy.screenshot(NOMBRE_ESCENARIO + '4_includeDashboard');
 

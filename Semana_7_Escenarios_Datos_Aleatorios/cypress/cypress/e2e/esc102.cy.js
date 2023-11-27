@@ -31,6 +31,10 @@ describe('Escenario 102', () => {
     cy.wait(TWO_SECONDS);
     //cy.screenshot(NOMBRE_ESCENARIO + '3_submitLoginForm');
 
+    //borrar datos ghost
+    cy.borrarDatosGhostV2()
+    cy.wait(TWO_SECONDS);
+    
     cy.url().should('include', '/dashboard');
     //cy.screenshot(NOMBRE_ESCENARIO + '4_includeDashboard');
 
