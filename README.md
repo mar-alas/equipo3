@@ -154,6 +154,7 @@ sudo npx cypress run
 ### Ejecucion de pruebas con Kraken
 ⚠️ **Recomendacion:** para una completa y correcta ejecucion de las pruebas, recomendamos tener ghost limpio, sin data previa. [Ver como limpiar ghost](#como-limpiar-ghost)
 
+Antes de iniciar la ejecuion configure un archivo "properties.json" en la carpeta de kraken. Puede utilizar el ejemplo "properties.example.json" y quitarle el ".example" y ajustar segun sus credenciales y host de ghost.
 Para la ejecucion de las pruebas con Kraken siga las siguientes instrucciones:
 
 1. Abra su editor de codigo favorito. Recomendado: [Visual Studio Code](https://code.visualstudio.com/)
