@@ -127,7 +127,7 @@ Para ejecutar las pruebas de cypress siga las siguientes instrucciones:
 1. Abra su editor de codigo favorito. Recomendado: [Visual Studio Code](https://code.visualstudio.com/)
 2. Desde el editor de codigo abra la carpeta que clonó llamada **equipo3**
 3. Ubique la terminal en la ruta: "equipo3/Semana_7_Escenarios_Datos_Aleatorios/cypress"
-4. Cambie en el archivo _cypress.env.json_ sus credenciales de ghost que tenga creadas en su ghost local.
+4. Cambie en el archivo _cypress.env.json_ sus credenciales de ghost que tenga creadas en su ghost local. Si no está creado puede crear este archivo a partir de "cypress.env.example.json" y ajustar segun sus credenciales.
 5. Ejecute el siguiente comando para ejecutar un escenario:
 ```
 npx cypress run --spec cypress/e2e/escXYZ.cy.js
@@ -154,6 +154,7 @@ sudo npx cypress run
 ### Ejecucion de pruebas con Kraken
 ⚠️ **Recomendacion:** para una completa y correcta ejecucion de las pruebas, recomendamos tener ghost limpio, sin data previa. [Ver como limpiar ghost](#como-limpiar-ghost)
 
+Antes de iniciar la ejecuion configure un archivo "properties.json" en la carpeta de kraken. Puede utilizar el ejemplo "properties.example.json" y quitarle el ".example" y ajustar segun sus credenciales y host de ghost.
 Para la ejecucion de las pruebas con Kraken siga las siguientes instrucciones:
 
 1. Abra su editor de codigo favorito. Recomendado: [Visual Studio Code](https://code.visualstudio.com/)
