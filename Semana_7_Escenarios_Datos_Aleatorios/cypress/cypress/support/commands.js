@@ -8,8 +8,6 @@ Cypress.Commands.add("login", () => {
     cy.get(signin.selectors.email).type(signin.user.email);
     cy.get(signin.selectors.password).type(signin.user.password);
     cy.get(signin.selectors.submit).click();
-    cy.wait(1000);
-    cy.borrarDatosGhost();
 });
 
 // ############################# LOGOUT #############################
