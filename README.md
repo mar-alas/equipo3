@@ -30,6 +30,7 @@
 - [Entrega Semana 7](#pruebas-e2e-semana-7)
   - [Estructura de carpetas](#estructura-de-carpetas)
   - [Stack elegido para las pruebas](#stack-elegido-para-las-pruebas)
+  - [Clonar el repositorio](#clonar-el-repositorio)
   - [Ejecucion de pruebas con Cypress](#ejecucion-de-pruebas-con-cypress)
   - [Ejecucion de pruebas con Kraken](#ejecucion-de-pruebas-con-kraken)
   - [Como limpiar ghost](#como-limpiar-ghost)
@@ -95,13 +96,11 @@ sudo ghost stop
 
 [Volver al indice](#indice)
 
-### Ejecucion de pruebas con Cypress
-⚠️ **Recomendacion:** para una completa y correcta ejecucion de las pruebas, recomendamos tener ghost limpio, sin data previa. [Ver como limpiar ghost](#como-limpiar-ghost)
-
-Para ejecutar las pruebas de cypress siga las siguientes instrucciones:
+### Clonar el repositorio
+Para clonar el repositorio siga las siguientes instrucciones:
 
 1. Abra una terminal en su computador.
-2. Clone este repositorio en su maquina local.
+2. Clone este repositorio en su maquina local en la ruta que desee. 
 
 Para clonarlo a traves de HTTPS ejecute:
 ```
@@ -118,10 +117,18 @@ Para clonarlo a traves de GitHub CLI:
 gh repo clone mar-alas/equipo3
 ```
 
-3. Abra su editor de codigo favorito. Recomendado: [Visual Studio Code](https://code.visualstudio.com/)
-4. Desde el editor de codigo abra la carpeta que clonó llamada **equipo3**
-5. Ubique la terminal en la ruta: "equipo3/Semana_7_Escenarios_Datos_Aleatorios/cypress"
-6. Ejecute el siguiente comando para ejecutar un escenario:
+[Volver al indice](#indice)
+
+### Ejecucion de pruebas con Cypress
+⚠️ **Recomendacion:** para una completa y correcta ejecucion de las pruebas, recomendamos tener ghost limpio, sin data previa. [Ver como limpiar ghost](#como-limpiar-ghost)
+
+Para ejecutar las pruebas de cypress siga las siguientes instrucciones:
+
+1. Abra su editor de codigo favorito. Recomendado: [Visual Studio Code](https://code.visualstudio.com/)
+2. Desde el editor de codigo abra la carpeta que clonó llamada **equipo3**
+3. Ubique la terminal en la ruta: "equipo3/Semana_7_Escenarios_Datos_Aleatorios/cypress"
+4. Cambie en el archivo _cypress.env.json_ sus credenciales de ghost que tenga creadas en su ghost local.
+5. Ejecute el siguiente comando para ejecutar un escenario:
 ```
 npx cypress run --spec cypress/e2e/escXYZ.cy.js
 ```
@@ -132,7 +139,7 @@ sudo npx cypress run --spec cypress/e2e/escXYZ.cy.js
 ```
 XYZ es el numero de esceario a ejecutar.
 
-8. Ejecute el siguiente comando para ejecutar todos los escenarios
+5. Ejecute el siguiente comando para ejecutar todos los escenarios
 ```
 npx cypress run
 ```
@@ -147,7 +154,17 @@ sudo npx cypress run
 ### Ejecucion de pruebas con Kraken
 ⚠️ **Recomendacion:** para una completa y correcta ejecucion de las pruebas, recomendamos tener ghost limpio, sin data previa. [Ver como limpiar ghost](#como-limpiar-ghost)
 
-TBD
+Para la ejecucion de las pruebas con Kraken siga las siguientes instrucciones:
+
+1. Abra su editor de codigo favorito. Recomendado: [Visual Studio Code](https://code.visualstudio.com/)
+2. Desde el editor de codigo abra la carpeta que clonó llamada **equipo3**
+3. Ubique la terminal en la ruta: "equipo3/Semana_7_Escenarios_Datos_Aleatorios/kraken"
+4. Elija el escenario a ejecutar y cambie el txt para que el escenario quede llamado como .feature
+5. Ejecute el siguiente comando para ejecutar el escenario o escenarios que ternminan en .feature:
+```
+npx kraken-node run
+```
+6. Si desea ejecutar todos los escenarios, ejecute el script llamado _ejecutar_escenarios.sh_
 
 [Volver al indice](#indice)
 
