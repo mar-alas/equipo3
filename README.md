@@ -167,7 +167,7 @@ Para la ejecucion de las pruebas con Kraken siga las siguientes instrucciones:
 ```
 npx kraken-node run
 ```
-6. Si desea ejecutar todos los escenarios, ejecute el script llamado _ejecutar_escenarios.sh_
+6. Si desea ejecutar todos los escenarios, ejecute el script llamado _ejecutar_escenarios.sh_ en ios o con ejecutar_escenarios.bat en windows.
 
 [Volver al indice](#indice)
 
