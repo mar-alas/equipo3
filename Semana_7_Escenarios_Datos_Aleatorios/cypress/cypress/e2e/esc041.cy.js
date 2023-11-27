@@ -5,6 +5,7 @@ const { faker } = require('@faker-js/faker');
 
 const NOMBRE_ESCENARIO = 'Escenario 041 -- Paso ';
 const TAKE_SCREENSHOT = false;
+const TWO_SECONDS = 2000;
 
 describe("Login exitoso, crear pagina con titulo y contenido con solo texto aleatorio y luego editar el titulo con datos de texto de API", () => {
   beforeEach(() => {
@@ -29,6 +30,10 @@ describe("Login exitoso, crear pagina con titulo y contenido con solo texto alea
     if(TAKE_SCREENSHOT) { 
         cy.screenshot(NOMBRE_ESCENARIO + '3_submitLoginForm');
     }
+
+    //borrar datos ghost
+    cy.borrarDatosGhostV2()
+    cy.wait(TWO_SECONDS);
 
     cy.url().should("include", "/dashboard");
     if(TAKE_SCREENSHOT) { 

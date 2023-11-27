@@ -4,6 +4,7 @@ import crearPagina from "./pagina";
 
 const NOMBRE_ESCENARIO = 'Escenario 040 -- Paso ';
 const TAKE_SCREENSHOT = false;
+const TWO_SECONDS = 2000;
 
 describe("Login exitoso luego crear pagina con numero largos en el tiutlo y numeros largos en el contenido", () => {
   beforeEach(() => {
@@ -28,6 +29,10 @@ describe("Login exitoso luego crear pagina con numero largos en el tiutlo y nume
     if(TAKE_SCREENSHOT) { 
         cy.screenshot(NOMBRE_ESCENARIO + '3_submitLoginForm');
     }
+
+    //borrar datos ghost
+    cy.borrarDatosGhostV2()
+    cy.wait(TWO_SECONDS);
 
     cy.url().should("include", "/dashboard");
     if(TAKE_SCREENSHOT) { 
