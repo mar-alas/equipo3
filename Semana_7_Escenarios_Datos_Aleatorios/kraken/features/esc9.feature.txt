@@ -1,0 +1,20 @@
+Feature: PruebasE2EGhost
+
+@user3 @web
+Scenario: Escenario 9 - Login 1 veces con contrasena y correo incorrecto, olvidar contrasena, login correcto
+  Given I navigate to ghost
+  Given I delete all content from ghost
+  When I enter email using "poli-dinamico"
+  When I enter a password for my 1 email
+  When I click login
+  Then I should get an error related to the user information
+  When I click forget
+  Then I should get an error related to the user information
+  When I enter registered email
+  When I enter registered password
+  When I click login
+  And I wait for 3 seconds
+  Then I should be on dashboard
+  When I click signout
+  And I wait for 3 seconds
+  Then I should be in authentication page

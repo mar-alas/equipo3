@@ -1,0 +1,13 @@
+Feature: PruebasE2EGhost
+
+@user5 @web
+Scenario: Escenario 13 - Creacion post programado, validar creacion programada
+  Given I navigate to ghost
+  Given I delete all content from ghost
+  When I login to ghost
+  And I wait for 2 seconds
+  When I create a new post using "a-priori"
+  When I schedule the 1 post for the future
+  When I finish the publication of my scheduled post
+  When I go to posts 
+  Then I should have the post number 1 with the created title

@@ -1,0 +1,25 @@
+Feature: PruebasE2EGhost
+
+@user4 @web
+Scenario: Escenario 10 - Hacer login , crear post, crear tag,  validar post, validar tag
+  Given I navigate to ghost
+  Given I delete all content from ghost
+  When I login to ghost
+  And I wait for 2 seconds
+  When I create a new post using "a-priori"
+  When I finish the publication of my post
+  And I wait for 2 seconds
+  When I go to posts 
+  And I wait for 2 seconds
+  Then I should have the post number 1 with the created title
+  Then I click list tags
+  And I wait for 7 seconds
+  Then I click in new tag
+  Then I write the title of the tag using "a-priori"
+  Then I write the body of my 1 tag
+  And I wait for 7 seconds
+  Then I click in publish my tag
+  And I wait for 9 seconds
+  When I click list tags
+  And I wait for 9 seconds
+  Then I should have 1 tag with title created

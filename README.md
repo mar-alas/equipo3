@@ -1,8 +1,177 @@
-Video Semana 6: https://uniandes-my.sharepoint.com/:v:/g/personal/da_gamez96_uniandes_edu_co/Eciq8PqeMzpEp9SSWJeYsDIBK4qfN4E2l9R1JGj6aZypKA 
+<h1 align="center">Automatización de pruebas Ghost - Equipo03</h1>
 
-# equipo3
-Pruebas E2E - Semana 5 - Equipo 3
+<p align="center">
+  <br>
+  <i>Este repositorio busca automatizar las pruebas de software end-to-end, encontrar bugs y aumentar la productividad del ingeniero automatizador de pruebas
+      haciendo uso de tecnologias, tecnicas y practicas modernas. La aplicacion bajo pruebas usada para este desarrollo es <a href="https://ghost.org">Ghost</a>, una plataforma open source para gestion y publicacion de contenido.
+    </i>
+  <br>
+  
+  <p align="center">
+       <a href="">
+      <img src="https://img.shields.io/badge/test-passing-blue"/>
+    </a>
+      
+      
+  <a href="">
+      <img src="https://img.shields.io/badge/release-semana7-brightgreen"/>
+    </a>
+  </p>
+  
+  <p align="center">
+    <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/mar-alas/equipo3?style=social">
+  </p>
+</p>
 
+<hr>
+
+## Indice
+- [Indice](#indice)
+- [Entrega Semana 7](#pruebas-e2e-semana-7)
+  - [Estructura de carpetas](#estructura-de-carpetas)
+  - [Stack elegido para las pruebas](#stack-elegido-para-las-pruebas)
+  - [Clonar el repositorio](#clonar-el-repositorio)
+  - [Ejecucion de pruebas con Cypress](#ejecucion-de-pruebas-con-cypress)
+  - [Ejecucion de pruebas con Kraken](#ejecucion-de-pruebas-con-kraken)
+  - [Como limpiar ghost](#como-limpiar-ghost)
+- [Entrega Semana 5](#pruebas-e2e-semana-5)
+  - [Ejecutar con ghost local](#utilizando-ghost-localmente)
+  - [Instrucciones ejecutar pruebas con crypress localmente](#instrucciones-para-ejecución-de-escenarios-de-pruebas-con-cypress-localmente)
+  - [Instrucciones ejecutar pruebas con Kraken y ghost 5.73 localmente](#instrucciones-para-ejecución-de-escenarios-de-pruebas-con-Kraken-y-ghost-5-73-2-en-local)
+  - [Instrucciones ejecutar pruebas con Kraken y ghost 5.72 en AWS](#instrucciones-para-ejecución-de-escenarios-de-pruebas-con-Kraken-y-ghost-5-72-1-hosteado-en-Amazon-Web-Services)
+  - [Instrucciones ejecutar pruebas con Kraken y ghost 4.72.2 en localhost](#instrucciones-para-ejecución-de-escenarios-de-pruebas-con-Kraken-con-ghost-4-72-2-en-local)
+  - [Instrucciones ejecutar pruebas con Kraken y ghost 4.48.9 en Google Cloud](#instrucciones-para-ejecución-de-escenarios-de-pruebas-con-Kraken-con-ghost-4-48-9-hosteado-en-Google-Cloud)
+  - [Como limpiar ghost](#como-limpiar-ghost)
+  - [Instrucciones para ejecutar reportes con Resemble.js](#instrucciones-para-ejecutar-reportes-con-resemblejs)
+  - [Instrucciones para ejecutar los escenarios con Backstop.js](#instrucciones-para-ejecutar-los-escenarios-con-backstopjs)
+- [Como limpiar ghost](#como-limpiar-ghost)
+- [Integrante del Equipo](#Integrantes-del-equipo)
+
+<hr>
+
+## Pruebas E2E Semana 7
+Para la semana 7, decidimos como equipo, crear una nueva carpeta llamada "Semana_7_Escenarios_Datos_Aleatorios".
+Esta carpeta contiene las estructuras de Cypress y de Kraken necesarias para ejecutar las pruebas con la nueva funcionalidad de generación de datos aleatorios, pool a priori y pool dinamico.
+
+### Estructura de carpetas
+| Carpeta      | Descripción                |
+|--------------|----------------------------|
+| Semana_7_Escenarios_Datos_Aleatorios    | Carpeta raiz/principal de la entrega semana 7. |
+| Cypress    | Carpeta principal de Cypress.  |
+| Cypress/data   |  Carpeta donde almacenamos las fuentes de datos a priori para cypress. |
+| Cypress/e2e    |  Contiene los scripts de los 105 escenarios de pruebas.  |
+| Cypress/support |  Contiene los comandos personalizados usados para obtener datos externos y comandos frecuentes.  |
+| Kraken/data    | Carpeta donde almacenamos las fuentes de datos a priori para Kraken.  |
+| Kraken/features    | Contiene los scripts de los 15 escenarios de pruebas con kraken.  |
+
+
+### Stack elegido para las pruebas
+Para la implementacion de los 120 escenarios de pruebas decidimos abordarlos asi:
+
+1. La version de ghost es la version 5.73.2
+2. La version de Ghost CLI es 1.25.3
+3. La version de NodeJS es Node 18.18.1
+4. Desarrollamos 105 escenarios en cypress.
+5. Desarrollamos 15 escenarios en Kraken.
+6. 2 personas trabajamos en Windows.
+7. 2 personas trabajamos en MacOS.
+8. Jira como sistema de gestion y reporte de incidentes.
+
+[Volver al indice](#indice)
+
+### Iniciar Ghost
+Si no ha instalado ghost en su computador, siga [estas instrucciones](https://ghost.org/docs/install/).
+
+Una vez instalado ghost, acceda a la ruta donde los instaló a tarves de la terminal y ejecute:
+
+Para inciarlo:
+```
+sudo ghost start
+```
+
+Para detenerlo:
+```
+sudo ghost stop
+```
+
+[Volver al indice](#indice)
+
+### Clonar el repositorio
+Para clonar el repositorio siga las siguientes instrucciones:
+
+1. Abra una terminal en su computador.
+2. Clone este repositorio en su maquina local en la ruta que desee. 
+
+Para clonarlo a traves de HTTPS ejecute:
+```
+git clone https://github.com/mar-alas/equipo3.git
+```
+
+para clonarlo a traves de SSH (_Asegurate de que la clave SSH asociada con tu cuenta de GitHub está configurada correctamente en tu máquina._)
+```
+git clone git@github.com:mar-alas/equipo3.git
+```
+
+Para clonarlo a traves de GitHub CLI:
+```
+gh repo clone mar-alas/equipo3
+```
+
+[Volver al indice](#indice)
+
+### Ejecucion de pruebas con Cypress
+⚠️ **Recomendacion:** para una completa y correcta ejecucion de las pruebas, recomendamos tener ghost limpio, sin data previa. [Ver como limpiar ghost](#como-limpiar-ghost)
+
+Para ejecutar las pruebas de cypress siga las siguientes instrucciones:
+
+1. Abra su editor de codigo favorito. Recomendado: [Visual Studio Code](https://code.visualstudio.com/)
+2. Desde el editor de codigo abra la carpeta que clonó llamada **equipo3**
+3. Ubique la terminal en la ruta: "equipo3/Semana_7_Escenarios_Datos_Aleatorios/cypress"
+4. Cambie en el archivo _cypress.env.json_ sus credenciales de ghost que tenga creadas en su ghost local. Si no está creado puede crear este archivo a partir de "cypress.env.example.json" y ajustar segun sus credenciales.
+5. Ejecute el siguiente comando para ejecutar un escenario:
+```
+npx cypress run --spec cypress/e2e/escXYZ.cy.js
+```
+o si esta en linux o MacOs:
+
+```
+sudo npx cypress run --spec cypress/e2e/escXYZ.cy.js
+```
+XYZ es el numero de esceario a ejecutar.
+
+5. Ejecute el siguiente comando para ejecutar todos los escenarios
+```
+npx cypress run
+```
+o si esta en linux o MacOs
+
+```
+sudo npx cypress run
+```
+
+[Volver al indice](#indice)
+
+### Ejecucion de pruebas con Kraken
+⚠️ **Recomendacion:** para una completa y correcta ejecucion de las pruebas, recomendamos tener ghost limpio, sin data previa. [Ver como limpiar ghost](#como-limpiar-ghost)
+
+Antes de iniciar la ejecuion configure un archivo "properties.json" en la carpeta de kraken. Puede utilizar el ejemplo "properties.example.json" y quitarle el ".example" y ajustar segun sus credenciales y host de ghost.
+Adicionalmente dentro de la carpeta de kraken hay un README con los paquetes que debe instalar para que las pruebas funcionen. Recomendamos ejecutar kraken con node version V16.16.0.
+
+Para la ejecucion de las pruebas con Kraken siga las siguientes instrucciones:
+
+1. Abra su editor de codigo favorito. Recomendado: [Visual Studio Code](https://code.visualstudio.com/)
+2. Desde el editor de codigo abra la carpeta que clonó llamada **equipo3**
+3. Ubique la terminal en la ruta: "equipo3/Semana_7_Escenarios_Datos_Aleatorios/kraken"
+4. Elija el escenario a ejecutar y cambie el txt para que el escenario quede llamado como .feature
+5. Ejecute el siguiente comando para ejecutar el escenario o escenarios que ternminan en .feature:
+```
+npx kraken-node run
+```
+6. Si desea ejecutar todos los escenarios, ejecute el script llamado _ejecutar_escenarios.sh_ en ios o con ejecutar_escenarios.bat en windows.
+
+[Volver al indice](#indice)
+
+## Pruebas E2E Semana 5
 * En este repositorio va a encontrar las siguientes carpetas.
      * La carpeta "cypress" para ejecutar los escenarios de pruebas en cypress. Estos escenarios se ejecutaron en la versión 5.73.2.
      * La carpet kraken_tests_ghost_vanterior_5_73_2 para los escenarios de prueba en kraken con la version 5.73.2 (version inicial desarrollado para host local)
@@ -11,7 +180,6 @@ Pruebas E2E - Semana 5 - Equipo 3
      * La carpeta backstopjs con el codigo para realizar regresion visual usando la herramienta backstopjs. Este desarrollo se puede correr con la version de node 16.16.0 o la version 16.13.0.
      * La carpeta resemblejs con el codigo para realizar regresion visual usando la herramienta resemblejs. Este desarrollo se puede correr con la version de node 16.16.0 o la version 16.13.0.
 * Los escenerios de prueba se describen en la wiki.
-
 
 ## Se tendran 2 opciones para la ejecucion de las pruebas, primera con ghosts locales y la segunda con ghost hosteados
 
@@ -30,7 +198,9 @@ Utilizar Ghost CLI Version - 1.20.0 y Node 16.13.0
 4. Para correr las pruebas vaya a la carpeta cypress del repositorio en el cmd y ejecute las pruebas con cypress run. Este comando le deberia correr las 20 pruebas y mostrar al final el reporte resumen de la corrida.
 5. Alternativamente puede usar el comando cypress open para correr las pruebas manualmente y ver su ejecución en vivo y en directo en la herramienta de cypress.
 
-#### Instrucciones para ejecución de escenarios de pruebas con Kraken y ghost 5.73.2 en local:
+[Volver al indice](#indice)
+
+#### Instrucciones para ejecución de escenarios de pruebas con Kraken y ghost 5-73-2 en local:
 1. Descargue el repositorio en su equipo local utilizando el comando git clone.
 2. Instale la version de ghost 5.73.2 (en la seccion anterior se puede ver las herramientas necesarias para su instalacion)
 3. Sobre la carpeta kraken_tests_ghost_vanterior_5_73_2 corra los comandos "npm install" y ""npm install kraken-node" para instalar las dependendicas del proyecto.
@@ -39,11 +209,15 @@ Utilizar Ghost CLI Version - 1.20.0 y Node 16.13.0
 6. El archivo de windows utiliza el comando "npx kraken-node run" para correr las pruebas localmente, mientras que el archivo de mac utiliza el comando "./node_modules/kraken-node/bin/kraken-node run" para correr las pruebas utilizando el kraken local, para este escenariob es necesario tener la carpeta node_modules dentro de la carpeta kraken_tests_ghost_vanterior_5_73_2, que se genero gracias al paso 2 con el comando "npm install kraken-node".
 7. Si desea una corrida limpia se recomienda borrar las carpetas escenario{n} que estén creados en la carpeta screenshots sin borrar la carpeta que dice "escenario".
 
-#### Instrucciones para ejecución de escenarios de pruebas con Kraken y ghost 5.72.1 hosteado en la web (Amazon Web Services):
+[Volver al indice](#indice)
+
+#### Instrucciones para ejecución de escenarios de pruebas con Kraken y ghost 5-72-1 hosteado en Amazon Web Services:
 1. Realicé la misma instalacion de kraken correspondiente a las instrucciones anteriores sin instalar ghost en local, es decir la correspondiente a la carpeta "kraken_tests_ghost_vnueva_4_72_2".
 2. Cambie las credenciales del archivos properties.json para utilizar usuario: equipo3@uniandes.edu.co contraseña: Equipo3123# y host: http://44.200.235.109/ghost.
 
-#### Instrucciones para ejecución de escenarios de pruebas con Kraken con ghost 4.72.2 en local:
+[Volver al indice](#indice)
+
+#### Instrucciones para ejecución de escenarios de pruebas con Kraken con ghost 4-72-2 en local:
 1. Descargue el repositorio en su equipo local utilizando el comando git clone.
 2. Instale la version de ghost 4.72.2 (en la seccion anterior se puede ver las herramientas necesarias para su instalacion)
 3. Sobre la carpeta kraken_tests_ghost_vnueva_4_72_2 corra los comandos "npm install" y ""npm install kraken-node" para instalar las dependendicas del proyecto.
@@ -51,10 +225,14 @@ Utilizar Ghost CLI Version - 1.20.0 y Node 16.13.0
 5. Dentro de la carpeta kraken_tests_ghost_vnueva_4_72_2 hay 2 archivos para ejecutar los escenarios uno para mac llamado ejecutar_escenarios.sh y uno para windows llamado ejecutar_escenarios.bat. Estos scripts se encargaran de ejecutar los 20 escenarios, se creera una carpeta llamada screenshots la cual tendra subcarpetas con nombres de cada escenario y screenshots de cada paso. Estos scripts solamente corren los 10 escenarios escogidos para la semana:2,6,7,8,9,10,12,16,17,18.
 6. El archivo de windows utiliza el comando "npx kraken-node run" para correr las pruebas localmente, mientras que el archivo de mac utiliza el comando "./node_modules/kraken-node/bin/kraken-node run" para correr las pruebas utilizando el kraken local, para este escenariob es necesario tener la carpeta node_modules dentro de la carpeta kraken_tests_ghost_vnueva_4_72_2, que se genero gracias al paso 2 con el comando "npm install kraken-node"
 7. Si desea una corrida limpia se recomienda borrar las carpetas escenario{n} que estén creados en la carpeta screenshots sin borrar la carpeta que dice "escenario".
-8. 
-#### Instrucciones para ejecución de escenarios de pruebas con Kraken con ghost 4.48.9 hostead en web (Google Cloud):
+
+[Volver al indice](#indice)
+
+#### Instrucciones para ejecución de escenarios de pruebas con Kraken con ghost 4-48-9 hosteado en Google Cloud:
 1. Realicé la misma instalacion e instrucciones de kraken correspondiente a las instrucciones anteriores sin instalar ghost en local, es decir la correspondiente a la carpeta "kraken_tests_ghost_vnueva_4_72_2".
 2. Cambie las credenciales del archivos properties.json para utilizar usuario: equipo3@uniandes.edu.co contraseña: Equipo3123# y host: http://104.155.182.18:2368/ghost.
+
+[Volver al indice](#indice)
 
 ## Instrucciones para ejecutar reportes con resemblejs:
 1. Ingrese a la carpeta de resemblejs y ejecute el siguiente comando: npm install
@@ -62,6 +240,8 @@ Utilizar Ghost CLI Version - 1.20.0 y Node 16.13.0
 3. En la carpeta de resemblejs ejecute el siguiente comando: node index.js o npm start
 4. Ingrese a la carpeta de reports y abra el archivo report.html con algun browser. (ruta seria equipo03/resemblejs/reports/report.html)
 5. (Opcional) Puede configurar el porcentaje de diferencia con el cual solo se generará un reporte que mostrará los cambios más relevantes. Puede configurar este valor entre 0 y 100 en el archivo index.js línea 23 
+
+[Volver al indice](#indice)
 
 ## Instrucciones para ejecutar los escenarios con backstopjs:
 1. Ingresar con el cmd a la carpeta "backstopjs" en la raiz del repositorio.
@@ -72,8 +252,24 @@ Utilizar Ghost CLI Version - 1.20.0 y Node 16.13.0
 5. Inicie backstop con el siguiente comando: npm start
 6. Se abrira un browser con el reporte
 
+[Volver al indice](#indice)
+
+## Como Limpiar Ghost
+Para limpiar ghost siga las siguientes instrucciones:
+1. Inicie sesion en su instancia de ghost.
+2. De click en el engranaje ⚙️ de settings que aparece en el menu inferior izquierdo.
+3. En el campo de busqueda en el lado superior izquierdo, escriba la palabra "labs".
+4. Aparecerá un resultado a la derecha, de click en la opcion "Open"
+5. Luego de click en el boton Delete de la seccion "Delete all content" y confirme.
+
+<img width="1068" alt="imagen" src="https://github.com/mar-alas/equipo3/assets/142593813/f013e33a-6e5a-4f93-a053-8c8ea0b852e9">
+
+[Volver al indice](#indice)
+
 ## Integrantes del equipo:
 - Maria Alas - m.alas@uniandes.edu.co
 - Daniel Gamez - da.gamez96@uniandes.edu.co
 - Jhon Puentes - j.puentesn@uniandes.edu.co
 - Robert Castro - ra.castro2@uniandes.edu.co
+
+[Volver al indice](#indice)
