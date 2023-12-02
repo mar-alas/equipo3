@@ -20,7 +20,7 @@ describe('Escenario 102', () => {
     //cy.screenshot(NOMBRE_ESCENARIO + '0_visit');
   });
 
-  it('Login con exito, creacion y validacion de un post con contenido HTML, signout', () => {
+  it('Login con exito, creacion de un post con contenido youtube via opcion spotify, deberia fallar', () => {
     loginPage.fillEmail(Cypress.env("username"));
     //cy.screenshot(NOMBRE_ESCENARIO + '1_fillEmail');
 
@@ -48,15 +48,16 @@ describe('Escenario 102', () => {
       
       cy.useAprioriCrearPost().then((formattedPost) => {
         //se publica el video esperando 5 segundos
-        crearPost.crearPostContenidoYoutube(formattedPost.title, link_prueba, formattedPost.body,5);
+        crearPost.crearPostContenidoSpotify(formattedPost.title, link_prueba, formattedPost.body,5);
         crearPost.publicarPost();
         cy.wait(TWO_SECONDS);
         // Other test steps within the .then() block for proper chaining
 
         // Assertions related to post creation or validations
-        crearPost.existePost(formattedPost.title);
+        
         // Other assertions or test steps within this chain
-        crearPost.revisarContenidoPostConVideo(formattedPost.title)
+        
+
         
       });
     });

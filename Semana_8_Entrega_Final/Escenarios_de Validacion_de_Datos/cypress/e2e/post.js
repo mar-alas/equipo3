@@ -584,6 +584,7 @@ const crearPost = {
   noExistePost: (Titulo) => {
     //there should not be any text in the html containing the string "Titulo 2"
     //cy.contains('html', 'Titulo 2').should('not.exist');
+    cy.get('[data-test-nav="posts"]').click();
     cy.contains(Titulo).should("not.exist");
 
     // seleccionamos los elementos [class="gh-content-entry-title"] cuyo contenido sea igual Titulo
