@@ -125,6 +125,14 @@ Ademas de esto, decidimos probar en otros navegadores y jugar con el modo oscuro
 ### Semana 6 Pruebas de Regresion Visual
 
 ### Semana 7 Reporte Final
+  En este punto, ya tendras mucha información (_un poco distribuida_) pero tienes datos! Es hora de que hagas un reporte formal, te sugerimos que incluyas en tu reporte lo siguiente:
+  
+  1. Muestra la estrategia que ejecutaste.
+  2. Haz un resumen ejecutivo con el conexto de donde estabas y a donde estas hoy.
+  3. Muestra la tecnologia que usaste (_solo si la audiencia es tecnica_).
+  4. Problemas y Defectos encontrados. Entre más, mejor.
+  5. Logros complidos.
+  6. Resumen de como esto mejora la calidad del producto.
 
 ## Pruebas E2E Semana 7
 Para la semana 7, decidimos como equipo, crear una nueva carpeta llamada "Semana_7_Escenarios_Datos_Aleatorios".
