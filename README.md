@@ -24,7 +24,7 @@
 </p>
 
 <hr>
-
+LINK A LA CARPETA DE ONE DRIVE DE LA SEMANA 8: https://uniandes-my.sharepoint.com/:f:/g/personal/j_puentesn_uniandes_edu_co/EvGQfuYHkp9Js5hTQkJgjyUBTEm8mavqTsFRZz1fELV-aQ 
 ## Indice
 - [Indice](#indice)
 - [Entrega Semana 8 - Estrategia Final](#entrega-semana-8-estrategia-final) 🎉
