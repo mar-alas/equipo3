@@ -1,0 +1,30 @@
+{
+  "name": "ripuppet",
+  "version": "1.0.0",
+  "description": "NodeJS library for GUI ripping on web applications",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jm-dominguez/RIPuppet.git"
+  },
+  "keywords": [
+    "Testing",
+    "Ripping",
+    "GUI"
+  ],
+  "author": "Juan Manuel Domínguez Andrés Felipe López",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jm-dominguez/RIPuppet/issues"
+  },
+  "homepage": "https://github.com/jm-dominguez/RIPuppet#readme",
+  "dependencies": {
+    "faker": "^4.1.0",
+    "firebase": "^7.10.0",
+    "node-html-parser": "^1.2.12",
+    "playwright": "^0.11.1"
+  }
+}
