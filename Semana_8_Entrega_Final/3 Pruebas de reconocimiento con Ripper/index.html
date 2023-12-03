@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+
+<!------------------------DO NOT REMOVE THIS FILE. THIS IS THE BASE OF THE REPORTS CREATED BY THE TOOL------------------------->
+
+<head>
+  <meta charset="utf-8">
+
+  
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <span class="navbar-brand mb-0 h1">RIPuppet</span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+           <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Visualization</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <br/>
+  <br/>
+  <br/>
+
+  <div class="container">
+    <h1>Visited webpages</h1>
+    <div class="row">
+      <div class="col-md-10">
+        <div id="svgContainer">
+          <svg width="900" height="600"></svg>
+        </div>
+      </div>
+    </div>
+    <div>
+      <br/>
+      <h4 id="stateName">State</h4>
+      <br/>
+      
+    </div>
+
+    <div class="row">
+      <div class="col-md-9">
+        <img src="" alt="State Photo" id="stateImage" class="hidden">
+      </div>
+      <div class="col-md-3">
+        <div class="panel panel-default" style="margin-top: 10px;">
+          <table class="table">
+              <tbody id="executionTable">
+                  <tr>
+                      <th scope="row">Element type</th>
+                  </tr>
+                  <tr>
+                      <td id="elementType">-</td>
+                  </tr>
+                  <tr>
+                      <th id="urlOrTransition" scope="row">URL</th>
+                  </tr>
+                  <tr>
+                      <td id="stateUrl">-</td>
+                  </tr>
+                  <tr>
+                      <th id="errorsRow"  scope="row">Errors found</th>
+                  </tr>
+                  <tr>
+                      <td id="errorsNumber"></td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+      </div>
+    </div>
+    <br/>
+    <div>
+      <h5 id="errorsTitle">Errors</h5>
+      <br/>
+      <br/>
+      <div class="col-md-9" id="errorMessageContainer">
+
+      </div>
+      
+    </div>
+
+    
+
+  </div>
+
+  <br/>
+  <br/>
+  <br/>
+
+  
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script>
+
+  var svg = d3.select("svg"),
+      width = +svg.attr("width"),
+      height = +svg.attr("height");
+
+  var color = d3.scaleOrdinal(d3.schemeCategory20);
+
+  var simulation = d3.forceSimulation()
+      .force("link", d3.forceLink().id(function(d) { return d.state; }))
+      .force("charge", d3.forceManyBody()
+        .strength(-500))
+      .force("center", d3.forceCenter(width / 2, height / 2));
+
+  d3.json("graph3.json", function(error, graph) {
+    if (error) throw error;
+
+    var link = svg.append("g")
+        .attr("class", "links")
+      .selectAll("line")
+      .data(graph.links)
+      .enter().append("line")
+        .attr("stroke-width", function(d) { return 4 });
+
+    var node = svg.append("g")
+        .attr("class", "nodes")
+      .selectAll("g")
+      .data(graph.nodes)
+      .enter().append("g")
+      
+    var circles = node.append("circle")
+        .attr("r", 10)
+        .attr("fill", function(d) { 
+          if ( d.errors.length === 0 ) {
+            return "skyblue";
+          }
+          return "red"; 
+        })
+        .call(d3.drag()
+            .on("start", dragstarted)
+            .on("drag", dragged)
+            .on("end", dragended));
+
+    var lables = node.append("text")
+        .text(function(d) {
+          return d.state;
+        })
+        .attr('x', 6)
+        .attr('y', 3);
+
+    node.append("title")
+        .text(function(d) { return d.state; });
+
+
+    //Click Interaction
+    node.on('click', function(object) {
+      console.log(object);
+      document.getElementById('stateName').innerHTML = 'State #' + object.state;
+      document.getElementById('stateImage').classList.remove('hidden');
+      document.getElementById('stateImage').src = 'screenshots/' + object.state + '.png';
+      document.getElementById('elementType').innerHTML = 'State';
+      document.getElementById('urlOrTransition').innerHTML = 'URL';
+      document.getElementById('errorsRow').classList.remove('hidden');
+      document.getElementById('errorsNumber').classList.remove('hidden');
+      document.getElementById('errorsTitle').classList.remove('hidden');
+
+      document.getElementById('errorsNumber').innerHTML = object.errors.length;
+
+      if(object['url']){
+        document.getElementById('stateUrl').innerHTML = object.url;
+      } else {
+        document.getElementById('stateUrl').innerHTML = '-';
+      }
+
+      showErrors(object.errors);
+
+    });
+
+    link.on('click', function(object) {
+      console.log(object);
+      document.getElementById('stateName').innerHTML = 'Transition ' + object.source.state + ' - ' + object.target.state;
+      //document.getElementById('stateImage').classList.add('hidden');
+      document.getElementById('stateImage').src = 'screenshots/state_' + object.source.state + '_interaction_' + object.target.state + 'BEFORE.png';
+      document.getElementById('elementType').innerHTML = 'Transition';
+      document.getElementById('urlOrTransition').innerHTML = 'Transition type';
+      document.getElementById('errorsRow').classList.add('hidden');
+      document.getElementById('errorsNumber').classList.add('hidden');
+      document.getElementById('errorsTitle').classList.add('hidden');
+
+      if(object['interaction']){
+        document.getElementById('stateUrl').innerHTML = object.interaction;
+
+      }
+    });
+
+
+
+    //Hover Interaction
+    link.on('mouseover', function(object) {
+      var sel = d3.select(this);
+      console.log(sel);
+
+      link.append("title")
+          .text(function(d) { return d.interaction; });
+
+    });
+
+    simulation
+        .nodes(graph.nodes)
+        .on("tick", ticked);
+
+    simulation.force("link")
+        .links(graph.links);
+
+    function ticked() {
+      link
+          .attr("x1", function(d) { return d.source.x; })
+          .attr("y1", function(d) { return d.source.y; })
+          .attr("x2", function(d) { return d.target.x; })
+          .attr("y2", function(d) { return d.target.y; });
+
+      node
+          .attr("transform", function(d) {
+            return "translate(" + d.x + "," + d.y + ")";
+          })
+    }
+  });
+
+  function dragstarted(d) {
+    if (!d3.event.active) simulation.alphaTarget(0.3).restart();
+    d.fx = d.x;
+    d.fy = d.y;
+  }
+
+  function dragged(d) {
+    d.fx = d3.event.x;
+    d.fy = d3.event.y;
+  }
+
+  function dragended(d) {
+    if (!d3.event.active) simulation.alphaTarget(0);
+    d.fx = null;
+    d.fy = null;
+  }
+
+  function showErrors(errorList) {
+    let errorContainer = document.getElementById('errorMessageContainer');
+
+    while (errorContainer.hasChildNodes()) {
+      errorContainer.removeChild(errorContainer.lastChild);
+    }
+
+//    errorList.forEach(element => {
+//      let node = document.createElement("DIV");
+//      node.innerHTML = element.message;
+//      node.classList.add("alert");
+//      node.classList.add("alert-danger");
+//      node.setAttribute("role", "alert");
+//      document.getElementById('errorMessageContainer').appendChild(node);
+
+//    });
+
+    errorList.forEach(element => {
+      let node = document.createElement("CODE");
+      node.innerHTML = element;
+      node.classList.add("prettyprint");
+      document.getElementById('errorMessageContainer').appendChild(node);
+      let jump = document.createElement("br");
+      let jump2 = document.createElement("br");
+      document.getElementById('errorMessageContainer').appendChild(jump);
+      document.getElementById('errorMessageContainer').appendChild(jump2);
+
+    });
+  }
+
+
+  </script>
+
+  <!-- jQuery and Bootstrap -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="script.js"></script>
+</body>
