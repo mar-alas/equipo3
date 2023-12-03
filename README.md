@@ -27,6 +27,13 @@
 
 ## Indice
 - [Indice](#indice)
+- [Entrega Semana 8 - Estrategia Final](#entrega-semana-8-estrategia-final)
+  - []()
+  - []()
+  - []()
+  - []()
+  - []()
+  - []()
 - [Entrega Semana 7](#pruebas-e2e-semana-7)
   - [Estructura de carpetas](#estructura-de-carpetas)
   - [Stack elegido para las pruebas](#stack-elegido-para-las-pruebas)
@@ -48,6 +55,28 @@
 - [Integrante del Equipo](#Integrantes-del-equipo)
 
 <hr>
+
+## Entrega semana 8 estrategia final
+
+### Consideraciones importantes
+- La presente estrategia está diseñada para ejecutarse en 7 semanas.
+- El equipo necesario para ejecutar esta estrategia  es de minimo 4 ingenieros seniors automatizadores de pruebas.
+- Revisa el stack tecnologico con que fue pensado esta estrategia para su correcta ejecucion.
+
+### Semana 1 Pruebas Exploracion Manuales 
+
+
+### Semana 2 Escenarios de Validacion de Datos
+
+### Semana 3 Pruebas de reconocimiento con Ripper
+
+### Semana 4 Pruebas de reconocimiento con Monkeys
+
+### Semana 5 Pruebas E2E
+
+### Semana 6 Pruebas de Regresion Visual
+
+### Semana 7 Reporte Final
 
 ## Pruebas E2E Semana 7
 Para la semana 7, decidimos como equipo, crear una nueva carpeta llamada "Semana_7_Escenarios_Datos_Aleatorios".
