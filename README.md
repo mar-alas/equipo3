@@ -46,7 +46,8 @@
   - [Instrucciones para ejecutar los escenarios con Backstop.js](#instrucciones-para-ejecutar-los-escenarios-con-backstopjs)
 - [Como limpiar ghost](#como-limpiar-ghost)
 - [Integrante del Equipo](#Integrantes-del-equipo)
-
+- [Entrega Semana 8](#pruebas-e2e-semana-8)
+   - [Ejecutar con ghost local](#utilizando-ghost-localmente)
 <hr>
 
 ## Pruebas E2E Semana 7
