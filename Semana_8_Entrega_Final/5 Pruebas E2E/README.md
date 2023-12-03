@@ -1,5 +1,4 @@
-# equipo3
-Pruebas E2E
+# Pruebas E2E
 
 * En este repositorio va a encontrar dos carpetas. La carpeta "cypress" para ejecutar los escenarios de pruebas en cypress y la carpeta kraken-tests para los escenarios de prueba en kraken. 
 * Los escenerios de prueba se describen en la wiki.
