@@ -45,6 +45,7 @@
   - [Instrucciones para ejecutar reportes con Resemble.js](#instrucciones-para-ejecutar-reportes-con-resemblejs)
   - [Instrucciones para ejecutar los escenarios con Backstop.js](#instrucciones-para-ejecutar-los-escenarios-con-backstopjs)
 - [Como limpiar ghost](#como-limpiar-ghost)
+- [Como acceder a Jira](#como-acceder-a-jira)
 - [Integrante del Equipo](#Integrantes-del-equipo)
 - [Entrega Semana 8](#pruebas-e2e-semana-8)
    - [Ejecutar con ghost local](#utilizando-ghost-localmente)
@@ -266,6 +267,19 @@ Para limpiar ghost siga las siguientes instrucciones:
 <img width="1068" alt="imagen" src="https://github.com/mar-alas/equipo3/assets/142593813/f013e33a-6e5a-4f93-a053-8c8ea0b852e9">
 
 [Volver al indice](#indice)
+
+## Como acceder a Jira
+Para ver las incidencias y su detalle de click [AQUI](https://uniandes-miso-pruebas-automatizadas-equipo-01.atlassian.net/jira/software/projects/TSDC/boards/1?sprints=8).
+
+Si no se encuentra logueado, sigua las siguientes instrucciones:
+1. Abra su navegador preferido.
+2. Ingrese a la URL: https://id.atlassian.com/login 
+3. En el campo de correo ingrese el siguiente: pirika9264@ksyhtc.com
+4. De click en el boton "Continuar"
+5. En el campo de contraseña que se habilita, ingrese: B-6FqmVWjJE_#Pa  (_Asegurese de no copiar los espacios de los lados_)
+6. De click en el boton "Iniciar sesión"
+7. Ingrese al tablero que desee buscando el sprint en el [backlog completo.](https://uniandes-miso-pruebas-automatizadas-equipo-01.atlassian.net/jira/software/projects/TSDC/boards/1/backlog).
+
 
 ## Integrantes del equipo:
 - Maria Alas - m.alas@uniandes.edu.co
