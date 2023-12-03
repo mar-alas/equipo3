@@ -81,7 +81,7 @@
 | Limitaciones, costos adicionales al presupuesto, ventajas, y desventajas del proceso de pruebas propuesto para las 8 semanas    | [Ver](https://uniandes-my.sharepoint.com/:w:/r/personal/j_puentesn_uniandes_edu_co/Documents/Pruebas%20automatizadas%20de%20software%20-%20Carpeta%20central%20del%20equipo/Proyecto%20Semana%208%20(FINAL)/estrategia-pruebas.docx?d=wd10f00e19cca4bf2ab873980cdd1e4fa&csf=1&web=1&e=yj2qV3)  |
 | Video y descripción de la estrategia    | [Ver video]()  |
 
-### Semana 1 Pruebas Exploracion Manuales 
+### Hito 1 Pruebas Exploracion Manuales 
 Para la semana 1 de esta [estrategia](https://uniandes-my.sharepoint.com/:w:/r/personal/j_puentesn_uniandes_edu_co/Documents/Pruebas%20automatizadas%20de%20software%20-%20Carpeta%20central%20del%20equipo/Proyecto%20Semana%208%20(FINAL)/estrategia-pruebas.docx?d=wd10f00e19cca4bf2ab873980cdd1e4fa&csf=1&web=1&e=yj2qV3), decidimos como equipo realizar más pruebas exploratorias de las que ya teniamos. Esto con el objetivo de entregar a la empresa un inventario de pruebas más completo y que abarque mas features de ghost. Ya que inicialmente nos enfocamos en las funcionalidades core y dejamos por fuera funcionalidades para el usuario como:
 
 - Gestion de perfil
@@ -97,7 +97,7 @@ Ademas de esto, decidimos probar en otros navegadores y jugar con el modo oscuro
 - El inventario de pruebas exploratias las puedes [VER AQUI](https://uniandes-my.sharepoint.com/:x:/r/personal/j_puentesn_uniandes_edu_co/Documents/Pruebas%20automatizadas%20de%20software%20-%20Carpeta%20central%20del%20equipo/Proyecto%20Semana%208%20(FINAL)/inventario-pruebas-exploratorias%20Semana%208.xlsx?d=wafd9aff191b04ca98e1d8605cf22079b&csf=1&web=1&e=DWlMg5).
 - El listado de escenarios que probamos las puedes [VER AQUI](https://uniandes-my.sharepoint.com/:x:/r/personal/j_puentesn_uniandes_edu_co/Documents/Pruebas%20automatizadas%20de%20software%20-%20Carpeta%20central%20del%20equipo/Proyecto%20Semana%208%20(FINAL)/Listado%20Escenarios%20Semana%208.xlsx?d=w1f11bb30c9fd4559b59a689a330d276a&csf=1&web=1&e=kaju7x).
 
-### Semana 2 Escenarios de Validacion de Datos
+### Hito 2 Escenarios de Validacion de Datos
 
 - **Descripción**
   Las pruebas de validación de datos y datos aleatorios se trata de no usar los mismos datos para probar un software. Tipicamente un tester usará datos limitados; Introducir aleatoriedad aumenta la probabilidad de exito para encontrar posibles fallas. Y como sabemos, es mejor y mas economico encontrar fallas a temprana edad y no en producción. Ya que en producción si vamos a tener usuarios especiales que ingresan datos bien raros. Por eso está pruebas la tienes que ejecutar.
@@ -107,7 +107,7 @@ Ademas de esto, decidimos probar en otros navegadores y jugar con el modo oscuro
 
   **Nota:** Es muy posible que tengas problemas con algunas APIS externas como Mockaroo. Si ejecutas esta estratgia en los tiempos definidos, te garantizamos el fucnionamiento. Si ejecutas despues de Enero de 2024, te recomendamos revisar el modelo de dominio, requrest y repsonse de las pruebas que fallen, luego de esto implementa tu propia API en [mockaroo](https://www.mockaroo.com/) para que siga funcionando todo. 
 
-### Semana 3 Pruebas de reconocimiento con Ripper
+### Hito 3 Pruebas de reconocimiento con Ripper
 
 - **Descripción**
   Las pruebas de exploración de interfaz gráfica, también conocidas como GUI ripping, son un tipo de pruebas que consisten en explorar cada vista, funcionalidad y aspecto de una aplicación o sistema de software por medio de la interfaz ofrecida al usuario. Estas simulan el comportamiento de un usuario y buscan reconstruir el flujo de interacción y experiencia de usuario para comprobar que está correctamente construido y que las funcionalidades requeridas para la aplicación son satisfechas. Y como tambien cometemos errores en UI, entonces es muy importante ejecutarlas.
@@ -115,7 +115,7 @@ Ademas de esto, decidimos probar en otros navegadores y jugar con el modo oscuro
 - **Instrucciones para su ejecucion**
   A continuacion, ingresa a [este readme](https://github.com/mar-alas/equipo3/blob/develop/Semana_8_Entrega_Final/3%20Pruebas%20de%20reconocimiento%20con%20Ripper/README.md) donde encontraras el código fuente y las instrucciones para ejecutar las pruebas con Rippers.
 
-### Semana 4 Pruebas de reconocimiento con Monkeys
+### Hito 4 Pruebas de reconocimiento con Monkeys
 
 - **Descripción**
   Las pruebas con monkeys se hacen para realizar pruebas sobre todos los caminos de los flujos de trabajo de los usuarios, universo de entradas y estados, de principio a fin, imitando las condiciones de los usuarios. Verifican la interacción correcta de la aplicación y el intercambio de datos con otros componentes fuera del sistema. Por esa integralidad y completitud, estas pruebas son muy buenas.
@@ -123,7 +123,7 @@ Ademas de esto, decidimos probar en otros navegadores y jugar con el modo oscuro
 - **Instrucciones para su ejecucion**
   A continuacion, ingresa a [este readme](https://github.com/mar-alas/equipo3/tree/develop/Semana_8_Entrega_Final/4%20Pruebas%20de%20reconocimiento%20con%20Monkeys#readme) donde encontraras el codigo fuente y las instrucciones para ejecutar las pruebas con monkeys.
 
-### Semana 5 Pruebas E2E
+### Hito 5 Pruebas E2E
 
 - **Descripción**
   Las pruebas end-to-end se hacen para realizar pruebas sobre todos los caminos de los flujos de trabajo de los usuarios, universo de entradas y estados, de principio a fin, imitando las condiciones de los usuarios. Verifican la interacción correcta de la aplicación y el intercambio de datos con otros componentes fuera del sistema. Por esa integralidad y completitud, estas pruebas son muy buenas.
@@ -131,7 +131,7 @@ Ademas de esto, decidimos probar en otros navegadores y jugar con el modo oscuro
 - **Instrucciones para su ejecucion**
   A continuacion, ingresa a [este readme](https://github.com/mar-alas/equipo3/blob/develop/Semana_8_Entrega_Final/5%20Pruebas%20E2E/README.md) donde encontraras el codigo fuente y las instrucciones para ejecutar las pruebas end-to-end
 
-### Semana 6 Pruebas de Regresion Visual
+### Hito 6 Pruebas de Regresion Visual
 - **Descripción**
   Las pruebas de regresión visual se havcen para que detectes diferencias y errores entre imagenes que representan pantallas de tu software. Asi qeu, si estan pribando la nueva version de ghsot pueden encontrar diferencias de forma automatizada y no a ojo.
   
@@ -139,7 +139,7 @@ Ademas de esto, decidimos probar en otros navegadores y jugar con el modo oscuro
   A continuacion, ingresa a [este readme](https://github.com/mar-alas/equipo3/blob/develop/Semana_8_Entrega_Final/6%20Pruebas%20de%20Regresion%20Visual/README.md) donde encontrarás el codigo fuente y las instrucciones para ejecutar las pruebas de regresion visual o VRT.
 
 
-### Semana 7 Reporte Final
+### Hito 7 Reporte Final
   En este punto, ya tendras mucha información (_un poco distribuida_) pero tienes datos! Es hora de que hagas un reporte formal, te sugerimos que incluyas en tu reporte lo siguiente:
   
   1. Muestra la estrategia que ejecutaste.
