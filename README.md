@@ -30,7 +30,7 @@
 - [Entrega Semana 8 - Estrategia Final](#entrega-semana-8-estrategia-final)
   - [Consideraciones importantes](#consideraciones-importantes)
   - [Recursos y accesos directos](#recursos-y-accesos-directos)
-  - [Semana 1 Pruebas Exploracion Manuales ](#semana-1-pruebas-exploracion-manuales )
+  - [Semana 1 Pruebas Exploracion Manuales ](#semana-1-pruebas-exploracion-manuales)
   - []()
   - []()
   - []()
@@ -63,6 +63,7 @@
 - El equipo necesario para ejecutar esta estrategia  es de minimo 4 ingenieros seniors automatizadores de pruebas.
 - Revisa el stack tecnologico con que fue pensado esta estrategia para su correcta ejecucion.
 - Revisa la estructura de carpetas de forma general, ya que en cada carpeta se encuentra una estrategia de pruebas distinta.
+- En la carpeta de **Semana_8_Entrega_Final** se encuentran todos los codigos fuentes que se deben ejecutar para completar esta estrategia.
 
 
 ### Recursos y accesos directos
