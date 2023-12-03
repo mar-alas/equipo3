@@ -27,6 +27,13 @@
 
 ## Indice
 - [Indice](#indice)
+- [Entrega Semana 8 - Estrategia Final](#entrega-semana-8-estrategia-final)
+  - []()
+  - []()
+  - []()
+  - []()
+  - []()
+  - []()
 - [Entrega Semana 7](#pruebas-e2e-semana-7)
   - [Estructura de carpetas](#estructura-de-carpetas)
   - [Stack elegido para las pruebas](#stack-elegido-para-las-pruebas)
@@ -48,6 +55,47 @@
 - [Integrante del Equipo](#Integrantes-del-equipo)
 
 <hr>
+
+## Entrega semana 8 estrategia final
+
+### Consideraciones importantes
+- La presente estrategia está diseñada para ejecutarse en 7 semanas.
+- El equipo necesario para ejecutar esta estrategia  es de minimo 4 ingenieros seniors automatizadores de pruebas.
+- Revisa el stack tecnologico con que fue pensado esta estrategia para su correcta ejecucion.
+- Revisa la estructura de carpetas de forma general, ya que en cada carpeta se encuentra una estrategia de pruebas distinta.
+
+
+### Recursos y accesos directos
+
+| Recurso      | Acceso                |
+|--------------|----------------------------|
+| Estrategia de pruebas para el CTO    | [Ver estrategia](https://uniandes-my.sharepoint.com/:w:/r/personal/j_puentesn_uniandes_edu_co/Documents/Pruebas%20automatizadas%20de%20software%20-%20Carpeta%20central%20del%20equipo/Proyecto%20Semana%208%20(FINAL)/estrategia-pruebas.docx?d=wd10f00e19cca4bf2ab873980cdd1e4fa&csf=1&web=1&e=yj2qV3) |
+| Incidencias encontradas semana 1    | [Ver en Jira](https://uniandes-miso-pruebas-automatizadas-equipo-01.atlassian.net/jira/software/projects/TSDC/boards/1/backlog)  |
+| Inventario de pruebas exploratorias semana 1    | [ver Inventario](https://uniandes-my.sharepoint.com/:x:/r/personal/j_puentesn_uniandes_edu_co/Documents/Pruebas%20automatizadas%20de%20software%20-%20Carpeta%20central%20del%20equipo/Proyecto%20Semana%208%20(FINAL)/inventario-pruebas-exploratorias%20Semana%208.xlsx?d=wafd9aff191b04ca98e1d8605cf22079b&csf=1&web=1&e=DWlMg5)  |
+| Listado de escenarios  semana 1  | [Ver Documento](https://uniandes-my.sharepoint.com/:x:/r/personal/j_puentesn_uniandes_edu_co/Documents/Pruebas%20automatizadas%20de%20software%20-%20Carpeta%20central%20del%20equipo/Proyecto%20Semana%208%20(FINAL)/Listado%20Escenarios%20Semana%208.xlsx?d=w1f11bb30c9fd4559b59a689a330d276a&csf=1&web=1&e=kaju7x)  |
+| Incidencias encontradas semana 1    | []()  |
+| Incidencias encontradas semana 1    | []()  |
+| Incidencias encontradas semana 1    | []()  |
+
+### Semana 1 Pruebas Exploracion Manuales 
+Para la semana 1 de esta [estrategia](https://uniandes-my.sharepoint.com/:w:/r/personal/j_puentesn_uniandes_edu_co/Documents/Pruebas%20automatizadas%20de%20software%20-%20Carpeta%20central%20del%20equipo/Proyecto%20Semana%208%20(FINAL)/estrategia-pruebas.docx?d=wd10f00e19cca4bf2ab873980cdd1e4fa&csf=1&web=1&e=yj2qV3), decidimos como equipo realizar mas pruebas exploratorias de las qyue ya teniamos. Esto con el objetivo de entregar a la empresa un inventario de pruebas más completo y que abarque mas features de ghost.
+Haberlo hecho asi, nos permitió encontrar mas de 36 incidencias nuevas, lo cual es muy bueno. Estamos seguros que con esta informacion, junto con el equipo de desarrollo lograremos mejorar la calidad del producto.
+
+- Las 36 incidencias las puedes [VER AQUI en JIRA](https://uniandes-miso-pruebas-automatizadas-equipo-01.atlassian.net/jira/software/projects/TSDC/boards/1/backlog).
+- El inventario de pruebas exploratias las puedes [VER AQUI](https://uniandes-my.sharepoint.com/:x:/r/personal/j_puentesn_uniandes_edu_co/Documents/Pruebas%20automatizadas%20de%20software%20-%20Carpeta%20central%20del%20equipo/Proyecto%20Semana%208%20(FINAL)/inventario-pruebas-exploratorias%20Semana%208.xlsx?d=wafd9aff191b04ca98e1d8605cf22079b&csf=1&web=1&e=DWlMg5).
+- El listado de escenarios que probamos las puedes [VER AQUI](https://uniandes-my.sharepoint.com/:x:/r/personal/j_puentesn_uniandes_edu_co/Documents/Pruebas%20automatizadas%20de%20software%20-%20Carpeta%20central%20del%20equipo/Proyecto%20Semana%208%20(FINAL)/Listado%20Escenarios%20Semana%208.xlsx?d=w1f11bb30c9fd4559b59a689a330d276a&csf=1&web=1&e=kaju7x).
+
+### Semana 2 Escenarios de Validacion de Datos
+
+### Semana 3 Pruebas de reconocimiento con Ripper
+
+### Semana 4 Pruebas de reconocimiento con Monkeys
+
+### Semana 5 Pruebas E2E
+
+### Semana 6 Pruebas de Regresion Visual
+
+### Semana 7 Reporte Final
 
 ## Pruebas E2E Semana 7
 Para la semana 7, decidimos como equipo, crear una nueva carpeta llamada "Semana_7_Escenarios_Datos_Aleatorios".
