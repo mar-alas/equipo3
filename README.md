@@ -75,7 +75,7 @@
 | Inventario de pruebas exploratorias semana 1    | [ver Inventario](https://uniandes-my.sharepoint.com/:x:/r/personal/j_puentesn_uniandes_edu_co/Documents/Pruebas%20automatizadas%20de%20software%20-%20Carpeta%20central%20del%20equipo/Proyecto%20Semana%208%20(FINAL)/inventario-pruebas-exploratorias%20Semana%208.xlsx?d=wafd9aff191b04ca98e1d8605cf22079b&csf=1&web=1&e=DWlMg5)  |
 | Listado de escenarios  semana 1  | [Ver Documento](https://uniandes-my.sharepoint.com/:x:/r/personal/j_puentesn_uniandes_edu_co/Documents/Pruebas%20automatizadas%20de%20software%20-%20Carpeta%20central%20del%20equipo/Proyecto%20Semana%208%20(FINAL)/Listado%20Escenarios%20Semana%208.xlsx?d=w1f11bb30c9fd4559b59a689a330d276a&csf=1&web=1&e=kaju7x)  |
 | Análisis de los pros/contras de las herramientas usadas    | [Ver Analisis]()  |
-| Limitaciones, costos adicionales al presupuesto, ventajas, y desventajas del proceso de pruebas propuesto para las 8 semanas    | []()  |
+| Limitaciones, costos adicionales al presupuesto, ventajas, y desventajas del proceso de pruebas propuesto para las 8 semanas    | [](https://uniandes-my.sharepoint.com/:w:/r/personal/j_puentesn_uniandes_edu_co/Documents/Pruebas%20automatizadas%20de%20software%20-%20Carpeta%20central%20del%20equipo/Proyecto%20Semana%208%20(FINAL)/estrategia-pruebas.docx?d=wd10f00e19cca4bf2ab873980cdd1e4fa&csf=1&web=1&e=yj2qV3)  |
 | Video y descripción de la estrategia    | [Ver video]()  |
 
 ### Semana 1 Pruebas Exploracion Manuales 
