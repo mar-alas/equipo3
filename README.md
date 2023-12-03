@@ -100,7 +100,9 @@ Ademas de esto, decidimos probar en otros navegadores y jugar con el modo oscuro
   Las pruebas de validación de datos y datos aleatorios se trata de no usar los mismos datos para probar un software. Tipicamente un tester usará datos limitados; Introducir aleatoriedad aumenta la probabilidad de exito para encontrar posibles fallas. Y como sabemos, es mejor y mas economico encontrar fallas a temprana edad y no en producción. Ya que en producción si vamos a tener usuarios especiales que ingresan datos bien raros. Por eso está pruebas la tienes que ejecutar.
   
 - **Instrucciones para su ejecucion**
-  A continuacion, ingresa a [este readme](https://github.com/mar-alas/equipo3/tree/develop/Semana_8_Entrega_Final/1%20Pruebas%20Exploracion%20Manuales#readme) donde encontrarás documentación que sentarpá las bases que implementes las pruebas de validación de datos y datos aleatorios.
+  A continuacion, ingresa a [este readme](https://github.com/mar-alas/equipo3/tree/develop/Semana_8_Entrega_Final/1%20Pruebas%20Exploracion%20Manuales#readme) donde encontrarás documentación que sentará las bases que implementes las pruebas de validación de datos y datos aleatorios y ademas instrucciones para ejecutar el software que ya implementamos.
+
+  **Nota:** Es muy posible que tengas problemas con algunas APIS externas como Mockaroo. Si ejecutas esta estratgia en los tiempos definidos, te garantizamos el fucnionamiento. Si ejecutas despues de Enero de 2024, te recomendamos revisar el modelo de dominio, requrest y repsonse de las pruebas que fallen, luego de esto implementa tu propia API en [mockaroo](https://www.mockaroo.com/) para que siga funcionando todo. 
 
 ### Semana 3 Pruebas de reconocimiento con Ripper
 
