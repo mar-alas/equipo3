@@ -83,6 +83,9 @@ Para la semana 1 de esta [estrategia](https://uniandes-my.sharepoint.com/:w:/r/p
 - Gestion de perfil
 - Miembros
 - Configuraciones
+- Dashboard
+- Invitaciones
+- Entre otras
 
 Ademas de esto, decidimos probar en otros navegadores y jugar con el modo oscuro. Haberlo hecho asi, nos permitió encontrar mas de 36 incidencias nuevas, lo cual es muy bueno. Estamos seguros que con esta informacion, junto con el equipo de desarrollo lograremos mejorar la calidad del producto.
 
