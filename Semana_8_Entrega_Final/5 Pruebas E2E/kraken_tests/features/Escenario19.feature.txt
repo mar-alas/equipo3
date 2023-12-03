@@ -1,0 +1,12 @@
+Feature: crear 3 paginas iguales
+
+@user19 @web
+Scenario: Escenario 19 - Crear 3 pages repetidas  y validar creacion 3 page repetidos
+  Given I navigate to ghost
+  When I login to ghost
+  And I wait for 2 seconds
+  When I create a random page from dashboard with Title "Titulo 131321321sadasd"
+  When I create a random page from dashboard with Title "Titulo 131321321sadasd"
+  When I create a random page from dashboard with Title "Titulo 131321321sadasd"
+  When I go to pages 
+  Then I should have at least 3 pages with title "Titulo 131321321sadasd"

@@ -1,0 +1,15 @@
+Feature: Crear pagina y luego editarla
+
+@user17 @web
+Scenario: Escenario 17 - Crear 1 pagina, editar pagina, validar edicion 
+  Given I navigate to ghost
+  
+  When I login to ghost
+  And I wait for 2 seconds
+  When I create a random page from dashboard with Title "Titulo 600000asdasd"
+  When I create a random page from dashboard with Title "Titulo AA 1200000sadasd"
+  When I edit page with Title "Titulo AA 1200000sadasd" with the new title "Titulo AAasdasd 900000"
+
+  Then I should have page with title "Titulo 600000asdasd"
+  Then I should have page with title "Titulo AAasdasd 900000"
+  Then I should not have page with title "Titulo AA 1200000sadasd"
