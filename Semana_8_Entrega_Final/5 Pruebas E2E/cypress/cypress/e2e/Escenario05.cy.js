@@ -1,6 +1,6 @@
 import loginPage from './authentication';
 import crearPost from './post';
-
+const TWO_SECONDS = 2000;
 describe('Escenario 5', () => {
   beforeEach(() => {
     loginPage.visit();
@@ -15,6 +15,7 @@ describe('Escenario 5', () => {
 
     //When I create a new post called "hola" 
 	  crearPost.crearPostProgramado("Post Programado", '2023-11-20');
+    cy.wait(TWO_SECONDS);
 
     //Then I should have the three post correcly
     crearPost.existePost("Post Programado");

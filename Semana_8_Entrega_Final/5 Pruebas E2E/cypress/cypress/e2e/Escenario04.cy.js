@@ -1,7 +1,7 @@
 import loginPage from './authentication';
 import crearPost from './post';
 import crearTags from './tag';
-
+const TWO_SECONDS = 2000;
 describe('Escenario 4', () => {
   beforeEach(() => {
     loginPage.visit();
@@ -12,6 +12,7 @@ describe('Escenario 4', () => {
     loginPage.fillEmail(Cypress.env("username"));
     loginPage.fillPassword(Cypress.env("password"));
     loginPage.submitLoginForm();
+    cy.wait(TWO_SECONDS);
     cy.url().should('include', '/dashboard');
 
     //When I create a new post called "hola" 
@@ -21,6 +22,7 @@ describe('Escenario 4', () => {
     crearPost.existePost("Posts & Tag");
 
     crearTags.crearTag('post&Tag', 'Post & Tag')
+    cy.wait(TWO_SECONDS);
     crearTags.validarTag('post&Tag')
 
     // When I signout
