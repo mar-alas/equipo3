@@ -64,7 +64,7 @@
 ## Entrega semana 8 estrategia final
 
 
-LINK A LA CARPETA DE ONE DRIVE DE LA SEMANA 8: https://uniandes-my.sharepoint.com/:f:/g/personal/j_puentesn_uniandes_edu_co/EvGQfuYHkp9Js5hTQkJgjyUBTEm8mavqTsFRZz1fELV-aQ 
+[LINK A LA CARPETA DE ONE DRIVE DE LA SEMANA 8](https://uniandes-my.sharepoint.com/:f:/g/personal/j_puentesn_uniandes_edu_co/EvGQfuYHkp9Js5hTQkJgjyUBTEm8mavqTsFRZz1fELV-aQ) 
 
 
 ### Consideraciones importantes
