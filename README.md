@@ -106,10 +106,16 @@ Ademas de esto, decidimos probar en otros navegadores y jugar con el modo oscuro
 
 ### Semana 3 Pruebas de reconocimiento con Ripper
 
+- **Descripción**
+  Las pruebas de exploración de interfaz gráfica, también conocidas como GUI ripping, son un tipo de pruebas que consisten en explorar cada vista, funcionalidad y aspecto de una aplicación o sistema de software por medio de la interfaz ofrecida al usuario. Estas simulan el comportamiento de un usuario y buscan reconstruir el flujo de interacción y experiencia de usuario para comprobar que está correctamente construido y que las funcionalidades requeridas para la aplicación son satisfechas. Y como tambien cometemos errores en UI, entonces es muy importante ejecutarlas.
+  
+- **Instrucciones para su ejecucion**
+  A continuacion, ingresa a [este readme](https://github.com/mar-alas/equipo3/blob/develop/Semana_8_Entrega_Final/3%20Pruebas%20de%20reconocimiento%20con%20Ripper/README.md) donde encontraras el código fuente y las instrucciones para ejecutar las pruebas con Rippers.
+
 ### Semana 4 Pruebas de reconocimiento con Monkeys
 
 - **Descripción**
-  Las pruebas end-to-end se hacen para realizar pruebas sobre todos los caminos de los flujos de trabajo de los usuarios, universo de entradas y estados, de principio a fin, imitando las condiciones de los usuarios. Verifican la interacción correcta de la aplicación y el intercambio de datos con otros componentes fuera del sistema. Por esa integralidad y completitud, estas pruebas son muy buenas.
+  Las pruebas con monkeys se hacen para realizar pruebas sobre todos los caminos de los flujos de trabajo de los usuarios, universo de entradas y estados, de principio a fin, imitando las condiciones de los usuarios. Verifican la interacción correcta de la aplicación y el intercambio de datos con otros componentes fuera del sistema. Por esa integralidad y completitud, estas pruebas son muy buenas.
   
 - **Instrucciones para su ejecucion**
   A continuacion, ingresa a [este readme](https://github.com/mar-alas/equipo3/tree/develop/Semana_8_Entrega_Final/4%20Pruebas%20de%20reconocimiento%20con%20Monkeys#readme) donde encontraras el codigo fuente y las instrucciones para ejecutar las pruebas con monkeys.
