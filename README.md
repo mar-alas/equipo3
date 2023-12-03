@@ -55,6 +55,7 @@
   - [Instrucciones para ejecutar reportes con Resemble.js](#instrucciones-para-ejecutar-reportes-con-resemblejs)
   - [Instrucciones para ejecutar los escenarios con Backstop.js](#instrucciones-para-ejecutar-los-escenarios-con-backstopjs)
 - [Como limpiar ghost](#como-limpiar-ghost)
+- [Como acceder a Jira](#como-acceder-a-jira)
 - [Integrante del Equipo](#Integrantes-del-equipo)
 
 <hr>
@@ -62,11 +63,12 @@
 ## Entrega semana 8 estrategia final
 
 ### Consideraciones importantes
-- La presente estrategia está diseñada para ejecutarse en 7 semanas.
+- La presente estrategia está diseñada para ejecutarse en 8 semanas.
 - El equipo necesario para ejecutar esta estrategia  es de minimo 4 ingenieros seniors automatizadores de pruebas.
 - Revisa el stack tecnologico con que fue pensado esta estrategia para su correcta ejecucion.
 - Revisa la estructura de carpetas de forma general, ya que en cada carpeta se encuentra una estrategia de pruebas distinta.
 - En la carpeta de **Semana_8_Entrega_Final** se encuentran todos los codigos fuentes que se deben ejecutar para completar esta estrategia.
+- Para ver la incidencias encontradas esta semana, acceda a Jira. [Como acceder a Jira aqui](#como-acceder-a-jira)
 
 
 ### Recursos y accesos directos
@@ -80,6 +82,7 @@
 | Análisis de los pros/contras de las herramientas usadas    | [Ver Análisis](https://uniandes-my.sharepoint.com/:w:/r/personal/j_puentesn_uniandes_edu_co/Documents/Pruebas%20automatizadas%20de%20software%20-%20Carpeta%20central%20del%20equipo/Proyecto%20Semana%208%20(FINAL)/Herramientas.docx?d=w978e0b7fda9642388dd885ac155f72f9&csf=1&web=1&e=x1u0aV)  |
 | Limitaciones, costos adicionales al presupuesto, ventajas, y desventajas del proceso de pruebas propuesto para las 8 semanas    | [Ver](https://uniandes-my.sharepoint.com/:w:/r/personal/j_puentesn_uniandes_edu_co/Documents/Pruebas%20automatizadas%20de%20software%20-%20Carpeta%20central%20del%20equipo/Proyecto%20Semana%208%20(FINAL)/estrategia-pruebas.docx?d=wd10f00e19cca4bf2ab873980cdd1e4fa&csf=1&web=1&e=yj2qV3)  |
 | Video y descripción de la estrategia    | [Ver video]()  |
+| Acceso a Jira | [Como acceder a Jira](#como-acceder-a-jira) |
 
 ### Hito 1 Pruebas Exploracion Manuales 
 Para la semana 1 de esta [estrategia](https://uniandes-my.sharepoint.com/:w:/r/personal/j_puentesn_uniandes_edu_co/Documents/Pruebas%20automatizadas%20de%20software%20-%20Carpeta%20central%20del%20equipo/Proyecto%20Semana%208%20(FINAL)/estrategia-pruebas.docx?d=wd10f00e19cca4bf2ab873980cdd1e4fa&csf=1&web=1&e=yj2qV3), decidimos como equipo realizar más pruebas exploratorias de las que ya teniamos. Esto con el objetivo de entregar a la empresa un inventario de pruebas más completo y que abarque mas features de ghost. Ya que inicialmente nos enfocamos en las funcionalidades core y dejamos por fuera funcionalidades para el usuario como:
@@ -365,6 +368,19 @@ Para limpiar ghost siga las siguientes instrucciones:
 <img width="1068" alt="imagen" src="https://github.com/mar-alas/equipo3/assets/142593813/f013e33a-6e5a-4f93-a053-8c8ea0b852e9">
 
 [Volver al indice](#indice)
+
+## Como acceder a Jira
+Para ver las incidencias y su detalle de click [AQUI](https://uniandes-miso-pruebas-automatizadas-equipo-01.atlassian.net/jira/software/projects/TSDC/boards/1?sprints=8).
+
+Si no se encuentra logueado, sigua las siguientes instrucciones:
+1. Abra su navegador preferido.
+2. Ingrese a la URL: https://id.atlassian.com/login 
+3. En el campo de correo ingrese el siguiente: pirika9264@ksyhtc.com
+4. De click en el boton "Continuar"
+5. En el campo de contraseña que se habilita, ingrese: B-6FqmVWjJE_#Pa  (_Asegurese de no copiar los espacios de los lados_)
+6. De click en el boton "Iniciar sesión"
+7. Ingrese al tablero que desee buscando el sprint en el [backlog completo.](https://uniandes-miso-pruebas-automatizadas-equipo-01.atlassian.net/jira/software/projects/TSDC/boards/1/backlog).
+
 
 ## Integrantes del equipo:
 - Maria Alas - m.alas@uniandes.edu.co
