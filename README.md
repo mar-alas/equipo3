@@ -57,7 +57,8 @@
 - [Como limpiar ghost](#como-limpiar-ghost)
 - [Como acceder a Jira](#como-acceder-a-jira)
 - [Integrante del Equipo](#Integrantes-del-equipo)
-
+- [Entrega Semana 8](#pruebas-e2e-semana-8)
+   - [Ejecutar con ghost local](#utilizando-ghost-localmente)
 <hr>
 
 ## Entrega semana 8 estrategia final
