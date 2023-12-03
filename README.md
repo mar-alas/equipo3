@@ -100,7 +100,19 @@ Ademas de esto, decidimos probar en otros navegadores y jugar con el modo oscuro
 
 ### Semana 4 Pruebas de reconocimiento con Monkeys
 
+- **Descripción**
+  Las pruebas end-to-end se hacen para realizar pruebas sobre todos los caminos de los flujos de trabajo de los usuarios, universo de entradas y estados, de principio a fin, imitando las condiciones de los usuarios. Verifican la interacción correcta de la aplicación y el intercambio de datos con otros componentes fuera del sistema. Por esa integralidad y completitud, estas pruebas son muy buenas.
+  
+- **Instrucciones para su ejecucion**
+  A continuacion, ingresa a [este readme](https://github.com/mar-alas/equipo3/tree/develop/Semana_8_Entrega_Final/4%20Pruebas%20de%20reconocimiento%20con%20Monkeys#readme) donde encontraras el codigo fuente y las instrucciones para ejecutar las pruebas con monkeys.
+
 ### Semana 5 Pruebas E2E
+
+- **Descripción**
+  Las pruebas end-to-end se hacen para realizar pruebas sobre todos los caminos de los flujos de trabajo de los usuarios, universo de entradas y estados, de principio a fin, imitando las condiciones de los usuarios. Verifican la interacción correcta de la aplicación y el intercambio de datos con otros componentes fuera del sistema. Por esa integralidad y completitud, estas pruebas son muy buenas.
+  
+- **Instrucciones para su ejecucion**
+  A continuacion, ingresa a [este readme](https://github.com/mar-alas/equipo3/blob/develop/Semana_8_Entrega_Final/5%20Pruebas%20E2E/README.md) donde encontraras el codigo fuente y las instrucciones para ejecutar las pruebas end-to-end
 
 ### Semana 6 Pruebas de Regresion Visual
 
