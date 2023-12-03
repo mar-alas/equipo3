@@ -123,6 +123,12 @@ Ademas de esto, decidimos probar en otros navegadores y jugar con el modo oscuro
   A continuacion, ingresa a [este readme](https://github.com/mar-alas/equipo3/blob/develop/Semana_8_Entrega_Final/5%20Pruebas%20E2E/README.md) donde encontraras el codigo fuente y las instrucciones para ejecutar las pruebas end-to-end
 
 ### Semana 6 Pruebas de Regresion Visual
+- **Descripción**
+  Las pruebas de regresión visual se havcen para que detectes diferencias y errores entre imagenes que representan pantallas de tu software. Asi qeu, si estan pribando la nueva version de ghsot pueden encontrar diferencias de forma automatizada y no a ojo.
+  
+- **Instrucciones para su ejecucion**
+  A continuacion, ingresa a [este readme](https://github.com/mar-alas/equipo3/blob/develop/Semana_8_Entrega_Final/6%20Pruebas%20de%20Regresion%20Visual/README.md) donde encontrarás el codigo fuente y las instrucciones para ejecutar las pruebas de regresion visual o VRT.
+
 
 ### Semana 7 Reporte Final
   En este punto, ya tendras mucha información (_un poco distribuida_) pero tienes datos! Es hora de que hagas un reporte formal, te sugerimos que incluyas en tu reporte lo siguiente:
