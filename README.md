@@ -27,7 +27,7 @@
 
 ## Indice
 - [Indice](#indice)
-- [Entrega Semana 8 - Estrategia Final](#entrega-semana-8-estrategia-final)
+- [Entrega Semana 8 - Estrategia Final](#entrega-semana-8-estrategia-final) 🎉
   - [Consideraciones importantes](#consideraciones-importantes)
   - [Recursos y accesos directos](#recursos-y-accesos-directos)
   - [Hito 1 Pruebas Exploracion Manuales ](#hito-1-pruebas-exploracion-manuales)
