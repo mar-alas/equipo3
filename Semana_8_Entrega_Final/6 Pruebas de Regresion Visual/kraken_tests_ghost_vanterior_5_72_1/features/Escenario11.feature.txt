@@ -1,0 +1,19 @@
+Feature: Creación Tag
+
+@user11 @web
+Scenario: Escenario 11 - Creacion de un tag exitoso
+  Given I navigate to ghost
+  Given I delete all content from ghost
+  When I login to ghost
+  And I wait for 2 seconds
+  Then I click list tags
+  And I wait for 7 seconds
+  Then I click in new tag
+  Then I write the title 'sports' of the tag
+  Then I write the body 'Informacion del tag' of the tag
+  And I wait for 7 seconds
+  Then I click in publish my tag
+  And I wait for 9 seconds
+  When I click list tags
+  And I wait for 9 seconds
+  Then I should have at least 1 tag with title 'sports'

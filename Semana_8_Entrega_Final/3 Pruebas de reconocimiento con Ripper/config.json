@@ -1,0 +1,19 @@
+{
+    "url": "http://localhost:2368/ghost/#/dashboard",
+    "headless": true,
+    "depthLevels": 2,
+    "inputValues": true,
+    "values": {"userInput": "da.gamez97@gmail.com",
+        "passwordInput": "1$h9LTzhVB5*VJnO",
+        "passwordTwoInput": "1$h9LTzhVB5*VJnO",
+        "nameInput": "Daniel",
+        "emailInput": "da.gamez97@gmail.com",
+		"ember8":"da.gamez97@gmail.com",
+		"ember10":"1$h9LTzhVB5*VJnO",
+		"identification":"da.gamez97@gmail.com",
+		"password":"pPb8c@Jw0c4RyK1i"
+		},
+		
+
+    "browsers": ["chromium"]
+}

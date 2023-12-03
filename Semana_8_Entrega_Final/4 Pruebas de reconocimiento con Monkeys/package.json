@@ -1,0 +1,29 @@
+{
+  "name": "monkey",
+  "version": "1.0.0",
+  "description": "Random and smart monkey testing tool for web apps",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "monkey": ".\\node_modules\\.bin\\cypress run --config-file .\\monkey-config.json",
+    "smart-monkey": ".\\node_modules\\.bin\\cypress run --config-file .\\smart-monkey-config.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheSoftwareDesignLab/monkey-cypress"
+  },
+  "author": "jespitiaa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TheSoftwareDesignLab/monkey-cypress/issues"
+  },
+  "homepage": "https://github.com/TheSoftwareDesignLab/monkey-cypress#readme",
+  "devDependencies": {
+    "cypress-log-to-output": "^1.1.2",
+    "cypress-plugin-tab": "^1.0.5"
+  },
+  "dependencies": {
+    "cypress": "4.2.0",
+    "faker": "^4.1.0"
+  }
+}

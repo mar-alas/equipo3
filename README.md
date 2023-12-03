@@ -27,6 +27,16 @@
 
 ## Indice
 - [Indice](#indice)
+- [Entrega Semana 8 - Estrategia Final](#entrega-semana-8-estrategia-final) 🎉
+  - [Consideraciones importantes](#consideraciones-importantes)
+  - [Recursos y accesos directos](#recursos-y-accesos-directos)
+  - [Hito 1 Pruebas Exploracion Manuales ](#hito-1-pruebas-exploracion-manuales)
+  - [Hito 2 Escenarios de Validacion de Datos](#hito-2-escenarios-de-validacion-de-datos)
+  - [Hito 3 Pruebas de reconocimiento con Ripper](#hito-3-pruebas-de-reconocimiento-con-ripper)
+  - [Hito 4 Pruebas de reconocimiento con Monkeys](#hito-4-pruebas-de-reconocimiento-con-monkeys)
+  - [Hito 5 Pruebas E2E](#hito-5-pruebas-e2e)
+  - [Hito 6 Pruebas de Regresion Visual](#hito-6-pruebas-de-regresion-visual)
+  - [Hito 7 Reporte Final](#hito-7-reporte-final)
 - [Entrega Semana 7](#pruebas-e2e-semana-7)
   - [Estructura de carpetas](#estructura-de-carpetas)
   - [Stack elegido para las pruebas](#stack-elegido-para-las-pruebas)
@@ -45,9 +55,102 @@
   - [Instrucciones para ejecutar reportes con Resemble.js](#instrucciones-para-ejecutar-reportes-con-resemblejs)
   - [Instrucciones para ejecutar los escenarios con Backstop.js](#instrucciones-para-ejecutar-los-escenarios-con-backstopjs)
 - [Como limpiar ghost](#como-limpiar-ghost)
+- [Como acceder a Jira](#como-acceder-a-jira)
 - [Integrante del Equipo](#Integrantes-del-equipo)
 
 <hr>
+
+## Entrega semana 8 estrategia final
+
+### Consideraciones importantes
+- La presente estrategia está diseñada para ejecutarse en 8 semanas.
+- El equipo necesario para ejecutar esta estrategia  es de minimo 4 ingenieros seniors automatizadores de pruebas.
+- Revisa el stack tecnologico con que fue pensado esta estrategia para su correcta ejecucion.
+- Revisa la estructura de carpetas de forma general, ya que en cada carpeta se encuentra una estrategia de pruebas distinta.
+- En la carpeta de **Semana_8_Entrega_Final** se encuentran todos los codigos fuentes que se deben ejecutar para completar esta estrategia.
+- Para ver la incidencias encontradas esta semana, acceda a Jira. [Como acceder a Jira aqui](#como-acceder-a-jira)
+
+
+### Recursos y accesos directos
+
+| Recurso      | Acceso                |
+|--------------|----------------------------|
+| Estrategia de pruebas para el CTO    | [Ver estrategia](https://uniandes-my.sharepoint.com/:w:/r/personal/j_puentesn_uniandes_edu_co/Documents/Pruebas%20automatizadas%20de%20software%20-%20Carpeta%20central%20del%20equipo/Proyecto%20Semana%208%20(FINAL)/estrategia-pruebas.docx?d=wd10f00e19cca4bf2ab873980cdd1e4fa&csf=1&web=1&e=yj2qV3) |
+| Incidencias encontradas semana 1    | [Ver en Jira](https://uniandes-miso-pruebas-automatizadas-equipo-01.atlassian.net/jira/software/projects/TSDC/boards/1/backlog)  |
+| Inventario de pruebas exploratorias semana 1    | [ver Inventario](https://uniandes-my.sharepoint.com/:x:/r/personal/j_puentesn_uniandes_edu_co/Documents/Pruebas%20automatizadas%20de%20software%20-%20Carpeta%20central%20del%20equipo/Proyecto%20Semana%208%20(FINAL)/inventario-pruebas-exploratorias%20Semana%208.xlsx?d=wafd9aff191b04ca98e1d8605cf22079b&csf=1&web=1&e=DWlMg5)  |
+| Listado de escenarios  semana 1  | [Ver Documento](https://uniandes-my.sharepoint.com/:x:/r/personal/j_puentesn_uniandes_edu_co/Documents/Pruebas%20automatizadas%20de%20software%20-%20Carpeta%20central%20del%20equipo/Proyecto%20Semana%208%20(FINAL)/Listado%20Escenarios%20Semana%208.xlsx?d=w1f11bb30c9fd4559b59a689a330d276a&csf=1&web=1&e=kaju7x)  |
+| Análisis de los pros/contras de las herramientas usadas    | [Ver Análisis](https://uniandes-my.sharepoint.com/:w:/r/personal/j_puentesn_uniandes_edu_co/Documents/Pruebas%20automatizadas%20de%20software%20-%20Carpeta%20central%20del%20equipo/Proyecto%20Semana%208%20(FINAL)/Herramientas.docx?d=w978e0b7fda9642388dd885ac155f72f9&csf=1&web=1&e=x1u0aV)  |
+| Limitaciones, costos adicionales al presupuesto, ventajas, y desventajas del proceso de pruebas propuesto para las 8 semanas    | [Ver](https://uniandes-my.sharepoint.com/:w:/r/personal/j_puentesn_uniandes_edu_co/Documents/Pruebas%20automatizadas%20de%20software%20-%20Carpeta%20central%20del%20equipo/Proyecto%20Semana%208%20(FINAL)/estrategia-pruebas.docx?d=wd10f00e19cca4bf2ab873980cdd1e4fa&csf=1&web=1&e=yj2qV3)  |
+| Video y descripción de la estrategia    | [Ver video](https://uniandes-my.sharepoint.com/:v:/g/personal/da_gamez96_uniandes_edu_co/EdB7Piq3E1pGgANvHgspQS0BVKYW4Tazc_K7C2qkdO6eiQ)  |
+| Acceso a Jira | [Como acceder a Jira](#como-acceder-a-jira) |
+
+### Hito 1 Pruebas Exploracion Manuales 
+Para la semana 1 de esta [estrategia](https://uniandes-my.sharepoint.com/:w:/r/personal/j_puentesn_uniandes_edu_co/Documents/Pruebas%20automatizadas%20de%20software%20-%20Carpeta%20central%20del%20equipo/Proyecto%20Semana%208%20(FINAL)/estrategia-pruebas.docx?d=wd10f00e19cca4bf2ab873980cdd1e4fa&csf=1&web=1&e=yj2qV3), decidimos como equipo realizar más pruebas exploratorias de las que ya teniamos. Esto con el objetivo de entregar a la empresa un inventario de pruebas más completo y que abarque mas features de ghost. Ya que inicialmente nos enfocamos en las funcionalidades core y dejamos por fuera funcionalidades para el usuario como:
+
+- Gestion de perfil
+- Miembros
+- Configuraciones
+- Dashboard
+- Invitaciones
+- Entre otras
+
+Ademas de esto, decidimos probar en otros navegadores y jugar con el modo oscuro. Haberlo hecho asi, nos permitió encontrar mas de 36 incidencias nuevas, lo cual es muy bueno. Estamos seguros que con esta informacion, junto con el equipo de desarrollo lograremos mejorar la calidad del producto.
+
+- Las 36 incidencias las puedes [VER AQUI en JIRA](https://uniandes-miso-pruebas-automatizadas-equipo-01.atlassian.net/jira/software/projects/TSDC/boards/1/backlog).
+- El inventario de pruebas exploratias las puedes [VER AQUI](https://uniandes-my.sharepoint.com/:x:/r/personal/j_puentesn_uniandes_edu_co/Documents/Pruebas%20automatizadas%20de%20software%20-%20Carpeta%20central%20del%20equipo/Proyecto%20Semana%208%20(FINAL)/inventario-pruebas-exploratorias%20Semana%208.xlsx?d=wafd9aff191b04ca98e1d8605cf22079b&csf=1&web=1&e=DWlMg5).
+- El listado de escenarios que probamos las puedes [VER AQUI](https://uniandes-my.sharepoint.com/:x:/r/personal/j_puentesn_uniandes_edu_co/Documents/Pruebas%20automatizadas%20de%20software%20-%20Carpeta%20central%20del%20equipo/Proyecto%20Semana%208%20(FINAL)/Listado%20Escenarios%20Semana%208.xlsx?d=w1f11bb30c9fd4559b59a689a330d276a&csf=1&web=1&e=kaju7x).
+
+### Hito 2 Escenarios de Validacion de Datos
+
+- **Descripción**
+  Las pruebas de validación de datos y datos aleatorios se trata de no usar los mismos datos para probar un software. Tipicamente un tester usará datos limitados; Introducir aleatoriedad aumenta la probabilidad de exito para encontrar posibles fallas. Y como sabemos, es mejor y mas economico encontrar fallas a temprana edad y no en producción. Ya que en producción si vamos a tener usuarios especiales que ingresan datos bien raros. Por eso está pruebas la tienes que ejecutar.
+  
+- **Instrucciones para su ejecucion**
+  A continuacion, ingresa a [este readme](https://github.com/mar-alas/equipo3/tree/develop/Semana_8_Entrega_Final/1%20Pruebas%20Exploracion%20Manuales#readme) donde encontrarás documentación que sentará las bases que implementes las pruebas de validación de datos y datos aleatorios y ademas instrucciones para ejecutar el software que ya implementamos.
+
+  **Nota:** Es muy posible que tengas problemas con algunas APIS externas como Mockaroo. Si ejecutas esta estratgia en los tiempos definidos, te garantizamos el fucnionamiento. Si ejecutas despues de Enero de 2024, te recomendamos revisar el modelo de dominio, requrest y repsonse de las pruebas que fallen, luego de esto implementa tu propia API en [mockaroo](https://www.mockaroo.com/) para que siga funcionando todo. 
+
+### Hito 3 Pruebas de reconocimiento con Ripper
+
+- **Descripción**
+  Las pruebas de exploración de interfaz gráfica, también conocidas como GUI ripping, son un tipo de pruebas que consisten en explorar cada vista, funcionalidad y aspecto de una aplicación o sistema de software por medio de la interfaz ofrecida al usuario. Estas simulan el comportamiento de un usuario y buscan reconstruir el flujo de interacción y experiencia de usuario para comprobar que está correctamente construido y que las funcionalidades requeridas para la aplicación son satisfechas. Y como tambien cometemos errores en UI, entonces es muy importante ejecutarlas.
+  
+- **Instrucciones para su ejecucion**
+  A continuacion, ingresa a [este readme](https://github.com/mar-alas/equipo3/blob/develop/Semana_8_Entrega_Final/3%20Pruebas%20de%20reconocimiento%20con%20Ripper/README.md) donde encontraras el código fuente y las instrucciones para ejecutar las pruebas con Rippers.
+
+### Hito 4 Pruebas de reconocimiento con Monkeys
+
+- **Descripción**
+  Las pruebas con monkeys se hacen para realizar pruebas sobre todos los caminos de los flujos de trabajo de los usuarios, universo de entradas y estados, de principio a fin, imitando las condiciones de los usuarios. Verifican la interacción correcta de la aplicación y el intercambio de datos con otros componentes fuera del sistema. Por esa integralidad y completitud, estas pruebas son muy buenas.
+  
+- **Instrucciones para su ejecucion**
+  A continuacion, ingresa a [este readme](https://github.com/mar-alas/equipo3/tree/develop/Semana_8_Entrega_Final/4%20Pruebas%20de%20reconocimiento%20con%20Monkeys#readme) donde encontraras el codigo fuente y las instrucciones para ejecutar las pruebas con monkeys.
+
+### Hito 5 Pruebas E2E
+
+- **Descripción**
+  Las pruebas end-to-end se hacen para realizar pruebas sobre todos los caminos de los flujos de trabajo de los usuarios, universo de entradas y estados, de principio a fin, imitando las condiciones de los usuarios. Verifican la interacción correcta de la aplicación y el intercambio de datos con otros componentes fuera del sistema. Por esa integralidad y completitud, estas pruebas son muy buenas.
+  
+- **Instrucciones para su ejecucion**
+  A continuacion, ingresa a [este readme](https://github.com/mar-alas/equipo3/blob/develop/Semana_8_Entrega_Final/5%20Pruebas%20E2E/README.md) donde encontraras el codigo fuente y las instrucciones para ejecutar las pruebas end-to-end
+
+### Hito 6 Pruebas de Regresion Visual
+- **Descripción**
+  Las pruebas de regresión visual se havcen para que detectes diferencias y errores entre imagenes que representan pantallas de tu software. Asi qeu, si estan pribando la nueva version de ghsot pueden encontrar diferencias de forma automatizada y no a ojo.
+  
+- **Instrucciones para su ejecucion**
+  A continuacion, ingresa a [este readme](https://github.com/mar-alas/equipo3/blob/develop/Semana_8_Entrega_Final/6%20Pruebas%20de%20Regresion%20Visual/README.md) donde encontrarás el codigo fuente y las instrucciones para ejecutar las pruebas de regresion visual o VRT.
+
+
+### Hito 7 Reporte Final
+  En este punto, ya tendras mucha información (_un poco distribuida_) pero tienes datos! Es hora de que hagas un reporte formal, te sugerimos que incluyas en tu reporte lo siguiente:
+  
+  1. Muestra la estrategia que ejecutaste.
+  2. Haz un resumen ejecutivo con el conexto de donde estabas y a donde estas hoy.
+  3. Muestra la tecnologia que usaste (_solo si la audiencia es tecnica_).
+  4. Problemas y Defectos encontrados. Entre más, mejor.
+  5. Logros complidos.
+  6. Resumen de como esto mejora la calidad del producto.
 
 ## Pruebas E2E Semana 7
 Para la semana 7, decidimos como equipo, crear una nueva carpeta llamada "Semana_7_Escenarios_Datos_Aleatorios".
@@ -265,6 +368,19 @@ Para limpiar ghost siga las siguientes instrucciones:
 <img width="1068" alt="imagen" src="https://github.com/mar-alas/equipo3/assets/142593813/f013e33a-6e5a-4f93-a053-8c8ea0b852e9">
 
 [Volver al indice](#indice)
+
+## Como acceder a Jira
+Para ver las incidencias y su detalle de click [AQUI](https://uniandes-miso-pruebas-automatizadas-equipo-01.atlassian.net/jira/software/projects/TSDC/boards/1?sprints=8).
+
+Si no se encuentra logueado, sigua las siguientes instrucciones:
+1. Abra su navegador preferido.
+2. Ingrese a la URL: https://id.atlassian.com/login 
+3. En el campo de correo ingrese el siguiente: pirika9264@ksyhtc.com
+4. De click en el boton "Continuar"
+5. En el campo de contraseña que se habilita, ingrese: B-6FqmVWjJE_#Pa  (_Asegurese de no copiar los espacios de los lados_)
+6. De click en el boton "Iniciar sesión"
+7. Ingrese al tablero que desee buscando el sprint en el [backlog completo.](https://uniandes-miso-pruebas-automatizadas-equipo-01.atlassian.net/jira/software/projects/TSDC/boards/1/backlog).
+
 
 ## Integrantes del equipo:
 - Maria Alas - m.alas@uniandes.edu.co
