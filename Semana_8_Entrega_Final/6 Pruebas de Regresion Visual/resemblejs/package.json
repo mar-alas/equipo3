@@ -1,0 +1,15 @@
+{
+  "name": "comparisonreport",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Robert Castro",
+  "license": "ISC",
+  "dependencies": {
+    "resemblejs": "^5.0.0"
+  }
+}
