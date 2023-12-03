@@ -1,3 +1,5 @@
+VER EL REPO DE LOS AUTORES ORIGINALES: https://github.com/TheSoftwareDesignLab/RIPuppetCoursera/
+
 # RIPuppet
 A node js library for GUI Ripping on web applications
 
