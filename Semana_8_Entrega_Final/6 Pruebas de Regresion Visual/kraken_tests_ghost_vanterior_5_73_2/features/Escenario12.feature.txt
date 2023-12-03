@@ -1,0 +1,15 @@
+Feature: Creación Tag
+
+@user12 @web
+Scenario: Escenario 12 - Creacion de 3 tags
+  Given I navigate to ghost
+  Given I delete all content from ghost
+  And I wait for 5 seconds
+  When I login to ghost
+  And I wait for 2 seconds
+  When I create a random tag from dashboard with Title "Hola 1"
+  When I create a random tag from dashboard with Title "Hola 2"
+  When I create a random tag from dashboard with Title "Hola 3"
+  Then I should have at least 1 tag with title "Hola 1"
+  Then I should have at least 1 tag with title "Hola 2"
+  Then I should have at least 1 tag with title "Hola 3"

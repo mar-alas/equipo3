@@ -1,0 +1,24 @@
+Feature: Creación Tag
+
+@user14 @web
+Scenario: Escenario 14 - Creacion de tag y asignación de x-card
+  Given I navigate to ghost
+  Given I delete all content from ghost
+  And I wait for 5 seconds
+  When I login to ghost
+  And I wait for 2 seconds
+  When I create a random tag from dashboard with Title "Tag 20"
+  And I wait for 7 seconds
+  Then I click list tags
+  And I wait for 7 seconds
+  Then I edit tag with Title "Tag 20"
+  Then I click expand xcard
+  And I wait for 7 seconds
+  Then I write the twitterTitle 'Informacion del tag' of the tag
+  Then I write the twitterDescription 'Informacion del tag' of the tag
+  And I wait for 3 seconds
+  Then I click in publish my tag
+  And I wait for 3 seconds
+  And I wait for 9 seconds
+
+

@@ -1,0 +1,12 @@
+**/node_modules/
+**/.kraken/
+**/reports/*
+**/properties.json
+**/cypress.env.json
+
+!**/resemblejs/reports/report.html
+
+# Ignore backstopjs files
+2023-*
+**/bitmaps_reference/*
+**/bitmaps_test/*
